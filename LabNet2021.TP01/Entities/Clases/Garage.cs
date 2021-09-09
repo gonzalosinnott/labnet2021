@@ -30,20 +30,20 @@ namespace Entities.Clases
                 }
                 else
                 {
-                    maxId = vehiculos.Max(t => t.Id);
+                    maxId = CheckSpace(tipoVehiculo);
                 }
 
                 id = maxId + 1;
 
                 switch (tipoVehiculo)
                 {
-                    case "TAXI":
+                    case "Taxi":
                         vehiculo = new Taxi();
                         vehiculo.Id = id;
                         vehiculo.Pasajeros = cantidadPasajeros;
                         vehiculos.Add(vehiculo);
                         break;
-                    case "OMNIBUS":
+                    case "Omnibus":
                         vehiculo = new Omnibus();
                         vehiculo.Id = id;
                         vehiculo.Pasajeros = cantidadPasajeros;
@@ -58,7 +58,7 @@ namespace Entities.Clases
         }
 
 
-        public bool CheckSpace(string type)
+        public int CheckSpace(string type)
         {
             int count = 0;
 
@@ -69,14 +69,8 @@ namespace Entities.Clases
                     count++;
                 }               
             }
-            if(count > 5)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+
+            return count;
         }
 
         public override string ToString()

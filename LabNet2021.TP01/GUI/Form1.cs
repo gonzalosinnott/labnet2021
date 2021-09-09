@@ -41,22 +41,26 @@ namespace GUI
 
         private void AddData()
         {
-
-
             if (rbTaxi.Checked is true)
             {
-                
-            }            
-            else if (rbOmnibus.Checked is true)
-            {
-                if (nudPasajeros.Value > 0 && nudPasajeros.Value < 60)
+                if(garage.CheckSpace("Taxi") < 5)
                 {
-                    garage.AddVehiculo(count, rbOmnibus.Text);
+                    addTaxi();
                 }
                 else
                 {
-                    MessageBox.Show($"INGRESE UN NUMERO VALIDO DE PASAJEROS (1-61)", "Error", MessageBoxButtons.OK);
-
+                    MessageBox.Show($"ESPACIO PARA TAXIS COMPLETO", "Error", MessageBoxButtons.OK);
+                }
+            }                    
+            else if (rbOmnibus.Checked is true)
+            {
+                if (garage.CheckSpace("Omnibus") < 5)
+                {
+                    addOmnibus();
+                }
+                else
+                {
+                    MessageBox.Show($"ESPACIO PARA OMNIBUS COMPLETO", "Error", MessageBoxButtons.OK);
                 }
             }            
             else
@@ -77,6 +81,21 @@ namespace GUI
             else
             {
                 MessageBox.Show($"INGRESE UN NUMERO VALIDO DE PASAJEROS (1-4)", "Error", MessageBoxButtons.OK);
+
+            }
+        }
+
+        private void addOmnibus()
+        {
+            int count = Convert.ToInt32(nudPasajeros.Value);
+
+            if (nudPasajeros.Value > 0 && nudPasajeros.Value < 60)
+            {
+                garage.AddVehiculo(count, rbOmnibus.Text);
+            }
+            else
+            {
+                MessageBox.Show($"INGRESE UN NUMERO VALIDO DE PASAJEROS (1-61)", "Error", MessageBoxButtons.OK);
 
             }
         }
