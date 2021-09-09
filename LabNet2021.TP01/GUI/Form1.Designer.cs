@@ -33,11 +33,11 @@ namespace GUI
             this.rbTaxi = new System.Windows.Forms.RadioButton();
             this.rbOmnibus = new System.Windows.Forms.RadioButton();
             this.panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.rtbInfo = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.nudPasajeros = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPasajeros)).BeginInit();
@@ -58,10 +58,10 @@ namespace GUI
             this.rbTaxi.AutoSize = true;
             this.rbTaxi.Location = new System.Drawing.Point(6, 18);
             this.rbTaxi.Name = "rbTaxi";
-            this.rbTaxi.Size = new System.Drawing.Size(49, 17);
+            this.rbTaxi.Size = new System.Drawing.Size(45, 17);
             this.rbTaxi.TabIndex = 1;
             this.rbTaxi.TabStop = true;
-            this.rbTaxi.Text = "TAXI";
+            this.rbTaxi.Text = "Taxi";
             this.rbTaxi.UseVisualStyleBackColor = true;
             // 
             // rbOmnibus
@@ -69,10 +69,10 @@ namespace GUI
             this.rbOmnibus.AutoSize = true;
             this.rbOmnibus.Location = new System.Drawing.Point(6, 41);
             this.rbOmnibus.Name = "rbOmnibus";
-            this.rbOmnibus.Size = new System.Drawing.Size(75, 17);
+            this.rbOmnibus.Size = new System.Drawing.Size(66, 17);
             this.rbOmnibus.TabIndex = 2;
             this.rbOmnibus.TabStop = true;
-            this.rbOmnibus.Text = "OMNIBUS";
+            this.rbOmnibus.Text = "Omnibus";
             this.rbOmnibus.UseVisualStyleBackColor = true;
             // 
             // panel
@@ -85,6 +85,15 @@ namespace GUI
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(186, 65);
             this.panel.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "TIPO DE VEHICULO";
             // 
             // rtbInfo
             // 
@@ -119,15 +128,6 @@ namespace GUI
             this.nudPasajeros.Name = "nudPasajeros";
             this.nudPasajeros.Size = new System.Drawing.Size(57, 20);
             this.nudPasajeros.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "TIPO DE VEHICULO";
             // 
             // frmMain
             // 
