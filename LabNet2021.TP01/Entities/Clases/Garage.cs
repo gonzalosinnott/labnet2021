@@ -8,11 +8,11 @@ namespace Entities.Clases
 {
     public class Garage
     {
-        private List<TransportePublico> vehiculos;
-        
+        private List<TransportePublico> vehiculos = new List<TransportePublico>();
+
         public Garage()
         {
-            vehiculos = new List<TransportePublico>();
+            vehiculos = Vehiculos;
         }
 
         public List<TransportePublico> Vehiculos { get { return vehiculos; } set { vehiculos = value; } }
@@ -44,7 +44,7 @@ namespace Entities.Clases
                         vehiculos.Add(vehiculo);
                         break;
                     case "OMNIBUS":
-                        vehiculo = new Taxi();
+                        vehiculo = new Omnibus();
                         vehiculo.Id = id;
                         vehiculo.Pasajeros = cantidadPasajeros;
                         vehiculos.Add(vehiculo);
@@ -57,12 +57,34 @@ namespace Entities.Clases
             return false;
         }
 
+
+        public bool CheckSpace(string type)
+        {
+            int count = 0;
+
+            foreach (TransportePublico item in Vehiculos)
+            {
+                if(item.getClassType() == type)
+                {
+                    count++;
+                }               
+            }
+            if(count > 5)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("VEHICULOS EN GARAGE");
             sb.AppendLine("-------------------");
-            foreach (TransportePublico item in vehiculos)
+            foreach (TransportePublico item in Vehiculos)
             {
                 sb.AppendLine(item.ShowVehicleData());
             }

@@ -34,7 +34,7 @@ namespace Entities
         public string ShowVehicleData()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"{this.GetType()} Numero: {this.Id} - Cantidad de Pasajeros: {this.Pasajeros}");
+            sb.AppendLine($"{this.getClassType()} Numero: {this.Id} - Cantidad de Pasajeros: {this.Pasajeros}");
 
             return sb.ToString();
         }

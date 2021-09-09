@@ -8,6 +8,8 @@ namespace Entities.Clases
 {
     class Omnibus : TransportePublico
     {
+        public Omnibus() : base() { }
+
         public Omnibus(int pasajeros, int id) : base(pasajeros, id) { }
        
         public override void Avanzar()
