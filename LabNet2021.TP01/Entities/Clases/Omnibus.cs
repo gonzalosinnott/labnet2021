@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entities.Clases
 {
-    class Omnibus
+    class Omnibus : TransportePublico
     {
+        public Omnibus(int pasajeros, int id) : base(pasajeros, id) { }
+       
+        public override void Avanzar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Detenerse()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
