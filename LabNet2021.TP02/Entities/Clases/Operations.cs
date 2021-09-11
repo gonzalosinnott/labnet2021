@@ -1,4 +1,4 @@
-﻿using Entities.Exceptions;
+﻿using Entities.CustomExcepetion;
 using Entities.ExtensionMethods;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Clases
 {
-    public class Logic
+    public class Operations
     {
         public static void DivideZero(decimal value)
         {
@@ -48,7 +48,7 @@ namespace Entities.Clases
             }
             else
             {
-                throw new InputException("NO INGRESO NADA O INGRESO LETRAS");
+                throw new CustomException("NO INGRESO NADA O INGRESO LETRAS");
             }
         }
 

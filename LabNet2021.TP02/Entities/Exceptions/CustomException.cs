@@ -4,18 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Exceptions
+namespace Entities.CustomExcepetion
 {
-    class InputException : Exception
-    {
-        public InputException() : base() { }
-
-        public InputException(string message) : base(message) { }
-
-        public InputException(string message, Exception inner) : base(message, inner) { }
-    }
-
-    class CustomException : Exception
+    public class CustomException : Exception
     {
         public CustomException() : base() { }
 

@@ -1,15 +1,5 @@
 ﻿using Entities.Clases;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Media;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -26,7 +16,7 @@ namespace GUI
             try
             {
                 double result;
-                result = Logic.DivideOperation(txbNumber1.Text, txbNumber2.Text);
+                result = Operations.DivideOperation(txbNumber1.Text, txbNumber2.Text);
                 MessageBox.Show($"Resultado {result}", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (DivideByZeroException)
@@ -40,19 +30,16 @@ namespace GUI
         }
 
         private void ChuckNorrisAlert()
-        {
-            System.Media.SoundPlayer p = new System.Media.SoundPlayer(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\walkertexasranger.wav");
-            p.PlayLooping();
+        {            
             ChuckAlert frm = new ChuckAlert();
             frm.ShowDialog();
-            p.Stop();
         }
 
         private void btnDivideby0_Click(object sender, EventArgs e)
         {
             try
             {
-                Logic.DivideZero(nud1.Value);
+                Operations.DivideZero(nud1.Value);
             }            
             catch(Exception ex)
             {
@@ -68,11 +55,11 @@ namespace GUI
         {
             try
             {
-                Logic.SystemException();
+                Operations.SystemException();
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", $"{ex.GetType()}", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -80,7 +67,7 @@ namespace GUI
         {
             try
             {
-                Logic.CustomException();
+                Operations.CustomException();
             }
             catch (Exception ex)
             {
