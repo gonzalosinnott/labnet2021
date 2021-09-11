@@ -31,7 +31,6 @@ namespace GUI
         {
             this.btnDivideby0 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.txbNumber1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnException2 = new System.Windows.Forms.Button();
@@ -44,9 +43,11 @@ namespace GUI
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
+            this.nud1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDivideby0
@@ -62,19 +63,12 @@ namespace GUI
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.nud1);
             this.panel1.Controls.Add(this.btnDivideby0);
             this.panel1.Location = new System.Drawing.Point(12, 33);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 42);
             this.panel1.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(49, 20);
-            this.textBox3.TabIndex = 4;
             // 
             // txbNumber1
             // 
@@ -186,6 +180,13 @@ namespace GUI
             this.lbl3.TabIndex = 7;
             this.lbl3.Text = "Test Excepciones";
             // 
+            // nud1
+            // 
+            this.nud1.Location = new System.Drawing.Point(6, 8);
+            this.nud1.Name = "nud1";
+            this.nud1.Size = new System.Drawing.Size(49, 20);
+            this.nud1.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,12 +199,13 @@ namespace GUI
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TP02";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,9 +225,9 @@ namespace GUI
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnException2;
         private System.Windows.Forms.TextBox txbNumber2;
+        private System.Windows.Forms.NumericUpDown nud1;
     }
 }
 

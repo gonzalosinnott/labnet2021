@@ -10,6 +10,17 @@ namespace Entities.Clases
 {
     public class Logic
     {
+        public static void DivideZero(decimal value)
+        {
+            try
+            {
+                value.DivideByZero();
+            }
+            catch(DivideByZeroException)
+            {
+                throw new DivideByZeroException();
+            }
+        }
 
         public static double DivideOperation(string a , string b)
         {
@@ -30,14 +41,18 @@ namespace Entities.Clases
                 if(result == 0)
                 {
                     throw new InputException("SOLO CHUCK NORRIS PUEDE DIVIDIR POR 0!");
-
                 }
                 return result;
             }
             else
             {
-                throw new InputException("No ingreso nada o ingreso letras");
+                throw new InputException("NO INGRESO NADA O INGRESO LETRAS");
             }
+        }
+
+        public static void SystemException()
+        {
+            
         }
     }
 }

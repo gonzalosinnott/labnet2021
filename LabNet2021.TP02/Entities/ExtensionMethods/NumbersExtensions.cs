@@ -13,7 +13,7 @@ namespace Entities.ExtensionMethods
             return value / divider;
         }
 
-        public static double DivideByZero(this double value)
+        public static decimal DivideByZero(this decimal value)
         {
             return value / 0;
         }

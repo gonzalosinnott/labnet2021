@@ -34,7 +34,18 @@ namespace GUI
 
         private void btnDivideby0_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Logic.DivideZero(nud1.Value);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "", MessageBoxButtons.OK);
+            }
+            finally
+            {
+                MessageBox.Show($"OPERACION TERMINADA", "", MessageBoxButtons.OK);
+            }
         }
     }
 }
