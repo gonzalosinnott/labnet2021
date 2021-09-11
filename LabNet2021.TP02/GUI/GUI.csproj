@@ -52,6 +52,11 @@
     <Compile Include="ChuckAlert.Designer.cs">
       <DependentUpon>ChuckAlert.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChuckAlert1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChuckAlert.resx</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +67,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChuckAlert.resx">
       <DependentUpon>ChuckAlert.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChuckAlert1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -95,7 +102,9 @@
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\chucknorris.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Assets\chucknorris.jpg" />
   </ItemGroup>
