@@ -43,7 +43,7 @@ namespace GUI
             }            
             catch(Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", $"{ex.GetType()}", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -71,7 +71,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "LA TAREA FALLO CON EXITO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.GetType()} \n{ex.Message}", $"LA TAREA FALLO CON EXITO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

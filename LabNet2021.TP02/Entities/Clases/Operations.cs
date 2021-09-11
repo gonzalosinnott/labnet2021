@@ -1,4 +1,4 @@
-﻿using Entities.CustomExcepetion;
+﻿using Entities.Exceptions;
 using Entities.ExtensionMethods;
 using System;
 using System.Collections.Generic;
