@@ -19,9 +19,9 @@ namespace GUI
                 result = Logic.DivideOperation(txbNumber1.Text, txbNumber2.Text);
                 MessageBox.Show($"Resultado {result}", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (DivideByZeroException)
+            catch (DivideByZeroException ex)
             {
-                ChuckNorrisAlert();
+                ChuckNorrisAlert(ex);
             }
             catch (Exception ex)
             {
@@ -29,9 +29,10 @@ namespace GUI
             }
         }
 
-        private void ChuckNorrisAlert()
+        private void ChuckNorrisAlert(Exception ex)
         {            
-            ChuckAlert frm = new ChuckAlert();
+            string message = $"{ex.GetType()}: {ex.Message}";
+            ChuckAlert frm = new ChuckAlert(message);
             frm.ShowDialog();
         }
 

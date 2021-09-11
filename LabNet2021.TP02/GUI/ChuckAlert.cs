@@ -12,9 +12,10 @@ namespace GUI
 {
     public partial class ChuckAlert : Form
     {
-        public ChuckAlert()
+        public ChuckAlert(string msg)
         {
             InitializeComponent();
-        }
+            lblError.Text = msg;
+        }      
     }
 }
