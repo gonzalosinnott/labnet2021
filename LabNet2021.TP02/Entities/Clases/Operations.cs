@@ -48,7 +48,7 @@ namespace Entities.Clases
             }
             else
             {
-                throw new CustomException("NO INGRESO NADA O INGRESO LETRAS");
+                throw new CustomException("NO INGRESO NINGUN VALOR O INGRESO LETRAS");
             }
         }
 
