@@ -14,4 +14,13 @@ namespace Entities.Exceptions
 
         public InputException(string message, Exception inner) : base(message, inner) { }
     }
+
+    class CustomException : Exception
+    {
+        public CustomException() : base() { }
+
+        public CustomException(string message) : base(message) { }
+
+        public CustomException(string message, Exception inner) : base(message, inner) { }
+    }
 }

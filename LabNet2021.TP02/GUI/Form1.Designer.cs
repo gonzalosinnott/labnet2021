@@ -33,8 +33,8 @@ namespace GUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.txbNumber1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnException2 = new System.Windows.Forms.Button();
-            this.btnException1 = new System.Windows.Forms.Button();
+            this.btnCustomException = new System.Windows.Forms.Button();
+            this.btnSystemException = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbNumber2 = new System.Windows.Forms.TextBox();
             this.btnDividir = new System.Windows.Forms.Button();
@@ -80,30 +80,32 @@ namespace GUI
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnException2);
-            this.panel2.Controls.Add(this.btnException1);
+            this.panel2.Controls.Add(this.btnCustomException);
+            this.panel2.Controls.Add(this.btnSystemException);
             this.panel2.Location = new System.Drawing.Point(230, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 126);
+            this.panel2.Size = new System.Drawing.Size(225, 126);
             this.panel2.TabIndex = 4;
             // 
-            // btnException2
+            // btnCustomException
             // 
-            this.btnException2.Location = new System.Drawing.Point(106, 7);
-            this.btnException2.Name = "btnException2";
-            this.btnException2.Size = new System.Drawing.Size(89, 110);
-            this.btnException2.TabIndex = 10;
-            this.btnException2.Text = "EXCEPCION 2";
-            this.btnException2.UseVisualStyleBackColor = true;
+            this.btnCustomException.Location = new System.Drawing.Point(98, 8);
+            this.btnCustomException.Name = "btnCustomException";
+            this.btnCustomException.Size = new System.Drawing.Size(122, 110);
+            this.btnCustomException.TabIndex = 10;
+            this.btnCustomException.Text = "EXCEPCION PERZONALIZADA";
+            this.btnCustomException.UseVisualStyleBackColor = true;
+            this.btnCustomException.Click += new System.EventHandler(this.btnCustomException_Click);
             // 
-            // btnException1
+            // btnSystemException
             // 
-            this.btnException1.Location = new System.Drawing.Point(3, 7);
-            this.btnException1.Name = "btnException1";
-            this.btnException1.Size = new System.Drawing.Size(89, 110);
-            this.btnException1.TabIndex = 9;
-            this.btnException1.Text = "EXCEPCION 1";
-            this.btnException1.UseVisualStyleBackColor = true;
+            this.btnSystemException.Location = new System.Drawing.Point(3, 7);
+            this.btnSystemException.Name = "btnSystemException";
+            this.btnSystemException.Size = new System.Drawing.Size(89, 110);
+            this.btnSystemException.TabIndex = 9;
+            this.btnSystemException.Text = "EXCEPCION DE SISTEMA";
+            this.btnSystemException.UseVisualStyleBackColor = true;
+            this.btnSystemException.Click += new System.EventHandler(this.btnSystemException_Click);
             // 
             // panel4
             // 
@@ -191,7 +193,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 175);
+            this.ClientSize = new System.Drawing.Size(467, 175);
             this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
@@ -217,7 +219,7 @@ namespace GUI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txbNumber1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnException1;
+        private System.Windows.Forms.Button btnSystemException;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnDividir;
         private System.Windows.Forms.Label lblNumber2;
@@ -225,7 +227,7 @@ namespace GUI
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.Button btnException2;
+        private System.Windows.Forms.Button btnCustomException;
         private System.Windows.Forms.TextBox txbNumber2;
         private System.Windows.Forms.NumericUpDown nud1;
     }

@@ -10,7 +10,7 @@ namespace Entities.ExtensionMethods
     {
         public static double DivideBy(this double value, double divider)
         {
-            return value / divider;
+           return value / divider;            
         }
 
         public static decimal DivideByZero(this decimal value)

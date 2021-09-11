@@ -2,6 +2,7 @@
 using Entities.ExtensionMethods;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,12 @@ namespace Entities.Clases
         {
             try
             {
-               return ValidateInput(a).DivideBy(ValidateInput(b));
+                if (ValidateInput(b) == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+
+                return ValidateInput(a).DivideBy(ValidateInput(b));                
 
             }catch(DivideByZeroException ex)
             {
@@ -38,10 +44,6 @@ namespace Entities.Clases
         {
             if(double.TryParse(input, out double result))
             {
-                if(result == 0)
-                {
-                    throw new InputException("SOLO CHUCK NORRIS PUEDE DIVIDIR POR 0!");
-                }
                 return result;
             }
             else
@@ -52,7 +54,12 @@ namespace Entities.Clases
 
         public static void SystemException()
         {
-            
+            throw new DirectoryNotFoundException();
+        }
+
+        public static void CustomException()
+        {
+            throw new CustomException("TODO LO QUE TENIA QUE FALLAR HA FALLADO");
         }
     }
 }
