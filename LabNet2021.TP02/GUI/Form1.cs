@@ -16,7 +16,7 @@ namespace GUI
             try
             {
                 double result;
-                result = Operations.DivideOperation(txbNumber1.Text, txbNumber2.Text);
+                result = Logic.DivideOperation(txbNumber1.Text, txbNumber2.Text);
                 MessageBox.Show($"Resultado {result}", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (DivideByZeroException)
@@ -39,7 +39,7 @@ namespace GUI
         {
             try
             {
-                Operations.DivideZero(nud1.Value);
+                Logic.DivideZero(nud1.Value);
             }            
             catch(Exception ex)
             {
@@ -55,7 +55,7 @@ namespace GUI
         {
             try
             {
-                Operations.SystemException();
+                Logic.SystemException();
             }
             catch(Exception ex)
             {
@@ -67,7 +67,7 @@ namespace GUI
         {
             try
             {
-                Operations.CustomException();
+                Logic.CustomException();
             }
             catch (Exception ex)
             {

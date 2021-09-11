@@ -1,5 +1,5 @@
 ﻿using Entities.Clases;
-using Entities.CustomExcepetion;
+using Entities.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -14,7 +14,7 @@ namespace UnitTests
         {
             decimal number = 10;
 
-            Operations.DivideZero(number);
+            Logic.DivideZero(number);
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace UnitTests
             string number = "10";
             double num;
 
-            num = Operations.ValidateInput(number);
+            num = Logic.ValidateInput(number);
 
             Assert.AreEqual(10, num);
         }
@@ -34,7 +34,7 @@ namespace UnitTests
         {
             string number = "A";
 
-            Operations.ValidateInput(number);
+            Logic.ValidateInput(number);
         }
 
 
@@ -45,7 +45,7 @@ namespace UnitTests
             string number2 = "2";
             double result;
 
-            result = Operations.DivideOperation(number1, number2);
+            result = Logic.DivideOperation(number1, number2);
 
             Assert.AreEqual(5, result);
         }
@@ -58,7 +58,7 @@ namespace UnitTests
             string number1 = "10";
             string number2 = "0";
 
-            Operations.DivideOperation(number1, number2);
+            Logic.DivideOperation(number1, number2);
 
         }
     }

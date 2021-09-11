@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Operations.cs" />
+    <Compile Include="Clases\Logic.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="ExtensionMethods\NumbersExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

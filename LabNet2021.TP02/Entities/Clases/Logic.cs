@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Clases
 {
-    public class Operations
+    public class Logic
     {
         public static void DivideZero(decimal value)
         {
