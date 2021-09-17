@@ -47,7 +47,7 @@ namespace LabNet2021.TP04.GUI
             this.metroTabControl1.Location = new System.Drawing.Point(12, 12);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(643, 198);
+            this.metroTabControl1.Size = new System.Drawing.Size(808, 198);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -59,7 +59,7 @@ namespace LabNet2021.TP04.GUI
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(635, 156);
+            this.metroTabPage1.Size = new System.Drawing.Size(800, 156);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "metroTabPage1";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -73,7 +73,7 @@ namespace LabNet2021.TP04.GUI
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(192, 58);
+            this.metroTabPage2.Size = new System.Drawing.Size(635, 156);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "metroTabPage2";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -99,14 +99,14 @@ namespace LabNet2021.TP04.GUI
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Location = new System.Drawing.Point(3, 3);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(629, 150);
+            this.dgvCustomers.Size = new System.Drawing.Size(794, 150);
             this.dgvCustomers.TabIndex = 2;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 222);
+            this.ClientSize = new System.Drawing.Size(832, 222);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "frmMain";
             this.Text = "Form1";

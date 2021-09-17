@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace LabNet2021.TP04.Logic
 {
-    public class BaseLogic
+    public class BaseDbClasesLogic
     {
         protected readonly NorthwindContext context;
 
-        public BaseLogic()
+        public BaseDbClasesLogic()
         {
             context = new NorthwindContext();
         }

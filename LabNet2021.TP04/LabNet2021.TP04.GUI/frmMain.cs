@@ -14,7 +14,7 @@ namespace LabNet2021.TP04.GUI
 {
     public partial class frmMain : Form
     {
-        CustomersDTO data = new CustomersDTO();
+        CustomersLogic data = new CustomersLogic();
         public frmMain()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace LabNet2021.TP04.GUI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            dgvCustomers.DataSource = data.GetCustomInfo();
+            dgvCustomers.DataSource = data.GetAll();
         }
     }
 }
