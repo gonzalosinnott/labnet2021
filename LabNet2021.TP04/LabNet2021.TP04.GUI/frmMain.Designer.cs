@@ -1,7 +1,7 @@
 ﻿
 namespace LabNet2021.TP04.GUI
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
