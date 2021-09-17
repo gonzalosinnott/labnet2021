@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 namespace LabNet2021.TP04.Logic
 {
     public class CustomersLogic : BaseDbClasesLogic, IABMLogic<Customers>
-    {       
-
+    {
         public List<Customers> GetAll()
         {
             return context.Customers.ToList();
-        }
+        }       
 
         public void Add(Customers newCustomer)
         {
@@ -39,5 +38,7 @@ namespace LabNet2021.TP04.Logic
 
             context.SaveChanges();
         }
+
+       
     }
 }

@@ -16,7 +16,7 @@ namespace LabNet2021.TP04.GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new FrmMain());
         }
     }
 }

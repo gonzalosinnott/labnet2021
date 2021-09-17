@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LabNet2021.TP04.Logic
 {
-    class EmployeesLogic : BaseDbClasesLogic, IABMLogic<Employees>
+    public class EmployeesLogic : BaseDbClasesLogic, IABMLogic<Employees>
     {
         public List<Employees> GetAll()
         {

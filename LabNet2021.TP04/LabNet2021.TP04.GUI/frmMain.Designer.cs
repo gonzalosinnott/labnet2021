@@ -1,7 +1,7 @@
 ﻿
 namespace LabNet2021.TP04.GUI
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,102 +29,248 @@ namespace LabNet2021.TP04.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnModifyClient = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnDeleteCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
-            this.metroTabControl1.SuspendLayout();
-            this.metroTabPage1.SuspendLayout();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnModifyEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnDeleteEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.tbSelector = new MaterialSkin.Controls.MaterialTabSelector();
+            this.mainTabControl.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
-            // metroTabControl1
+            // mainTabControl
             // 
-            this.metroTabControl1.Controls.Add(this.metroTabPage1);
-            this.metroTabControl1.Controls.Add(this.metroTabPage2);
-            this.metroTabControl1.Controls.Add(this.metroTabPage3);
-            this.metroTabControl1.Location = new System.Drawing.Point(12, 12);
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(808, 198);
-            this.metroTabControl1.TabIndex = 0;
-            this.metroTabControl1.UseSelectable = true;
+            this.mainTabControl.Controls.Add(this.tabPage1);
+            this.mainTabControl.Controls.Add(this.tabPage2);
+            this.mainTabControl.Depth = 0;
+            this.mainTabControl.Location = new System.Drawing.Point(12, 89);
+            this.mainTabControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mainTabControl.Name = "mainTabControl";
+            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.Size = new System.Drawing.Size(1071, 371);
+            this.mainTabControl.TabIndex = 0;
             // 
-            // metroTabPage1
+            // tabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.dgvCustomers);
-            this.metroTabPage1.HorizontalScrollbarBarColor = true;
-            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
-            this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(800, 156);
-            this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "metroTabPage1";
-            this.metroTabPage1.VerticalScrollbarBarColor = true;
-            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.tabPage1.Controls.Add(this.btnModifyClient);
+            this.tabPage1.Controls.Add(this.btnDeleteCustomer);
+            this.tabPage1.Controls.Add(this.btnAddCustomer);
+            this.tabPage1.Controls.Add(this.dgvCustomers);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1063, 345);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Customers";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // metroTabPage2
+            // btnModifyClient
             // 
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(635, 156);
-            this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "metroTabPage2";
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.btnModifyClient.AutoSize = true;
+            this.btnModifyClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnModifyClient.Depth = 0;
+            this.btnModifyClient.Icon = null;
+            this.btnModifyClient.Location = new System.Drawing.Point(300, 303);
+            this.btnModifyClient.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnModifyClient.Name = "btnModifyClient";
+            this.btnModifyClient.Primary = true;
+            this.btnModifyClient.Size = new System.Drawing.Size(151, 36);
+            this.btnModifyClient.TabIndex = 3;
+            this.btnModifyClient.Text = "MODIFICAR CLIENTE";
+            this.btnModifyClient.UseVisualStyleBackColor = true;
             // 
-            // metroTabPage3
+            // btnDeleteCustomer
             // 
-            this.metroTabPage3.HorizontalScrollbarBarColor = true;
-            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 10;
-            this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(635, 156);
-            this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "metroTabPage3";
-            this.metroTabPage3.VerticalScrollbarBarColor = true;
-            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.btnDeleteCustomer.AutoSize = true;
+            this.btnDeleteCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDeleteCustomer.Depth = 0;
+            this.btnDeleteCustomer.Icon = null;
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(153, 303);
+            this.btnDeleteCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
+            this.btnDeleteCustomer.Primary = true;
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(141, 36);
+            this.btnDeleteCustomer.TabIndex = 2;
+            this.btnDeleteCustomer.Text = "ELIMINAR CLIENTE";
+            this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
+            // 
+            // btnAddCustomer
+            // 
+            this.btnAddCustomer.AutoSize = true;
+            this.btnAddCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAddCustomer.Depth = 0;
+            this.btnAddCustomer.Icon = null;
+            this.btnAddCustomer.Location = new System.Drawing.Point(7, 303);
+            this.btnAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Primary = true;
+            this.btnAddCustomer.Size = new System.Drawing.Size(140, 36);
+            this.btnAddCustomer.TabIndex = 1;
+            this.btnAddCustomer.Text = "AGREGAR CLIENTE";
+            this.btnAddCustomer.UseMnemonic = false;
+            this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // dgvCustomers
             // 
+            this.dgvCustomers.AllowUserToAddRows = false;
+            this.dgvCustomers.AllowUserToDeleteRows = false;
+            this.dgvCustomers.AllowUserToResizeColumns = false;
+            this.dgvCustomers.AllowUserToResizeRows = false;
+            this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCustomers.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCustomers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Location = new System.Drawing.Point(3, 3);
+            this.dgvCustomers.Location = new System.Drawing.Point(7, 7);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(794, 150);
-            this.dgvCustomers.TabIndex = 2;
+            this.dgvCustomers.ReadOnly = true;
+            this.dgvCustomers.RowHeadersVisible = false;
+            this.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCustomers.ShowCellToolTips = false;
+            this.dgvCustomers.ShowEditingIcon = false;
+            this.dgvCustomers.Size = new System.Drawing.Size(1050, 290);
+            this.dgvCustomers.TabIndex = 0;
             // 
-            // frmMain
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnModifyEmployee);
+            this.tabPage2.Controls.Add(this.btnDeleteEmployee);
+            this.tabPage2.Controls.Add(this.btnAddEmployee);
+            this.tabPage2.Controls.Add(this.dgvEmployees);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1063, 345);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Employees";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnModifyEmployee
+            // 
+            this.btnModifyEmployee.AutoSize = true;
+            this.btnModifyEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnModifyEmployee.Depth = 0;
+            this.btnModifyEmployee.Icon = null;
+            this.btnModifyEmployee.Location = new System.Drawing.Point(335, 303);
+            this.btnModifyEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnModifyEmployee.Name = "btnModifyEmployee";
+            this.btnModifyEmployee.Primary = true;
+            this.btnModifyEmployee.Size = new System.Drawing.Size(168, 36);
+            this.btnModifyEmployee.TabIndex = 6;
+            this.btnModifyEmployee.Text = "MODIFICAR EMPLEADO";
+            this.btnModifyEmployee.UseVisualStyleBackColor = true;
+            this.btnModifyEmployee.Click += new System.EventHandler(this.btnModifyEmployee_Click);
+            // 
+            // btnDeleteEmployee
+            // 
+            this.btnDeleteEmployee.AutoSize = true;
+            this.btnDeleteEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDeleteEmployee.Depth = 0;
+            this.btnDeleteEmployee.Icon = null;
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(171, 303);
+            this.btnDeleteEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Primary = true;
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(158, 36);
+            this.btnDeleteEmployee.TabIndex = 5;
+            this.btnDeleteEmployee.Text = "ELIMINAR EMPELADO";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
+            // 
+            // btnAddEmployee
+            // 
+            this.btnAddEmployee.AutoSize = true;
+            this.btnAddEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAddEmployee.Depth = 0;
+            this.btnAddEmployee.Icon = null;
+            this.btnAddEmployee.Location = new System.Drawing.Point(7, 303);
+            this.btnAddEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Primary = true;
+            this.btnAddEmployee.Size = new System.Drawing.Size(158, 36);
+            this.btnAddEmployee.TabIndex = 4;
+            this.btnAddEmployee.Text = "AGREGAR EMPLEADO";
+            this.btnAddEmployee.UseMnemonic = false;
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
+            // 
+            // dgvEmployees
+            // 
+            this.dgvEmployees.AllowUserToAddRows = false;
+            this.dgvEmployees.AllowUserToDeleteRows = false;
+            this.dgvEmployees.AllowUserToResizeColumns = false;
+            this.dgvEmployees.AllowUserToResizeRows = false;
+            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEmployees.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(7, 6);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersVisible = false;
+            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmployees.ShowCellToolTips = false;
+            this.dgvEmployees.ShowEditingIcon = false;
+            this.dgvEmployees.Size = new System.Drawing.Size(1050, 291);
+            this.dgvEmployees.TabIndex = 1;
+            // 
+            // tbSelector
+            // 
+            this.tbSelector.BaseTabControl = this.mainTabControl;
+            this.tbSelector.Depth = 0;
+            this.tbSelector.Location = new System.Drawing.Point(0, 60);
+            this.tbSelector.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tbSelector.Name = "tbSelector";
+            this.tbSelector.Size = new System.Drawing.Size(1251, 23);
+            this.tbSelector.TabIndex = 1;
+            // 
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 222);
-            this.Controls.Add(this.metroTabControl1);
-            this.Name = "frmMain";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmMain_Load);
-            this.metroTabControl1.ResumeLayout(false);
-            this.metroTabPage1.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(1096, 472);
+            this.Controls.Add(this.tbSelector);
+            this.Controls.Add(this.mainTabControl);
+            this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NORTHWIND CONTACTS MANAGER";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.mainTabControl.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage1;
+        private MaterialSkin.Controls.MaterialTabControl mainTabControl;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private MaterialSkin.Controls.MaterialTabSelector tbSelector;
         private System.Windows.Forms.DataGridView dgvCustomers;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
-        private MetroFramework.Controls.MetroTabPage metroTabPage3;
+        private System.Windows.Forms.DataGridView dgvEmployees;
+        private MaterialSkin.Controls.MaterialRaisedButton btnModifyClient;
+        private MaterialSkin.Controls.MaterialRaisedButton btnDeleteCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton btnAddCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton btnModifyEmployee;
+        private MaterialSkin.Controls.MaterialRaisedButton btnDeleteEmployee;
+        private MaterialSkin.Controls.MaterialRaisedButton btnAddEmployee;
     }
 }
 
