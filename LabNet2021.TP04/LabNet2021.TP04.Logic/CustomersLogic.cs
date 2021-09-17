@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace LabNet2021.TP04.Logic
 {
     public class CustomersLogic : BaseLogic, IABMLogic<Customers>
-    {
+    {       
+
         public List<Customers> GetAll()
         {
             return context.Customers.ToList();
