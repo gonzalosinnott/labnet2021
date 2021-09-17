@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace LabNet2021.TP04.Logic
 {
-    public class Class1
+    interface IABMLogic<T>
     {
+        List<T> GetAll();
+        void Add(T newRegion);
+        void Delete(int id);
+        void Update(T region);
     }
 }
