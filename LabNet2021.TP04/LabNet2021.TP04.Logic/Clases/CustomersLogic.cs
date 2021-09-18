@@ -1,4 +1,5 @@
 ﻿using LabNet2021.TP04.Entities;
+using LabNet2021.TP04.Logic.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +15,31 @@ namespace LabNet2021.TP04.Logic
             return context.Customers.ToList();
         }
         
-        public Customers AddCustomerData(string Id, string companyName, string title, string contactName, string address, string city, string country, string phone)
+        public Customers AddCustomerData(string id, string companyName, string title, string contactName, string address, string city, string country, string phone)
         {
             Customers customer = new Customers();
 
-            customer.CustomerID = Id;
-            customer.CompanyName = companyName;
-            customer.ContactName = contactName;
-            customer.ContactTitle = title;
-            customer.Address = address;
-            customer.City = city;
-            customer.Country = country;
-            customer.Phone = phone;
+            if (id.LongCount() == 0)
+            {
+                throw new CustomException("El campo Id de Identificacion es OBLIGATORIO");
+            }
+            else if (companyName.LongCount() == 0)
+            {
+                throw new CustomException("El campo Nombre de la Compañia es OBLIGATORIO");
+            }
+            else
+            {
+                customer.CustomerID = id;
+                customer.CompanyName = companyName;
+                customer.ContactName = contactName;
+                customer.ContactTitle = title;
+                customer.Address = address;
+                customer.City = city;
+                customer.Country = country;
+                customer.Phone = phone;
 
-            return customer;
+                return customer;
+            }
         }
 
         public void Add(Customers newCustomer)
@@ -36,18 +48,26 @@ namespace LabNet2021.TP04.Logic
             context.SaveChanges();
         }
 
-        public void Delete(int id)
+        //Tuve que borrar la FK_Order_Details_Orders para que ande
+        public void Delete(string id)
         {
-            var customerToDelete = context.Customers.Find(id);
+            try
+            {
+                var customerToDelete = context.Customers.Find(id);
 
-            context.Customers.Remove(customerToDelete);
+                context.Customers.Remove(customerToDelete);
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+           
         }
 
-
         public void Update(Customers customer)
-        {
+        {   
             try
             {
                 var customerUpdate = context.Customers.Find(customer.CustomerID);
@@ -64,8 +84,21 @@ namespace LabNet2021.TP04.Logic
             }
             catch(Exception)
             {
-                throw new Exception();
-            }            
+                throw new CustomException("INGRESO DE DATOS ERRONEOS");
+            }                       
+        }
+
+        public bool IdExists(string id)
+        {
+            if(context.Customers.Find(id) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
         }
 
        

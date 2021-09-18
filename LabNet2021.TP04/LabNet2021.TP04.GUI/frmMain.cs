@@ -63,12 +63,33 @@ namespace LabNet2021.TP04.GUI
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-
+            FrmAddCustomer frm = new FrmAddCustomer();
+            frm.ShowDialog();           
+            RefreshInfo();        
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (this.dgvCustomers.CurrentRow.Selected != false)
+                {
+                    CustomersDTO customer = dgvCustomers.CurrentRow.DataBoundItem as CustomersDTO;
+                    customers.Delete(customer.Id);
+                }
+                else
+                {
+                    MessageBox.Show($"SELECCIONE UN CLIENTE A ELIMINIAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} NO HAY CLIENTES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                RefreshInfo();
+            }
         }
 
         private void btnModifyCostumer_Click(object sender, EventArgs e)
@@ -86,7 +107,7 @@ namespace LabNet2021.TP04.GUI
             }
             catch(Exception)
             {
-                MessageBox.Show($"NO HAY ITEMS PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"NO HAY ITEMS PARA MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

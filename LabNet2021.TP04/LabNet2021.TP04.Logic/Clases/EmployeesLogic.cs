@@ -20,7 +20,7 @@ namespace LabNet2021.TP04.Logic
             context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var employeeToDelete = context.Employees.Find(id);
 

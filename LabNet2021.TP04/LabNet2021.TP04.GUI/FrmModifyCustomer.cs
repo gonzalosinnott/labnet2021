@@ -40,9 +40,6 @@ namespace LabNet2021.TP04.GUI
             this.country = country;
             this.phone = phone;
         }
-
-
-
         private void FrmModifyCustomer_Load(object sender, EventArgs e)
         {
             txtCompanyName.Text = companyName;
@@ -66,15 +63,14 @@ namespace LabNet2021.TP04.GUI
                 CustomersLogic auxCustomer = new CustomersLogic();
 
                 auxCustomer.Update(auxCustomer.AddCustomerData(id, txtCompanyName.Text, txtTitle.Text, txtContactName.Text, txtAddress.Text, txtCity.Text, txtCountry.Text, txtPhone.Text));
-            }
-            catch(Exception)
-            {
-                MessageBox.Show($"ALGO SALIO MAL", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            finally
-            {
+
                 this.Close();
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
     }
 }

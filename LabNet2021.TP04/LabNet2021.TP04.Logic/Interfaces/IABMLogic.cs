@@ -10,7 +10,7 @@ namespace LabNet2021.TP04.Logic
     {
         List<T> GetAll();
         void Add(T obj);
-        void Delete(int id);
+        void Delete(string id);
         void Update(T obj);
     }
 }

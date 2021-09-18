@@ -52,6 +52,7 @@
     <Compile Include="Clases\CustomersDTO.cs" />
     <Compile Include="Clases\CustomersLogic.cs" />
     <Compile Include="Clases\EmployeesLogic.cs" />
+    <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Interfaces\IABMLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,5 +70,6 @@
       <Name>LabNet2021.TP04.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

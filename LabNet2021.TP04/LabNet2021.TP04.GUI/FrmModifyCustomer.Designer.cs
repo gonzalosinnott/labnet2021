@@ -60,7 +60,7 @@ namespace LabNet2021.TP04.GUI
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(19, 128);
+            this.lblTitle.Location = new System.Drawing.Point(17, 156);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(127, 19);
             this.lblTitle.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace LabNet2021.TP04.GUI
             // lblContactName
             // 
             this.lblContactName.AutoSize = true;
-            this.lblContactName.Location = new System.Drawing.Point(19, 157);
+            this.lblContactName.Location = new System.Drawing.Point(17, 131);
             this.lblContactName.Name = "lblContactName";
             this.lblContactName.Size = new System.Drawing.Size(62, 19);
             this.lblContactName.TabIndex = 3;
@@ -114,7 +114,7 @@ namespace LabNet2021.TP04.GUI
             // txtCompanyName
             // 
             this.txtCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCompanyName.Location = new System.Drawing.Point(161, 105);
+            this.txtCompanyName.Location = new System.Drawing.Point(170, 105);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(231, 20);
             this.txtCompanyName.TabIndex = 10;
@@ -122,7 +122,7 @@ namespace LabNet2021.TP04.GUI
             // txtTitle
             // 
             this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTitle.Location = new System.Drawing.Point(161, 131);
+            this.txtTitle.Location = new System.Drawing.Point(170, 156);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(231, 20);
             this.txtTitle.TabIndex = 11;
@@ -130,7 +130,7 @@ namespace LabNet2021.TP04.GUI
             // txtContactName
             // 
             this.txtContactName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContactName.Location = new System.Drawing.Point(161, 156);
+            this.txtContactName.Location = new System.Drawing.Point(170, 131);
             this.txtContactName.Name = "txtContactName";
             this.txtContactName.Size = new System.Drawing.Size(231, 20);
             this.txtContactName.TabIndex = 12;
@@ -138,7 +138,7 @@ namespace LabNet2021.TP04.GUI
             // txtAddress
             // 
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddress.Location = new System.Drawing.Point(161, 182);
+            this.txtAddress.Location = new System.Drawing.Point(170, 183);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(231, 20);
             this.txtAddress.TabIndex = 13;
@@ -146,7 +146,7 @@ namespace LabNet2021.TP04.GUI
             // txtCity
             // 
             this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCity.Location = new System.Drawing.Point(161, 208);
+            this.txtCity.Location = new System.Drawing.Point(170, 208);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(231, 20);
             this.txtCity.TabIndex = 14;
@@ -154,7 +154,7 @@ namespace LabNet2021.TP04.GUI
             // txtCountry
             // 
             this.txtCountry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCountry.Location = new System.Drawing.Point(161, 234);
+            this.txtCountry.Location = new System.Drawing.Point(170, 235);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(231, 20);
             this.txtCountry.TabIndex = 15;
@@ -162,7 +162,7 @@ namespace LabNet2021.TP04.GUI
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhone.Location = new System.Drawing.Point(161, 260);
+            this.txtPhone.Location = new System.Drawing.Point(170, 260);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(231, 20);
             this.txtPhone.TabIndex = 16;
@@ -173,7 +173,7 @@ namespace LabNet2021.TP04.GUI
             this.btnModifyCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnModifyCustomer.Depth = 0;
             this.btnModifyCustomer.Icon = null;
-            this.btnModifyCustomer.Location = new System.Drawing.Point(154, 303);
+            this.btnModifyCustomer.Location = new System.Drawing.Point(163, 303);
             this.btnModifyCustomer.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnModifyCustomer.Name = "btnModifyCustomer";
             this.btnModifyCustomer.Primary = true;
@@ -189,7 +189,7 @@ namespace LabNet2021.TP04.GUI
             this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCancel.Depth = 0;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(301, 303);
+            this.btnCancel.Location = new System.Drawing.Point(310, 303);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Primary = true;
