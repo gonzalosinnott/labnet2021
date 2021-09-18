@@ -51,8 +51,10 @@
     <Compile Include="Clases\BaseDBClasesLogic.cs" />
     <Compile Include="Clases\CustomersDTO.cs" />
     <Compile Include="Clases\CustomersLogic.cs" />
+    <Compile Include="Clases\EmployeesDTO.cs" />
     <Compile Include="Clases\EmployeesLogic.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
+    <Compile Include="Interfaces\IDTO.cs" />
     <Compile Include="Interfaces\IABMLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

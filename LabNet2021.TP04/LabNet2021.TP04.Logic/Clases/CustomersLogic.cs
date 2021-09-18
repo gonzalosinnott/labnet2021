@@ -59,9 +59,9 @@ namespace LabNet2021.TP04.Logic
 
                 context.SaveChanges();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                throw new Exception(ex.ToString());
+                throw new CustomException("Para que funcione hay qyue eliminar todas las FK que afecten a la tabla Customers");
             }
            
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabNet2021.TP04.Logic
 {
-    public class CustomersDTO : CustomersLogic
+    public class CustomersDTO : CustomersLogic, IDTO<CustomersDTO>
     {
         public string Id { get; set; }
         public string CompanyName { get;  set; }

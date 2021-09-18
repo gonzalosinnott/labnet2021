@@ -33,6 +33,9 @@ namespace LabNet2021.TP04.GUI
                 else
                 {
                     auxCustomer.Add(auxCustomer.AddCustomerData(id, txtCompanyName.Text, txtTitle.Text, txtContactName.Text, txtAddress.Text, txtCity.Text, txtCountry.Text, txtPhone.Text));
+                    MessageBox.Show($"CLIENTE CARGADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
                     this.Close();
                 }                
             }

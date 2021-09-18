@@ -1,6 +1,8 @@
 ﻿using LabNet2021.TP04.Data;
 using LabNet2021.TP04.Entities;
 using LabNet2021.TP04.Logic;
+using LabNet2021.TP04.Logic.Clases;
+using LabNet2021.TP04.Logic.Exceptions;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,8 @@ namespace LabNet2021.TP04.GUI
 {
     public partial class FrmMain : MaterialForm
     {
-        CustomersDTO customers = new CustomersDTO();
-        EmployeesLogic employees = new EmployeesLogic();
+        readonly CustomersDTO customers = new CustomersDTO();
+        readonly EmployeesDTO employees = new EmployeesDTO();
 
         public FrmMain()
         {
@@ -44,20 +46,8 @@ namespace LabNet2021.TP04.GUI
 
         public void GetEmployeeMainInfo()
         {
-            List<Employees> employeesList = employees.GetAll();
-
-            var newList = employeesList.Select(l => new
-            {
-                l.EmployeeID,
-                l.FirstName,
-                l.LastName,
-                l.Address,
-                l.City,
-                l.Country,
-                l.HomePhone                
-            });
-
-            dgvEmployees.DataSource = newList.ToList();
+            List<EmployeesDTO> employeesList = employees.GetCustomInfo();
+            dgvEmployees.DataSource = employeesList;
             dgvEmployees.ClearSelection();
         }
 
@@ -79,12 +69,16 @@ namespace LabNet2021.TP04.GUI
                 }
                 else
                 {
-                    MessageBox.Show($"SELECCIONE UN CLIENTE A ELIMINIAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"SELECCIONE UN CLIENTE A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            catch (Exception ex)
+            catch (CustomException ex)
             {
-                MessageBox.Show($"{ex.Message} NO HAY CLIENTES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"NO HAY CLIENTES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -107,7 +101,7 @@ namespace LabNet2021.TP04.GUI
             }
             catch(Exception)
             {
-                MessageBox.Show($"NO HAY ITEMS PARA MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"NO HAY CLIENTES PARA MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -131,19 +125,76 @@ namespace LabNet2021.TP04.GUI
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-
+            FrmAddEmployee frm = new FrmAddEmployee();
+            frm.ShowDialog();
+            RefreshInfo();
         }
 
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (this.dgvEmployees.CurrentRow.Selected != false)
+                {
+                    EmployeesDTO employee = dgvEmployees.CurrentRow.DataBoundItem as EmployeesDTO;
+                    employees.Delete(employee.Id);
+                }                
+                else
+                {
+                    MessageBox.Show($"SELECCIONE UN EMPLEADO A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch(CustomException ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"NO HAY EMPLEADOS PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                RefreshInfo();
+            }
         }
 
         private void btnModifyEmployee_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (this.dgvEmployees.CurrentRow.Selected != false)
+                {
+                    ModifyEmployeeDialog();
+                }
+                else
+                {
+                    MessageBox.Show($"SELECCIONE UN EMPLEADO A MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"NO HAY EMPLEADOS PARA MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                RefreshInfo();
+            }
         }
 
-        
+        private void ModifyEmployeeDialog()
+        {
+            int id = (int)dgvEmployees.SelectedRows[0].Cells[0].Value;
+            string lastName = (string)dgvEmployees.SelectedRows[0].Cells[1].Value;
+            string name = (string)dgvEmployees.SelectedRows[0].Cells[2].Value;
+            string title = (string)dgvEmployees.SelectedRows[0].Cells[3].Value;
+            string address = (string)dgvEmployees.SelectedRows[0].Cells[4].Value;
+            string city = (string)dgvEmployees.SelectedRows[0].Cells[5].Value;
+            string country = (string)dgvEmployees.SelectedRows[0].Cells[6].Value;
+            string phone = (string)dgvEmployees.SelectedRows[0].Cells[7].Value;
+            FrmModifyEmployee frm = new FrmModifyEmployee(id, lastName, name, title, address, city, country, phone);
+            frm.ShowDialog();
+        }
+
+
     }
 }

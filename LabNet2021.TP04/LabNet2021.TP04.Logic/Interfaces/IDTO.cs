@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace LabNet2021.TP04.Logic
 {
-    interface IABMLogic<T>
+    interface IDTO<T>
     {
-        List<T> GetAll();
-        void Add(T obj);       
-        void Update(T obj);
+        List<T> GetCustomInfo();
     }
 }

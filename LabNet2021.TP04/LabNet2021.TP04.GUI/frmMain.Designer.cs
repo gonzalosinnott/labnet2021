@@ -36,10 +36,10 @@ namespace LabNet2021.TP04.GUI
             this.btnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.btnModifyEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnDeleteEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.tbSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -145,10 +145,10 @@ namespace LabNet2021.TP04.GUI
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dgvEmployees);
             this.tabPage2.Controls.Add(this.btnModifyEmployee);
             this.tabPage2.Controls.Add(this.btnDeleteEmployee);
             this.tabPage2.Controls.Add(this.btnAddEmployee);
-            this.tabPage2.Controls.Add(this.dgvEmployees);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -156,6 +156,26 @@ namespace LabNet2021.TP04.GUI
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employees";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvEmployees
+            // 
+            this.dgvEmployees.AllowUserToAddRows = false;
+            this.dgvEmployees.AllowUserToDeleteRows = false;
+            this.dgvEmployees.AllowUserToResizeColumns = false;
+            this.dgvEmployees.AllowUserToResizeRows = false;
+            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEmployees.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(7, 7);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersVisible = false;
+            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmployees.ShowCellToolTips = false;
+            this.dgvEmployees.ShowEditingIcon = false;
+            this.dgvEmployees.Size = new System.Drawing.Size(1050, 290);
+            this.dgvEmployees.TabIndex = 7;
             // 
             // btnModifyEmployee
             // 
@@ -185,7 +205,7 @@ namespace LabNet2021.TP04.GUI
             this.btnDeleteEmployee.Primary = true;
             this.btnDeleteEmployee.Size = new System.Drawing.Size(158, 36);
             this.btnDeleteEmployee.TabIndex = 5;
-            this.btnDeleteEmployee.Text = "ELIMINAR EMPELADO";
+            this.btnDeleteEmployee.Text = "ELIMINAR EMPLEADO";
             this.btnDeleteEmployee.UseVisualStyleBackColor = true;
             this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
@@ -205,26 +225,6 @@ namespace LabNet2021.TP04.GUI
             this.btnAddEmployee.UseMnemonic = false;
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
-            // 
-            // dgvEmployees
-            // 
-            this.dgvEmployees.AllowUserToAddRows = false;
-            this.dgvEmployees.AllowUserToDeleteRows = false;
-            this.dgvEmployees.AllowUserToResizeColumns = false;
-            this.dgvEmployees.AllowUserToResizeRows = false;
-            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEmployees.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(7, 6);
-            this.dgvEmployees.Name = "dgvEmployees";
-            this.dgvEmployees.ReadOnly = true;
-            this.dgvEmployees.RowHeadersVisible = false;
-            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmployees.ShowCellToolTips = false;
-            this.dgvEmployees.ShowEditingIcon = false;
-            this.dgvEmployees.Size = new System.Drawing.Size(1050, 291);
-            this.dgvEmployees.TabIndex = 1;
             // 
             // tbSelector
             // 
@@ -265,13 +265,13 @@ namespace LabNet2021.TP04.GUI
         private System.Windows.Forms.TabPage tabPage2;
         private MaterialSkin.Controls.MaterialTabSelector tbSelector;
         private System.Windows.Forms.DataGridView dgvCustomers;
-        private System.Windows.Forms.DataGridView dgvEmployees;
         private MaterialSkin.Controls.MaterialRaisedButton btnModifyCostumer;
         private MaterialSkin.Controls.MaterialRaisedButton btnDeleteCustomer;
         private MaterialSkin.Controls.MaterialRaisedButton btnAddCustomer;
         private MaterialSkin.Controls.MaterialRaisedButton btnModifyEmployee;
         private MaterialSkin.Controls.MaterialRaisedButton btnDeleteEmployee;
         private MaterialSkin.Controls.MaterialRaisedButton btnAddEmployee;
+        private System.Windows.Forms.DataGridView dgvEmployees;
     }
 }
 
