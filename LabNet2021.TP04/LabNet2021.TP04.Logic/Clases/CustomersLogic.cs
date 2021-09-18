@@ -1,5 +1,4 @@
-﻿using LabNet2021.TP04.Data;
-using LabNet2021.TP04.Entities;
+﻿using LabNet2021.TP04.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,23 @@ namespace LabNet2021.TP04.Logic
         public List<Customers> GetAll()
         {
             return context.Customers.ToList();
-        }       
+        }
+        
+        public Customers AddCustomerData(string Id, string companyName, string title, string contactName, string address, string city, string country, string phone)
+        {
+            Customers customer = new Customers();
+
+            customer.CustomerID = Id;
+            customer.CompanyName = companyName;
+            customer.ContactName = contactName;
+            customer.ContactTitle = title;
+            customer.Address = address;
+            customer.City = city;
+            customer.Country = country;
+            customer.Phone = phone;
+
+            return customer;
+        }
 
         public void Add(Customers newCustomer)
         {
@@ -30,13 +45,27 @@ namespace LabNet2021.TP04.Logic
             context.SaveChanges();
         }
 
+
         public void Update(Customers customer)
         {
-            var customerUpdate = context.Customers.Find(customer.CustomerID);
+            try
+            {
+                var customerUpdate = context.Customers.Find(customer.CustomerID);
 
-            customerUpdate.ContactName = customer.ContactName;
+                customerUpdate.CompanyName = customer.CompanyName;
+                customerUpdate.ContactName = customer.ContactName;
+                customerUpdate.ContactTitle = customer.ContactTitle;
+                customerUpdate.Address = customer.Address;
+                customerUpdate.City = customer.City;
+                customerUpdate.Country = customer.Country;
+                customerUpdate.Phone = customer.Phone;
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
+            catch(Exception)
+            {
+                throw new Exception();
+            }            
         }
 
        

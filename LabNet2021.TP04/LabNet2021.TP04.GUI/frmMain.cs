@@ -16,8 +16,7 @@ namespace LabNet2021.TP04.GUI
 {
     public partial class FrmMain : MaterialForm
     {
-        MainLogic main = new MainLogic();
-        CustomersLogic customers = new CustomersLogic();
+        CustomersDTO customers = new CustomersDTO();
         EmployeesLogic employees = new EmployeesLogic();
 
         public FrmMain()
@@ -34,26 +33,13 @@ namespace LabNet2021.TP04.GUI
         {
             GetCustomersMainInfo();
             GetEmployeeMainInfo();
-
         }
 
         public void GetCustomersMainInfo()
         {
-            List<Customers> customersList = customers.GetAll();
-            
-            var newList = customersList.Select(l => new
-            {
-                l.CustomerID,
-                l.CompanyName,
-                l.ContactTitle,
-                l.ContactName,                
-                l.Address,
-                l.City,
-                l.Country,
-                l.Phone                
-            });
-
-            dgvCustomers.DataSource = newList.ToList();
+            List<CustomersDTO> customersList = customers.GetCustomInfo();
+            dgvCustomers.DataSource = customersList;
+            dgvCustomers.ClearSelection();
         }
 
         public void GetEmployeeMainInfo()
@@ -72,6 +58,12 @@ namespace LabNet2021.TP04.GUI
             });
 
             dgvEmployees.DataSource = newList.ToList();
+            dgvEmployees.ClearSelection();
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
@@ -79,9 +71,41 @@ namespace LabNet2021.TP04.GUI
 
         }
 
-        private void btnAddCustomer_Click(object sender, EventArgs e)
+        private void btnModifyCostumer_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (this.dgvCustomers.CurrentRow.Selected != false)
+                {
+                    ModifyCustomersDialog();
+                }
+                else
+                {
+                    MessageBox.Show($"SELECCIONE UN CLIENTE A MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show($"NO HAY ITEMS PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                RefreshInfo();
+            }
+        }
 
+        private void ModifyCustomersDialog()
+        {
+            string id = (string)dgvCustomers.SelectedRows[0].Cells[0].Value;
+            string companyName = (string)dgvCustomers.SelectedRows[0].Cells[1].Value;
+            string title = (string)dgvCustomers.SelectedRows[0].Cells[2].Value;
+            string contactName = (string)dgvCustomers.SelectedRows[0].Cells[3].Value;
+            string address = (string)dgvCustomers.SelectedRows[0].Cells[4].Value;
+            string city = (string)dgvCustomers.SelectedRows[0].Cells[5].Value;
+            string country = (string)dgvCustomers.SelectedRows[0].Cells[6].Value;
+            string phone = (string)dgvCustomers.SelectedRows[0].Cells[7].Value;
+            FrmModifyCustomer frm = new FrmModifyCustomer(id, companyName, title, contactName, address, city, country, phone);
+            frm.ShowDialog();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -98,5 +122,7 @@ namespace LabNet2021.TP04.GUI
         {
 
         }
+
+        
     }
 }

@@ -31,7 +31,7 @@ namespace LabNet2021.TP04.GUI
         {
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnModifyClient = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnModifyCostumer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnDeleteCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
@@ -62,7 +62,7 @@ namespace LabNet2021.TP04.GUI
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btnModifyClient);
+            this.tabPage1.Controls.Add(this.btnModifyCostumer);
             this.tabPage1.Controls.Add(this.btnDeleteCustomer);
             this.tabPage1.Controls.Add(this.btnAddCustomer);
             this.tabPage1.Controls.Add(this.dgvCustomers);
@@ -74,20 +74,21 @@ namespace LabNet2021.TP04.GUI
             this.tabPage1.Text = "Customers";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnModifyClient
+            // btnModifyCostumer
             // 
-            this.btnModifyClient.AutoSize = true;
-            this.btnModifyClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnModifyClient.Depth = 0;
-            this.btnModifyClient.Icon = null;
-            this.btnModifyClient.Location = new System.Drawing.Point(300, 303);
-            this.btnModifyClient.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnModifyClient.Name = "btnModifyClient";
-            this.btnModifyClient.Primary = true;
-            this.btnModifyClient.Size = new System.Drawing.Size(151, 36);
-            this.btnModifyClient.TabIndex = 3;
-            this.btnModifyClient.Text = "MODIFICAR CLIENTE";
-            this.btnModifyClient.UseVisualStyleBackColor = true;
+            this.btnModifyCostumer.AutoSize = true;
+            this.btnModifyCostumer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnModifyCostumer.Depth = 0;
+            this.btnModifyCostumer.Icon = null;
+            this.btnModifyCostumer.Location = new System.Drawing.Point(300, 303);
+            this.btnModifyCostumer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnModifyCostumer.Name = "btnModifyCostumer";
+            this.btnModifyCostumer.Primary = true;
+            this.btnModifyCostumer.Size = new System.Drawing.Size(151, 36);
+            this.btnModifyCostumer.TabIndex = 3;
+            this.btnModifyCostumer.Text = "MODIFICAR CLIENTE";
+            this.btnModifyCostumer.UseVisualStyleBackColor = true;
+            this.btnModifyCostumer.Click += new System.EventHandler(this.btnModifyCostumer_Click);
             // 
             // btnDeleteCustomer
             // 
@@ -265,7 +266,7 @@ namespace LabNet2021.TP04.GUI
         private MaterialSkin.Controls.MaterialTabSelector tbSelector;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.DataGridView dgvEmployees;
-        private MaterialSkin.Controls.MaterialRaisedButton btnModifyClient;
+        private MaterialSkin.Controls.MaterialRaisedButton btnModifyCostumer;
         private MaterialSkin.Controls.MaterialRaisedButton btnDeleteCustomer;
         private MaterialSkin.Controls.MaterialRaisedButton btnAddCustomer;
         private MaterialSkin.Controls.MaterialRaisedButton btnModifyEmployee;

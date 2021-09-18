@@ -53,7 +53,6 @@
     <Compile Include="Clases\CustomersLogic.cs" />
     <Compile Include="Clases\EmployeesLogic.cs" />
     <Compile Include="Interfaces\IABMLogic.cs" />
-    <Compile Include="MainLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

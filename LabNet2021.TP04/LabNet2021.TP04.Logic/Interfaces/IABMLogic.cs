@@ -9,8 +9,8 @@ namespace LabNet2021.TP04.Logic
     interface IABMLogic<T>
     {
         List<T> GetAll();
-        void Add(T newRegion);
+        void Add(T obj);
         void Delete(int id);
-        void Update(T region);
+        void Update(T obj);
     }
 }
