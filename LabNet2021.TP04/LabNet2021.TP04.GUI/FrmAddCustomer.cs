@@ -20,7 +20,7 @@ namespace LabNet2021.TP04.GUI
             InitializeComponent();
         }
 
-        private void btnAddCustomer_Click_1(object sender, EventArgs e)
+        private void BtnAddCustomer_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -35,7 +35,6 @@ namespace LabNet2021.TP04.GUI
                     auxCustomer.Add(auxCustomer.AddCustomerData(id, txtCompanyName.Text, txtTitle.Text, txtContactName.Text, txtAddress.Text, txtCity.Text, txtCountry.Text, txtPhone.Text));
                     MessageBox.Show($"CLIENTE CARGADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
                     this.Close();
                 }                
             }
@@ -45,7 +44,7 @@ namespace LabNet2021.TP04.GUI
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

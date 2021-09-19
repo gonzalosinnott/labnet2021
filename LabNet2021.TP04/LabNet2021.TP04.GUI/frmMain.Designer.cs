@@ -31,15 +31,15 @@ namespace LabNet2021.TP04.GUI
         {
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnModifyCostumer = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnDeleteCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnModifyCostumer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnDeleteCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
-            this.btnModifyEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnDeleteEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnModifyEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnDeleteEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tbSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -62,9 +62,9 @@ namespace LabNet2021.TP04.GUI
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btnModifyCostumer);
-            this.tabPage1.Controls.Add(this.btnDeleteCustomer);
-            this.tabPage1.Controls.Add(this.btnAddCustomer);
+            this.tabPage1.Controls.Add(this.BtnModifyCostumer);
+            this.tabPage1.Controls.Add(this.BtnDeleteCustomer);
+            this.tabPage1.Controls.Add(this.BtnAddCustomer);
             this.tabPage1.Controls.Add(this.dgvCustomers);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -74,54 +74,54 @@ namespace LabNet2021.TP04.GUI
             this.tabPage1.Text = "CLIENTES";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnModifyCostumer
+            // BtnModifyCostumer
             // 
-            this.btnModifyCostumer.AutoSize = true;
-            this.btnModifyCostumer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnModifyCostumer.Depth = 0;
-            this.btnModifyCostumer.Icon = null;
-            this.btnModifyCostumer.Location = new System.Drawing.Point(300, 303);
-            this.btnModifyCostumer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnModifyCostumer.Name = "btnModifyCostumer";
-            this.btnModifyCostumer.Primary = true;
-            this.btnModifyCostumer.Size = new System.Drawing.Size(151, 36);
-            this.btnModifyCostumer.TabIndex = 3;
-            this.btnModifyCostumer.Text = "MODIFICAR CLIENTE";
-            this.btnModifyCostumer.UseVisualStyleBackColor = true;
-            this.btnModifyCostumer.Click += new System.EventHandler(this.btnModifyCostumer_Click);
+            this.BtnModifyCostumer.AutoSize = true;
+            this.BtnModifyCostumer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnModifyCostumer.Depth = 0;
+            this.BtnModifyCostumer.Icon = null;
+            this.BtnModifyCostumer.Location = new System.Drawing.Point(300, 303);
+            this.BtnModifyCostumer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnModifyCostumer.Name = "BtnModifyCostumer";
+            this.BtnModifyCostumer.Primary = true;
+            this.BtnModifyCostumer.Size = new System.Drawing.Size(151, 36);
+            this.BtnModifyCostumer.TabIndex = 3;
+            this.BtnModifyCostumer.Text = "MODIFICAR CLIENTE";
+            this.BtnModifyCostumer.UseVisualStyleBackColor = true;
+            this.BtnModifyCostumer.Click += new System.EventHandler(this.BtnModifyCostumer_Click);
             // 
-            // btnDeleteCustomer
+            // BtnDeleteCustomer
             // 
-            this.btnDeleteCustomer.AutoSize = true;
-            this.btnDeleteCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDeleteCustomer.Depth = 0;
-            this.btnDeleteCustomer.Icon = null;
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(153, 303);
-            this.btnDeleteCustomer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Primary = true;
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(141, 36);
-            this.btnDeleteCustomer.TabIndex = 2;
-            this.btnDeleteCustomer.Text = "ELIMINAR CLIENTE";
-            this.btnDeleteCustomer.UseVisualStyleBackColor = true;
-            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
+            this.BtnDeleteCustomer.AutoSize = true;
+            this.BtnDeleteCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnDeleteCustomer.Depth = 0;
+            this.BtnDeleteCustomer.Icon = null;
+            this.BtnDeleteCustomer.Location = new System.Drawing.Point(153, 303);
+            this.BtnDeleteCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnDeleteCustomer.Name = "BtnDeleteCustomer";
+            this.BtnDeleteCustomer.Primary = true;
+            this.BtnDeleteCustomer.Size = new System.Drawing.Size(141, 36);
+            this.BtnDeleteCustomer.TabIndex = 2;
+            this.BtnDeleteCustomer.Text = "ELIMINAR CLIENTE";
+            this.BtnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.BtnDeleteCustomer.Click += new System.EventHandler(this.BtnDeleteCustomer_Click);
             // 
-            // btnAddCustomer
+            // BtnAddCustomer
             // 
-            this.btnAddCustomer.AutoSize = true;
-            this.btnAddCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddCustomer.Depth = 0;
-            this.btnAddCustomer.Icon = null;
-            this.btnAddCustomer.Location = new System.Drawing.Point(7, 303);
-            this.btnAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Primary = true;
-            this.btnAddCustomer.Size = new System.Drawing.Size(140, 36);
-            this.btnAddCustomer.TabIndex = 1;
-            this.btnAddCustomer.Text = "AGREGAR CLIENTE";
-            this.btnAddCustomer.UseMnemonic = false;
-            this.btnAddCustomer.UseVisualStyleBackColor = true;
-            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            this.BtnAddCustomer.AutoSize = true;
+            this.BtnAddCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnAddCustomer.Depth = 0;
+            this.BtnAddCustomer.Icon = null;
+            this.BtnAddCustomer.Location = new System.Drawing.Point(7, 303);
+            this.BtnAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnAddCustomer.Name = "BtnAddCustomer";
+            this.BtnAddCustomer.Primary = true;
+            this.BtnAddCustomer.Size = new System.Drawing.Size(140, 36);
+            this.BtnAddCustomer.TabIndex = 1;
+            this.BtnAddCustomer.Text = "AGREGAR CLIENTE";
+            this.BtnAddCustomer.UseMnemonic = false;
+            this.BtnAddCustomer.UseVisualStyleBackColor = true;
+            this.BtnAddCustomer.Click += new System.EventHandler(this.BtnAddCustomer_Click);
             // 
             // dgvCustomers
             // 
@@ -146,9 +146,9 @@ namespace LabNet2021.TP04.GUI
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvEmployees);
-            this.tabPage2.Controls.Add(this.btnModifyEmployee);
-            this.tabPage2.Controls.Add(this.btnDeleteEmployee);
-            this.tabPage2.Controls.Add(this.btnAddEmployee);
+            this.tabPage2.Controls.Add(this.BtnModifyEmployee);
+            this.tabPage2.Controls.Add(this.BtnDeleteEmployee);
+            this.tabPage2.Controls.Add(this.BtnAddEmployee);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -177,54 +177,54 @@ namespace LabNet2021.TP04.GUI
             this.dgvEmployees.Size = new System.Drawing.Size(1050, 290);
             this.dgvEmployees.TabIndex = 7;
             // 
-            // btnModifyEmployee
+            // BtnModifyEmployee
             // 
-            this.btnModifyEmployee.AutoSize = true;
-            this.btnModifyEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnModifyEmployee.Depth = 0;
-            this.btnModifyEmployee.Icon = null;
-            this.btnModifyEmployee.Location = new System.Drawing.Point(335, 303);
-            this.btnModifyEmployee.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnModifyEmployee.Name = "btnModifyEmployee";
-            this.btnModifyEmployee.Primary = true;
-            this.btnModifyEmployee.Size = new System.Drawing.Size(168, 36);
-            this.btnModifyEmployee.TabIndex = 6;
-            this.btnModifyEmployee.Text = "MODIFICAR EMPLEADO";
-            this.btnModifyEmployee.UseVisualStyleBackColor = true;
-            this.btnModifyEmployee.Click += new System.EventHandler(this.btnModifyEmployee_Click);
+            this.BtnModifyEmployee.AutoSize = true;
+            this.BtnModifyEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnModifyEmployee.Depth = 0;
+            this.BtnModifyEmployee.Icon = null;
+            this.BtnModifyEmployee.Location = new System.Drawing.Point(335, 303);
+            this.BtnModifyEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnModifyEmployee.Name = "BtnModifyEmployee";
+            this.BtnModifyEmployee.Primary = true;
+            this.BtnModifyEmployee.Size = new System.Drawing.Size(168, 36);
+            this.BtnModifyEmployee.TabIndex = 6;
+            this.BtnModifyEmployee.Text = "MODIFICAR EMPLEADO";
+            this.BtnModifyEmployee.UseVisualStyleBackColor = true;
+            this.BtnModifyEmployee.Click += new System.EventHandler(this.BtnModifyEmployee_Click);
             // 
-            // btnDeleteEmployee
+            // BtnDeleteEmployee
             // 
-            this.btnDeleteEmployee.AutoSize = true;
-            this.btnDeleteEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDeleteEmployee.Depth = 0;
-            this.btnDeleteEmployee.Icon = null;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(171, 303);
-            this.btnDeleteEmployee.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Primary = true;
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(158, 36);
-            this.btnDeleteEmployee.TabIndex = 5;
-            this.btnDeleteEmployee.Text = "ELIMINAR EMPLEADO";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
-            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
+            this.BtnDeleteEmployee.AutoSize = true;
+            this.BtnDeleteEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnDeleteEmployee.Depth = 0;
+            this.BtnDeleteEmployee.Icon = null;
+            this.BtnDeleteEmployee.Location = new System.Drawing.Point(171, 303);
+            this.BtnDeleteEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnDeleteEmployee.Name = "BtnDeleteEmployee";
+            this.BtnDeleteEmployee.Primary = true;
+            this.BtnDeleteEmployee.Size = new System.Drawing.Size(158, 36);
+            this.BtnDeleteEmployee.TabIndex = 5;
+            this.BtnDeleteEmployee.Text = "ELIMINAR EMPLEADO";
+            this.BtnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.BtnDeleteEmployee.Click += new System.EventHandler(this.BtnDeleteEmployee_Click);
             // 
-            // btnAddEmployee
+            // BtnAddEmployee
             // 
-            this.btnAddEmployee.AutoSize = true;
-            this.btnAddEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddEmployee.Depth = 0;
-            this.btnAddEmployee.Icon = null;
-            this.btnAddEmployee.Location = new System.Drawing.Point(7, 303);
-            this.btnAddEmployee.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Primary = true;
-            this.btnAddEmployee.Size = new System.Drawing.Size(158, 36);
-            this.btnAddEmployee.TabIndex = 4;
-            this.btnAddEmployee.Text = "AGREGAR EMPLEADO";
-            this.btnAddEmployee.UseMnemonic = false;
-            this.btnAddEmployee.UseVisualStyleBackColor = true;
-            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
+            this.BtnAddEmployee.AutoSize = true;
+            this.BtnAddEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnAddEmployee.Depth = 0;
+            this.BtnAddEmployee.Icon = null;
+            this.BtnAddEmployee.Location = new System.Drawing.Point(7, 303);
+            this.BtnAddEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnAddEmployee.Name = "BtnAddEmployee";
+            this.BtnAddEmployee.Primary = true;
+            this.BtnAddEmployee.Size = new System.Drawing.Size(158, 36);
+            this.BtnAddEmployee.TabIndex = 4;
+            this.BtnAddEmployee.Text = "AGREGAR EMPLEADO";
+            this.BtnAddEmployee.UseMnemonic = false;
+            this.BtnAddEmployee.UseVisualStyleBackColor = true;
+            this.BtnAddEmployee.Click += new System.EventHandler(this.BtnAddEmployee_Click);
             // 
             // tbSelector
             // 
@@ -265,12 +265,12 @@ namespace LabNet2021.TP04.GUI
         private System.Windows.Forms.TabPage tabPage2;
         private MaterialSkin.Controls.MaterialTabSelector tbSelector;
         private System.Windows.Forms.DataGridView dgvCustomers;
-        private MaterialSkin.Controls.MaterialRaisedButton btnModifyCostumer;
-        private MaterialSkin.Controls.MaterialRaisedButton btnDeleteCustomer;
-        private MaterialSkin.Controls.MaterialRaisedButton btnAddCustomer;
-        private MaterialSkin.Controls.MaterialRaisedButton btnModifyEmployee;
-        private MaterialSkin.Controls.MaterialRaisedButton btnDeleteEmployee;
-        private MaterialSkin.Controls.MaterialRaisedButton btnAddEmployee;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnModifyCostumer;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnDeleteCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnAddCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnModifyEmployee;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnDeleteEmployee;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnAddEmployee;
         private System.Windows.Forms.DataGridView dgvEmployees;
     }
 }

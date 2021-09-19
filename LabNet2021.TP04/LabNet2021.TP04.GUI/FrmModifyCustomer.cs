@@ -51,26 +51,25 @@ namespace LabNet2021.TP04.GUI
             txtPhone.Text = phone;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnModifyCustomer_Click(object sender, EventArgs e)
+        private void BtnModifyCustomer_Click(object sender, EventArgs e)
         {
             try
             {
                 CustomersLogic auxCustomer = new CustomersLogic();
 
                 auxCustomer.Update(auxCustomer.AddCustomerData(id, txtCompanyName.Text, txtTitle.Text, txtContactName.Text, txtAddress.Text, txtCity.Text, txtCountry.Text, txtPhone.Text));
-
+                MessageBox.Show($"CLIENTE MODIFICADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            
+            }            
         }
     }
 }

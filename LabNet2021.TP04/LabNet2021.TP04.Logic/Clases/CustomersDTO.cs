@@ -17,7 +17,6 @@ namespace LabNet2021.TP04.Logic
         public string Country { get;  set; }
         public string Phone { get;  set; }
         
-
         public List<CustomersDTO> GetCustomInfo()
         {
             var query = from c in context.Customers

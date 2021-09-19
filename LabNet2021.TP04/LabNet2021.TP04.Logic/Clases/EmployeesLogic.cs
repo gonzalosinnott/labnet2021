@@ -15,7 +15,7 @@ namespace LabNet2021.TP04.Logic
             return context.Employees.ToList();
         }
 
-        public Employees UpdateEmployeeData(int id, string lastName, string name, string title, string address, string city, string country, string phone)
+        public Employees UpdateOrAddEmployeeData(int id, string lastName, string name, string title, string address, string city, string country, string phone)
         {
             Employees employee = new Employees();
 
@@ -40,36 +40,7 @@ namespace LabNet2021.TP04.Logic
 
                 return employee;
             }
-        }
-
-        public Employees AddEmployeeData(string lastName, string name, string title, string address, string city, string country, string phone)
-        {
-            Employees employee = new Employees();
-
-            int id = GetMaxId();
-
-            if (lastName.LongCount() == 0)
-            {
-                throw new CustomException("El campo APELLIDO es OBLIGATORIO");
-            }
-            else if (name.LongCount() == 0)
-            {
-                throw new CustomException("El campo NOMBRE es OBLIGATORIO");
-            }
-            else
-            {
-                employee.EmployeeID = id;
-                employee.LastName = lastName;
-                employee.FirstName = name;
-                employee.Title = title;
-                employee.Address = address;
-                employee.City = city;
-                employee.Country = country;
-                employee.HomePhone = phone;
-
-                return employee;
-            }
-        }
+        }        
 
         public int GetMaxId()
         {
@@ -97,7 +68,7 @@ namespace LabNet2021.TP04.Logic
             }
             catch (Exception)
             {
-                throw new CustomException("Para que funcione hay que eliminar todas las FK que afecten a la tabla Employees");
+                throw new CustomException("Para que funcione con los registros QUE NO HAYAN SIDO CARGADOS A TRAVES DE ESTE PROGRAMA  hay que eliminar todas las FK que afecten a la tabla Employees");
             }
         }
 

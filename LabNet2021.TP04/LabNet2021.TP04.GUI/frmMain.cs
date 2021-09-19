@@ -51,42 +51,48 @@ namespace LabNet2021.TP04.GUI
             dgvEmployees.ClearSelection();
         }
 
-        private void btnAddCustomer_Click(object sender, EventArgs e)
+        private void BtnAddCustomer_Click(object sender, EventArgs e)
         {
             FrmAddCustomer frm = new FrmAddCustomer();
             frm.ShowDialog();           
             RefreshInfo();        
         }
 
-        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        private void BtnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            try
+            var result = MessageBox.Show("¿Desea elminiar el cliente seleccionado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.No)
             {
-                if (this.dgvCustomers.CurrentRow.Selected != false)
+                try
                 {
-                    CustomersDTO customer = dgvCustomers.CurrentRow.DataBoundItem as CustomersDTO;
-                    customers.Delete(customer.Id);
+                    if (this.dgvCustomers.CurrentRow.Selected != false)
+                    {
+                        CustomersDTO customer = dgvCustomers.CurrentRow.DataBoundItem as CustomersDTO;
+                        customers.Delete(customer.Id); 
+                        MessageBox.Show($"CLIENTE ELIMINADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"SELECCIONE UN CLIENTE A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
-                else
+                catch (CustomException ex)
                 {
-                    MessageBox.Show($"SELECCIONE UN CLIENTE A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (CustomException ex)
-            {
-                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show($"NO HAY CLIENTES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                RefreshInfo();
-            }
+                catch (Exception)
+                {
+                    MessageBox.Show($"NO HAY CLIENTES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RefreshInfo();
+                }
+            }            
         }
 
-        private void btnModifyCostumer_Click(object sender, EventArgs e)
+        private void BtnModifyCostumer_Click(object sender, EventArgs e)
         {
             try
             {
@@ -123,42 +129,48 @@ namespace LabNet2021.TP04.GUI
             frm.ShowDialog();
         }
 
-        private void btnAddEmployee_Click(object sender, EventArgs e)
+        private void BtnAddEmployee_Click(object sender, EventArgs e)
         {
             FrmAddEmployee frm = new FrmAddEmployee();
             frm.ShowDialog();
             RefreshInfo();
         }
 
-        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        private void BtnDeleteEmployee_Click(object sender, EventArgs e)
         {
-            try
+            var result = MessageBox.Show("¿Desea elminiar el empleado seleccionado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.No)
             {
-                if (this.dgvEmployees.CurrentRow.Selected != false)
+                try
                 {
-                    EmployeesDTO employee = dgvEmployees.CurrentRow.DataBoundItem as EmployeesDTO;
-                    employees.Delete(employee.Id);
-                }                
-                else
-                {
-                    MessageBox.Show($"SELECCIONE UN EMPLEADO A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (this.dgvEmployees.CurrentRow.Selected != false)
+                    {
+                        EmployeesDTO employee = dgvEmployees.CurrentRow.DataBoundItem as EmployeesDTO;
+                        employees.Delete(employee.Id);
+                        MessageBox.Show($"EMPLEADO ELIMINADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"SELECCIONE UN EMPLEADO A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
-            }
-            catch(CustomException ex)
-            {
-                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show($"NO HAY EMPLEADOS PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                RefreshInfo();
+                catch (CustomException ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show($"NO HAY EMPLEADOS PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RefreshInfo();
+                }
             }
         }
 
-        private void btnModifyEmployee_Click(object sender, EventArgs e)
+        private void BtnModifyEmployee_Click(object sender, EventArgs e)
         {
             try
             {
@@ -194,7 +206,5 @@ namespace LabNet2021.TP04.GUI
             FrmModifyEmployee frm = new FrmModifyEmployee(id, lastName, name, title, address, city, country, phone);
             frm.ShowDialog();
         }
-
-
     }
 }

@@ -30,8 +30,8 @@ namespace LabNet2021.TP04.GUI
         private void InitializeComponent()
         {
             this.lblFormTitle = new MetroFramework.Controls.MetroLabel();
-            this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -59,36 +59,37 @@ namespace LabNet2021.TP04.GUI
             this.lblFormTitle.TabIndex = 36;
             this.lblFormTitle.Text = "ESCRIBA LOS DATOS DEL NUEVO CLIENTE";
             // 
-            // btnCancel
+            // BtnCancel
             // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancel.Depth = 0;
-            this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(306, 303);
-            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Primary = true;
-            this.btnCancel.Size = new System.Drawing.Size(91, 36);
-            this.btnCancel.TabIndex = 35;
-            this.btnCancel.Text = "CANCELAR";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.AutoSize = true;
+            this.BtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnCancel.Depth = 0;
+            this.BtnCancel.Icon = null;
+            this.BtnCancel.Location = new System.Drawing.Point(306, 303);
+            this.BtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Primary = true;
+            this.BtnCancel.Size = new System.Drawing.Size(91, 36);
+            this.BtnCancel.TabIndex = 35;
+            this.BtnCancel.Text = "CANCELAR";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click_1);
             // 
-            // btnAddCustomer
+            // BtnAddCustomer
             // 
-            this.btnAddCustomer.AutoSize = true;
-            this.btnAddCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddCustomer.Depth = 0;
-            this.btnAddCustomer.Icon = null;
-            this.btnAddCustomer.Location = new System.Drawing.Point(159, 303);
-            this.btnAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Primary = true;
-            this.btnAddCustomer.Size = new System.Drawing.Size(144, 36);
-            this.btnAddCustomer.TabIndex = 34;
-            this.btnAddCustomer.Text = "INGRESAR CLIENTE";
-            this.btnAddCustomer.UseVisualStyleBackColor = true;
-            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click_1);
+            this.BtnAddCustomer.AutoSize = true;
+            this.BtnAddCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnAddCustomer.Depth = 0;
+            this.BtnAddCustomer.Icon = null;
+            this.BtnAddCustomer.Location = new System.Drawing.Point(159, 303);
+            this.BtnAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnAddCustomer.Name = "BtnAddCustomer";
+            this.BtnAddCustomer.Primary = true;
+            this.BtnAddCustomer.Size = new System.Drawing.Size(144, 36);
+            this.BtnAddCustomer.TabIndex = 34;
+            this.BtnAddCustomer.Text = "INGRESAR CLIENTE";
+            this.BtnAddCustomer.UseVisualStyleBackColor = true;
+            this.BtnAddCustomer.Click += new System.EventHandler(this.BtnAddCustomer_Click_1);
             // 
             // txtCountry
             // 
@@ -234,8 +235,8 @@ namespace LabNet2021.TP04.GUI
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.lblFormTitle);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAddCustomer);
+            this.Controls.Add(this.BtnCancel);
+            this.Controls.Add(this.BtnAddCustomer);
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtAddress);
@@ -261,8 +262,8 @@ namespace LabNet2021.TP04.GUI
         #endregion
 
         private MetroFramework.Controls.MetroLabel lblFormTitle;
-        private MaterialSkin.Controls.MaterialRaisedButton btnCancel;
-        private MaterialSkin.Controls.MaterialRaisedButton btnAddCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnCancel;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnAddCustomer;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtAddress;

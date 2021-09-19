@@ -34,7 +34,6 @@ namespace LabNet2021.TP04.Logic.Clases
                         };
 
             return query.ToList();
-        }
-                
+        }                
     }
 }

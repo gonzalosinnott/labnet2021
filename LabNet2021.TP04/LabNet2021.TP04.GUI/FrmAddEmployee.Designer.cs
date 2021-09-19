@@ -31,8 +31,8 @@ namespace LabNet2021.TP04.GUI
         {
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblFormTitle = new MetroFramework.Controls.MetroLabel();
-            this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAddCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -65,37 +65,37 @@ namespace LabNet2021.TP04.GUI
             this.lblFormTitle.TabIndex = 55;
             this.lblFormTitle.Text = "ESCRIBA LOS DATOS DEL NUEVO EMPLEADO";
             // 
-            // btnCancel
+            // BtnCancel
             // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancel.Depth = 0;
-            this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(305, 289);
-            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Primary = true;
-            this.btnCancel.Size = new System.Drawing.Size(91, 36);
-            this.btnCancel.TabIndex = 54;
-            this.btnCancel.Text = "CANCELAR";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.BtnCancel.AutoSize = true;
+            this.BtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnCancel.Depth = 0;
+            this.BtnCancel.Icon = null;
+            this.BtnCancel.Location = new System.Drawing.Point(305, 289);
+            this.BtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Primary = true;
+            this.BtnCancel.Size = new System.Drawing.Size(91, 36);
+            this.BtnCancel.TabIndex = 54;
+            this.BtnCancel.Text = "CANCELAR";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // btnAddCustomer
+            // BtnAddEmployee
             // 
-            this.btnAddCustomer.AutoSize = true;
-            this.btnAddCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddCustomer.Depth = 0;
-            this.btnAddCustomer.Icon = null;
-            this.btnAddCustomer.Location = new System.Drawing.Point(138, 289);
-            this.btnAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Primary = true;
-            this.btnAddCustomer.Size = new System.Drawing.Size(161, 36);
-            this.btnAddCustomer.TabIndex = 53;
-            this.btnAddCustomer.Text = "INGRESAR EMPLEADO";
-            this.btnAddCustomer.UseVisualStyleBackColor = true;
-            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            this.BtnAddEmployee.AutoSize = true;
+            this.BtnAddEmployee.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnAddEmployee.Depth = 0;
+            this.BtnAddEmployee.Icon = null;
+            this.BtnAddEmployee.Location = new System.Drawing.Point(138, 289);
+            this.BtnAddEmployee.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnAddEmployee.Name = "BtnAddEmployee";
+            this.BtnAddEmployee.Primary = true;
+            this.BtnAddEmployee.Size = new System.Drawing.Size(161, 36);
+            this.BtnAddEmployee.TabIndex = 53;
+            this.BtnAddEmployee.Text = "INGRESAR EMPLEADO";
+            this.BtnAddEmployee.UseVisualStyleBackColor = true;
+            this.BtnAddEmployee.Click += new System.EventHandler(this.BtnAddEmployee_Click);
             // 
             // txtCountry
             // 
@@ -215,8 +215,8 @@ namespace LabNet2021.TP04.GUI
             this.ClientSize = new System.Drawing.Size(414, 352);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.lblFormTitle);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAddCustomer);
+            this.Controls.Add(this.BtnCancel);
+            this.Controls.Add(this.BtnAddEmployee);
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtAddress);
@@ -241,8 +241,8 @@ namespace LabNet2021.TP04.GUI
         #endregion
         private System.Windows.Forms.TextBox txtPhone;
         private MetroFramework.Controls.MetroLabel lblFormTitle;
-        private MaterialSkin.Controls.MaterialRaisedButton btnCancel;
-        private MaterialSkin.Controls.MaterialRaisedButton btnAddCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnCancel;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnAddEmployee;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtAddress;

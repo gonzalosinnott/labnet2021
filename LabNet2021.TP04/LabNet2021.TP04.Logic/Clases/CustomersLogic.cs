@@ -61,7 +61,7 @@ namespace LabNet2021.TP04.Logic
             }
             catch(Exception)
             {
-                throw new CustomException("Para que funcione hay qyue eliminar todas las FK que afecten a la tabla Customers");
+                throw new CustomException("Para que funcione con los registros QUE NO HAYAN SIDO CARGADOS A TRAVES DE ESTE PROGRAMA hay que eliminar todas las FK que afecten a la tabla Customers");
             }
            
         }
@@ -97,10 +97,7 @@ namespace LabNet2021.TP04.Logic
             else
             {
                 return false;
-
             }
-        }
-
-       
+        }       
     }
 }
