@@ -98,7 +98,9 @@ namespace LabNet2021.TP04.GUI
             {
                 if (this.dgvCustomers.CurrentRow.Selected != false)
                 {
-                    ModifyCustomersDialog();
+                    CustomersDTO customer = dgvCustomers.CurrentRow.DataBoundItem as CustomersDTO;
+                    FrmModifyCustomer frm = new FrmModifyCustomer(customer.Id, customer.CompanyName, customer.ContactTitle, customer.ContactName, customer.Address, customer.City, customer.Country, customer.Phone);
+                    frm.ShowDialog();                  
                 }
                 else
                 {
@@ -113,20 +115,6 @@ namespace LabNet2021.TP04.GUI
             {
                 RefreshInfo();
             }
-        }
-
-        private void ModifyCustomersDialog()
-        {
-            string id = (string)dgvCustomers.SelectedRows[0].Cells[0].Value;
-            string companyName = (string)dgvCustomers.SelectedRows[0].Cells[1].Value;
-            string title = (string)dgvCustomers.SelectedRows[0].Cells[2].Value;
-            string contactName = (string)dgvCustomers.SelectedRows[0].Cells[3].Value;
-            string address = (string)dgvCustomers.SelectedRows[0].Cells[4].Value;
-            string city = (string)dgvCustomers.SelectedRows[0].Cells[5].Value;
-            string country = (string)dgvCustomers.SelectedRows[0].Cells[6].Value;
-            string phone = (string)dgvCustomers.SelectedRows[0].Cells[7].Value;
-            FrmModifyCustomer frm = new FrmModifyCustomer(id, companyName, title, contactName, address, city, country, phone);
-            frm.ShowDialog();
         }
 
         private void BtnAddEmployee_Click(object sender, EventArgs e)
@@ -176,7 +164,9 @@ namespace LabNet2021.TP04.GUI
             {
                 if (this.dgvEmployees.CurrentRow.Selected != false)
                 {
-                    ModifyEmployeeDialog();
+                    EmployeesDTO employee = dgvEmployees.CurrentRow.DataBoundItem as EmployeesDTO;
+                    FrmModifyEmployee frm = new FrmModifyEmployee(employee.Id, employee.LastName, employee.FirstName, employee.Title, employee.Address, employee.City, employee.Country, employee.Phone);
+                    frm.ShowDialog();
                 }
                 else
                 {
@@ -191,20 +181,6 @@ namespace LabNet2021.TP04.GUI
             {
                 RefreshInfo();
             }
-        }
-
-        private void ModifyEmployeeDialog()
-        {
-            int id = (int)dgvEmployees.SelectedRows[0].Cells[0].Value;
-            string lastName = (string)dgvEmployees.SelectedRows[0].Cells[1].Value;
-            string name = (string)dgvEmployees.SelectedRows[0].Cells[2].Value;
-            string title = (string)dgvEmployees.SelectedRows[0].Cells[3].Value;
-            string address = (string)dgvEmployees.SelectedRows[0].Cells[4].Value;
-            string city = (string)dgvEmployees.SelectedRows[0].Cells[5].Value;
-            string country = (string)dgvEmployees.SelectedRows[0].Cells[6].Value;
-            string phone = (string)dgvEmployees.SelectedRows[0].Cells[7].Value;
-            FrmModifyEmployee frm = new FrmModifyEmployee(id, lastName, name, title, address, city, country, phone);
-            frm.ShowDialog();
-        }
+        }   
     }
 }
