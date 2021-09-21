@@ -78,23 +78,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAddCustomer.cs">
+    <Compile Include="FrmAddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddCustomer.Designer.cs">
-      <DependentUpon>FrmAddCustomer.cs</DependentUpon>
+    <Compile Include="FrmAddOrder.Designer.cs">
+      <DependentUpon>FrmAddOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAddEmployee.cs">
+    <Compile Include="FrmAddShipper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddEmployee.Designer.cs">
-      <DependentUpon>FrmAddEmployee.cs</DependentUpon>
+    <Compile Include="FrmAddShipper.Designer.cs">
+      <DependentUpon>FrmAddShipper.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModifyCustomer.cs">
+    <Compile Include="FrmModifyOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModifyCustomer.Designer.cs">
-      <DependentUpon>FrmModifyCustomer.cs</DependentUpon>
+    <Compile Include="FrmModifyOrder.Designer.cs">
+      <DependentUpon>FrmModifyOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -102,28 +102,28 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModifyEmployee.cs">
+    <Compile Include="FrmModifyShipper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModifyEmployee.Designer.cs">
-      <DependentUpon>FrmModifyEmployee.cs</DependentUpon>
+    <Compile Include="FrmModifyShipper.Designer.cs">
+      <DependentUpon>FrmModifyShipper.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAddCustomer.resx">
-      <DependentUpon>FrmAddCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAddOrder.resx">
+      <DependentUpon>FrmAddOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAddEmployee.resx">
-      <DependentUpon>FrmAddEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAddShipper.resx">
+      <DependentUpon>FrmAddShipper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModifyCustomer.resx">
-      <DependentUpon>FrmModifyCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="FrmModifyOrder.resx">
+      <DependentUpon>FrmModifyOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModifyEmployee.resx">
-      <DependentUpon>FrmModifyEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="FrmModifyShipper.resx">
+      <DependentUpon>FrmModifyShipper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

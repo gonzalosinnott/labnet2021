@@ -1,7 +1,7 @@
 ﻿
 namespace LabNet2021.TP04.GUI
 {
-    partial class FrmModifyCustomer
+    partial class FrmModifyOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -29,51 +29,49 @@ namespace LabNet2021.TP04.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCompanyName = new MetroFramework.Controls.MetroLabel();
-            this.lblTitle = new MetroFramework.Controls.MetroLabel();
-            this.lblContactName = new MetroFramework.Controls.MetroLabel();
+            this.lblShippedDate = new MetroFramework.Controls.MetroLabel();
+            this.lblShipName = new MetroFramework.Controls.MetroLabel();
+            this.lblShipper = new MetroFramework.Controls.MetroLabel();
             this.lblAddress = new MetroFramework.Controls.MetroLabel();
             this.lblCity = new MetroFramework.Controls.MetroLabel();
             this.lblCountry = new MetroFramework.Controls.MetroLabel();
-            this.lblPhone = new MetroFramework.Controls.MetroLabel();
-            this.txtCompanyName = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtContactName = new System.Windows.Forms.TextBox();
+            this.txtShipName = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.BtnModifyCustomer = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtnModifyOrder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lblFormTitle = new MetroFramework.Controls.MetroLabel();
+            this.dtpShippedDate = new System.Windows.Forms.DateTimePicker();
+            this.cmbShippers = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // lblCompanyName
+            // lblShippedDate
             // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(17, 105);
-            this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(147, 19);
-            this.lblCompanyName.TabIndex = 1;
-            this.lblCompanyName.Text = "Nombre de la Empresa";
+            this.lblShippedDate.AutoSize = true;
+            this.lblShippedDate.Location = new System.Drawing.Point(17, 105);
+            this.lblShippedDate.Name = "lblShippedDate";
+            this.lblShippedDate.Size = new System.Drawing.Size(97, 19);
+            this.lblShippedDate.TabIndex = 1;
+            this.lblShippedDate.Text = "Fecha de Envio";
             // 
-            // lblTitle
+            // lblShipName
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(17, 156);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(127, 19);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Puesto del Contacto";
+            this.lblShipName.AutoSize = true;
+            this.lblShipName.Location = new System.Drawing.Point(17, 156);
+            this.lblShipName.Name = "lblShipName";
+            this.lblShipName.Size = new System.Drawing.Size(147, 19);
+            this.lblShipName.TabIndex = 2;
+            this.lblShipName.Text = "Nombre del Transporte";
             // 
-            // lblContactName
+            // lblShipper
             // 
-            this.lblContactName.AutoSize = true;
-            this.lblContactName.Location = new System.Drawing.Point(17, 131);
-            this.lblContactName.Name = "lblContactName";
-            this.lblContactName.Size = new System.Drawing.Size(62, 19);
-            this.lblContactName.TabIndex = 3;
-            this.lblContactName.Text = "Contacto";
+            this.lblShipper.AutoSize = true;
+            this.lblShipper.Location = new System.Drawing.Point(17, 131);
+            this.lblShipper.Name = "lblShipper";
+            this.lblShipper.Size = new System.Drawing.Size(77, 19);
+            this.lblShipper.TabIndex = 3;
+            this.lblShipper.Text = "Distribuidor";
             // 
             // lblAddress
             // 
@@ -102,38 +100,13 @@ namespace LabNet2021.TP04.GUI
             this.lblCountry.TabIndex = 6;
             this.lblCountry.Text = "Pais";
             // 
-            // lblPhone
+            // txtShipName
             // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(19, 261);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(58, 19);
-            this.lblPhone.TabIndex = 7;
-            this.lblPhone.Text = "Telefono";
-            // 
-            // txtCompanyName
-            // 
-            this.txtCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCompanyName.Location = new System.Drawing.Point(170, 105);
-            this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.Size = new System.Drawing.Size(231, 20);
-            this.txtCompanyName.TabIndex = 10;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTitle.Location = new System.Drawing.Point(170, 156);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(231, 20);
-            this.txtTitle.TabIndex = 11;
-            // 
-            // txtContactName
-            // 
-            this.txtContactName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContactName.Location = new System.Drawing.Point(170, 131);
-            this.txtContactName.Name = "txtContactName";
-            this.txtContactName.Size = new System.Drawing.Size(231, 20);
-            this.txtContactName.TabIndex = 12;
+            this.txtShipName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtShipName.Location = new System.Drawing.Point(170, 156);
+            this.txtShipName.Name = "txtShipName";
+            this.txtShipName.Size = new System.Drawing.Size(231, 20);
+            this.txtShipName.TabIndex = 11;
             // 
             // txtAddress
             // 
@@ -159,29 +132,21 @@ namespace LabNet2021.TP04.GUI
             this.txtCountry.Size = new System.Drawing.Size(231, 20);
             this.txtCountry.TabIndex = 15;
             // 
-            // txtPhone
+            // BtnModifyOrder
             // 
-            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhone.Location = new System.Drawing.Point(170, 260);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(231, 20);
-            this.txtPhone.TabIndex = 16;
-            // 
-            // BtnModifyCustomer
-            // 
-            this.BtnModifyCustomer.AutoSize = true;
-            this.BtnModifyCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnModifyCustomer.Depth = 0;
-            this.BtnModifyCustomer.Icon = null;
-            this.BtnModifyCustomer.Location = new System.Drawing.Point(163, 303);
-            this.BtnModifyCustomer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnModifyCustomer.Name = "BtnModifyCustomer";
-            this.BtnModifyCustomer.Primary = true;
-            this.BtnModifyCustomer.Size = new System.Drawing.Size(141, 36);
-            this.BtnModifyCustomer.TabIndex = 17;
-            this.BtnModifyCustomer.Text = "MODIFICAR DATOS";
-            this.BtnModifyCustomer.UseVisualStyleBackColor = true;
-            this.BtnModifyCustomer.Click += new System.EventHandler(this.BtnModifyCustomer_Click);
+            this.BtnModifyOrder.AutoSize = true;
+            this.BtnModifyOrder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnModifyOrder.Depth = 0;
+            this.BtnModifyOrder.Icon = null;
+            this.BtnModifyOrder.Location = new System.Drawing.Point(163, 303);
+            this.BtnModifyOrder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnModifyOrder.Name = "BtnModifyOrder";
+            this.BtnModifyOrder.Primary = true;
+            this.BtnModifyOrder.Size = new System.Drawing.Size(141, 36);
+            this.BtnModifyOrder.TabIndex = 17;
+            this.BtnModifyOrder.Text = "MODIFICAR DATOS";
+            this.BtnModifyOrder.UseVisualStyleBackColor = true;
+            this.BtnModifyOrder.Click += new System.EventHandler(this.BtnModifyOrder_Click);
             // 
             // BtnCancel
             // 
@@ -208,54 +173,66 @@ namespace LabNet2021.TP04.GUI
             this.lblFormTitle.TabIndex = 19;
             this.lblFormTitle.Text = "ESCRIBA LOS DATOS A MODIFICAR";
             // 
-            // FrmModifyCustomer
+            // dtpShippedDate
+            // 
+            this.dtpShippedDate.Location = new System.Drawing.Point(170, 103);
+            this.dtpShippedDate.Name = "dtpShippedDate";
+            this.dtpShippedDate.Size = new System.Drawing.Size(231, 20);
+            this.dtpShippedDate.TabIndex = 20;
+            // 
+            // cmbShippers
+            // 
+            this.cmbShippers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShippers.FormattingEnabled = true;
+            this.cmbShippers.Location = new System.Drawing.Point(170, 129);
+            this.cmbShippers.Name = "cmbShippers";
+            this.cmbShippers.Size = new System.Drawing.Size(231, 21);
+            this.cmbShippers.TabIndex = 21;
+            // 
+            // FrmModifyOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 356);
+            this.Controls.Add(this.cmbShippers);
+            this.Controls.Add(this.dtpShippedDate);
             this.Controls.Add(this.lblFormTitle);
             this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnModifyCustomer);
-            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.BtnModifyOrder);
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtContactName);
-            this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.txtCompanyName);
-            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.txtShipName);
             this.Controls.Add(this.lblCountry);
             this.Controls.Add(this.lblCity);
             this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblContactName);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblCompanyName);
-            this.Name = "FrmModifyCustomer";
+            this.Controls.Add(this.lblShipper);
+            this.Controls.Add(this.lblShipName);
+            this.Controls.Add(this.lblShippedDate);
+            this.Name = "FrmModifyOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MODIFICAR INFORMACION DEL CLIENTE";
-            this.Load += new System.EventHandler(this.FrmModifyCustomer_Load);
+            this.Text = "MODIFICAR INFORMACION DE LA ORDEN";
+            this.Load += new System.EventHandler(this.FrmModifyOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroLabel lblCompanyName;
-        private MetroFramework.Controls.MetroLabel lblTitle;
-        private MetroFramework.Controls.MetroLabel lblContactName;
+        private MetroFramework.Controls.MetroLabel lblShippedDate;
+        private MetroFramework.Controls.MetroLabel lblShipName;
+        private MetroFramework.Controls.MetroLabel lblShipper;
         private MetroFramework.Controls.MetroLabel lblAddress;
         private MetroFramework.Controls.MetroLabel lblCity;
         private MetroFramework.Controls.MetroLabel lblCountry;
-        private MetroFramework.Controls.MetroLabel lblPhone;
-        private System.Windows.Forms.TextBox txtCompanyName;
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.TextBox txtContactName;
+        private System.Windows.Forms.TextBox txtShipName;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtCountry;
-        private System.Windows.Forms.TextBox txtPhone;
-        private MaterialSkin.Controls.MaterialRaisedButton BtnModifyCustomer;
+        private MaterialSkin.Controls.MaterialRaisedButton BtnModifyOrder;
         private MaterialSkin.Controls.MaterialRaisedButton BtnCancel;
         private MetroFramework.Controls.MetroLabel lblFormTitle;
+        private System.Windows.Forms.DateTimePicker dtpShippedDate;
+        private System.Windows.Forms.ComboBox cmbShippers;
     }
 }

@@ -18,8 +18,8 @@ namespace LabNet2021.TP04.GUI
 {
     public partial class FrmMain : MaterialForm
     {
-        readonly CustomersDTO customers = new CustomersDTO();
-        readonly EmployeesDTO employees = new EmployeesDTO();
+        readonly OrdersDTO orders = new OrdersDTO();
+        readonly ShippersDTO shippers = new ShippersDTO();
 
         public FrmMain()
         {
@@ -33,48 +33,51 @@ namespace LabNet2021.TP04.GUI
 
         private void RefreshInfo()
         {
-            GetCustomersMainInfo();
-            GetEmployeeMainInfo();
+            GetOrdersMainInfo();
+            GetShippersMainInfo();
         }
 
-        public void GetCustomersMainInfo()
+        public void GetOrdersMainInfo()
         {
-            List<CustomersDTO> customersList = customers.GetCustomInfo();
-            dgvCustomers.DataSource = customersList;
-            dgvCustomers.ClearSelection();
+            List<OrdersDTO> orderslist = orders.GetCustomInfo();
+            dgvOrders.DataSource = orderslist;
+            dgvOrders.ClearSelection();
         }
 
-        public void GetEmployeeMainInfo()
+        public void GetShippersMainInfo()
         {
-            List<EmployeesDTO> employeesList = employees.GetCustomInfo();
-            dgvEmployees.DataSource = employeesList;
-            dgvEmployees.ClearSelection();
+            List<ShippersDTO> shippersList = shippers.GetCustomInfo();
+            dgvShippers.DataSource = shippersList;
+            dgvShippers.ClearSelection();
         }
 
-        private void BtnAddCustomer_Click(object sender, EventArgs e)
+        private void BtnAddOrder_Click(object sender, EventArgs e)
         {
-            FrmAddCustomer frm = new FrmAddCustomer();
+            FrmAddOrder frm = new FrmAddOrder();
             frm.ShowDialog();           
             RefreshInfo();        
         }
 
-        private void BtnDeleteCustomer_Click(object sender, EventArgs e)
+        private void BtnDeleteOrder_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("¿Desea elminiar el cliente seleccionado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("¿Desea elminiar la orden seleccionada?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result != DialogResult.No)
             {
                 try
                 {
-                    if (this.dgvCustomers.CurrentRow.Selected != false)
+                    if (this.dgvOrders.CurrentRow.Selected != false)
                     {
-                        CustomersDTO customer = dgvCustomers.CurrentRow.DataBoundItem as CustomersDTO;
-                        customers.Delete(customer.Id); 
-                        MessageBox.Show($"CLIENTE ELIMINADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OrdersDTO order = dgvOrders.CurrentRow.DataBoundItem as OrdersDTO;
+                        OrdersDetailsLogic orderDetails = new OrdersDetailsLogic();
+                                                
+                        orderDetails.DeleteAllRelatedId(order.Id);
+                        order.Delete(order.Id); 
+                        MessageBox.Show($"ORDEN ELIMINADA CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show($"SELECCIONE UN CLIENTE A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show($"SELECCIONE UNA ORDEN A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 catch (CustomException ex)
@@ -83,7 +86,7 @@ namespace LabNet2021.TP04.GUI
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show($"NO HAY CLIENTES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"NO HAY ORDENES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -92,19 +95,19 @@ namespace LabNet2021.TP04.GUI
             }            
         }
 
-        private void BtnModifyCostumer_Click(object sender, EventArgs e)
+        private void BtnModifyOrder_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.dgvCustomers.CurrentRow.Selected != false)
+                if (this.dgvOrders.CurrentRow.Selected != false)
                 {
-                    CustomersDTO customer = dgvCustomers.CurrentRow.DataBoundItem as CustomersDTO;
-                    FrmModifyCustomer frm = new FrmModifyCustomer(customer.Id, customer.CompanyName, customer.ContactTitle, customer.ContactName, customer.Address, customer.City, customer.Country, customer.Phone);
+                    OrdersDTO order = dgvOrders.CurrentRow.DataBoundItem as OrdersDTO;
+                    FrmModifyOrder frm = new FrmModifyOrder(order.Id, order.ShippedDate, order.ShipVia, order.ShipName, order.Address, order.City, order.Country);
                     frm.ShowDialog();                  
                 }
                 else
                 {
-                    MessageBox.Show($"SELECCIONE UN CLIENTE A MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"SELECCIONE UNA ORDEN A MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch(Exception)
@@ -117,30 +120,30 @@ namespace LabNet2021.TP04.GUI
             }
         }
 
-        private void BtnAddEmployee_Click(object sender, EventArgs e)
+        private void BtnAddShipper_Click(object sender, EventArgs e)
         {
-            FrmAddEmployee frm = new FrmAddEmployee();
+            FrmAddShipper frm = new FrmAddShipper();
             frm.ShowDialog();
             RefreshInfo();
         }
 
-        private void BtnDeleteEmployee_Click(object sender, EventArgs e)
+        private void BtnDeleteShipper_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("¿Desea elminiar el empleado seleccionado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("¿Desea elminiar el distribuidor seleccionado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result != DialogResult.No)
             {
                 try
                 {
-                    if (this.dgvEmployees.CurrentRow.Selected != false)
+                    if (this.dgvShippers.CurrentRow.Selected != false)
                     {
-                        EmployeesDTO employee = dgvEmployees.CurrentRow.DataBoundItem as EmployeesDTO;
-                        employees.Delete(employee.Id);
-                        MessageBox.Show($"EMPLEADO ELIMINADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ShippersDTO shipper = dgvShippers.CurrentRow.DataBoundItem as ShippersDTO;
+                        shipper.Delete(shipper.ShipperID);
+                        MessageBox.Show($"DISTRIBUIDOR ELIMINADO CON EXITO", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show($"SELECCIONE UN EMPLEADO A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show($"SELECCIONE UN DISTRIBUIDOR A ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 catch (CustomException ex)
@@ -149,7 +152,7 @@ namespace LabNet2021.TP04.GUI
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show($"NO HAY EMPLEADOS PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"NO HAY DISTRIBUIDORES PARA ELIMINAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -158,24 +161,24 @@ namespace LabNet2021.TP04.GUI
             }
         }
 
-        private void BtnModifyEmployee_Click(object sender, EventArgs e)
+        private void BtnModifyShipper_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.dgvEmployees.CurrentRow.Selected != false)
+                if (this.dgvShippers.CurrentRow.Selected != false)
                 {
-                    EmployeesDTO employee = dgvEmployees.CurrentRow.DataBoundItem as EmployeesDTO;
-                    FrmModifyEmployee frm = new FrmModifyEmployee(employee.Id, employee.LastName, employee.FirstName, employee.Title, employee.Address, employee.City, employee.Country, employee.Phone);
+                    ShippersDTO shipper = dgvShippers.CurrentRow.DataBoundItem as ShippersDTO;
+                    FrmModifyShipper frm = new FrmModifyShipper(shipper.ShipperID, shipper.CompanyName, shipper.Phone);
                     frm.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show($"SELECCIONE UN EMPLEADO A MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"SELECCIONE UN DISTRIBUIDOR A MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show($"NO HAY EMPLEADOS PARA MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"NO HAY DISTRIBUIDORES PARA MODIFICAR", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

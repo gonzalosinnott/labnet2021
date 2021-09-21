@@ -15,5 +15,6 @@ namespace LabNet2021.TP04.Logic
         {
             context = new NorthwindContext();
         }
+
     }
 }
