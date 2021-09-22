@@ -13,66 +13,43 @@ namespace LabNet2021.TP04.Tests
     {        
         [TestMethod]
         [ExpectedException(typeof(CustomException))]
-        public void Add_CustomerWithRequiredEmptyField()
+        public void Add_ShipperWithRequiredEmptyField()
         {
-            CustomersLogic customer = new CustomersLogic();
+            ShippersLogic shipper = new ShippersLogic();
 
-            string id = "";
-            string company = "";
-            string title = "Sales Representative";
-            string contactName = "John Doe";
-            string address = "Street 123";
-            string city = "Buenos Aires";
-            string country = "Argentina";
+            int id = 1;
+            string companyName = "";
             string phone = "12345";
 
-            customer.AddCustomerData(id, company, title, contactName, address, city, country, phone);
-        }
+            shipper.UpdateOrAddShippersData(id, companyName, phone);
+        }        
 
         [TestMethod]
         [ExpectedException(typeof(CustomException))]
-        public void Add_EmployeeWithRequiredEmptyField()
+        public void DeleteOrder_Error()
         {
-            EmployeesLogic customer = new EmployeesLogic();
+            OrdersLogic order = new OrdersLogic();
+            int id = 1;
 
-            int id = 0;
-            string lastName = "";
-            string name = "";
-            string title = "Developer";
-            string address = "Street 123";
-            string city = "Buenos Aires";
-            string country = "Argentina";
-            string phone = "12345";
-
-            customer.UpdateOrAddEmployeeData(id, lastName, name, title, address, city, country, phone);
+            order.Delete(id);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(CustomException))]
-        public void Delete_Customer()
+        public void Orders_GetAll()
         {
-            CustomersLogic customer = new CustomersLogic();
-            string id = "MockID";
+            OrdersLogic orders = new OrdersLogic();
 
-            customer.Delete(id);
-        }
-
-        [TestMethod]
-        public void Customer_GetAll()
-        {
-            CustomersLogic customer = new CustomersLogic();
-
-            List<Customers>  list = customer.GetAll();
+            List<Orders>  list = orders.GetAll();
 
             Assert.IsNotNull(list);
         }
 
         [TestMethod]
-        public void Employee_GetAll()
+        public void Shippers_GetAll()
         {
-            EmployeesLogic employee = new EmployeesLogic();
+            ShippersLogic shippers = new ShippersLogic();
 
-            List<Employees> list = employee.GetAll();
+            List<Shippers> list = shippers.GetAll();
 
             Assert.IsNotNull(list);
         }
