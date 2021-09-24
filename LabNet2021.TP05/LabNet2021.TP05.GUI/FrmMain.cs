@@ -1,15 +1,6 @@
 ﻿using LabNet2021.TP05.GUI.Extensions;
-using LabNet2021.TP05.Logic.Clases;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LabNet2021.TP05.GUI
 {
@@ -44,6 +35,13 @@ namespace LabNet2021.TP05.GUI
         private void btnQuery3_Click(object sender, EventArgs e)
         {            
             lbQuery.Text = "3. Query para devolver todos los productos que tienen stock y que cuestan más de 3 por unidad";
+            dgvData.DataSource = data.QueryThree();
+            dgvData.RemoveEmptyColumns();
+        }
+
+        private void btnQuery4_Click(object sender, EventArgs e)
+        {
+            lbQuery.Text = "4. Query para devolver todos los customers de la Región WA";
             dgvData.DataSource = data.QueryThree();
             dgvData.RemoveEmptyColumns();
         }

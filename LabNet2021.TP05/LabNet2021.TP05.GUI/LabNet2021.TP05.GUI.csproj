@@ -115,7 +115,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LabNet2021.TP04.Data\LabNet2021.TP05.Data.csproj">
+    <ProjectReference Include="..\LabNet2021.TP05.Data\LabNet2021.TP05.Data.csproj">
       <Project>{71B4E5EC-9CFC-4B2D-A075-5E7D794DABC4}</Project>
       <Name>LabNet2021.TP05.Data</Name>
     </ProjectReference>

@@ -34,6 +34,7 @@ namespace LabNet2021.TP05.GUI
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnQuery2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnQuery3 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery4 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,11 +116,28 @@ namespace LabNet2021.TP05.GUI
             this.btnQuery3.UseVisualStyleBackColor = true;
             this.btnQuery3.Click += new System.EventHandler(this.btnQuery3_Click);
             // 
+            // btnQuery4
+            // 
+            this.btnQuery4.AutoSize = true;
+            this.btnQuery4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery4.Depth = 0;
+            this.btnQuery4.Icon = null;
+            this.btnQuery4.Location = new System.Drawing.Point(270, 381);
+            this.btnQuery4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery4.Name = "btnQuery4";
+            this.btnQuery4.Primary = true;
+            this.btnQuery4.Size = new System.Drawing.Size(75, 36);
+            this.btnQuery4.TabIndex = 6;
+            this.btnQuery4.Text = "QUERY 4";
+            this.btnQuery4.UseVisualStyleBackColor = true;
+            this.btnQuery4.Click += new System.EventHandler(this.btnQuery4_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 521);
+            this.Controls.Add(this.btnQuery4);
             this.Controls.Add(this.btnQuery3);
             this.Controls.Add(this.btnQuery2);
             this.Controls.Add(this.dgvData);
@@ -140,5 +158,6 @@ namespace LabNet2021.TP05.GUI
         private System.Windows.Forms.DataGridView dgvData;
         private MaterialSkin.Controls.MaterialRaisedButton btnQuery2;
         private MaterialSkin.Controls.MaterialRaisedButton btnQuery3;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery4;
     }
 }
