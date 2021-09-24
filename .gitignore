@@ -348,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/LabNet2021.HelloWorld
+/LabNet2021.TP01
+/LabNet2021.TP02
+/LabNet2021.TP04
+/LabNet2021.TP03
