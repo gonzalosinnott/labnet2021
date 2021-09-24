@@ -9,11 +9,11 @@ namespace LabNet2021.TP05.Logic.Clases
 {
     public class BaseDbClasesLogic
     {
-        protected readonly NorthwindContext context;
+        protected readonly NorthwindConnection context;
 
         public BaseDbClasesLogic()
         {
-            context = new NorthwindContext();
+            context = new NorthwindConnection();
         }
     }
 }

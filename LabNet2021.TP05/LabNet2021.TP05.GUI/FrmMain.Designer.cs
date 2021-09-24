@@ -35,6 +35,15 @@ namespace LabNet2021.TP05.GUI
             this.btnQuery2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnQuery3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnQuery4 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery5 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery6 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery7 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery8 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery9 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery10 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery11 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery12 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnQuery13 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +90,7 @@ namespace LabNet2021.TP05.GUI
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.RowHeadersVisible = false;
-            this.dgvData.Size = new System.Drawing.Size(1125, 267);
+            this.dgvData.Size = new System.Drawing.Size(927, 267);
             this.dgvData.TabIndex = 3;
             // 
             // btnQuery2
@@ -132,11 +141,164 @@ namespace LabNet2021.TP05.GUI
             this.btnQuery4.UseVisualStyleBackColor = true;
             this.btnQuery4.Click += new System.EventHandler(this.btnQuery4_Click);
             // 
+            // btnQuery5
+            // 
+            this.btnQuery5.AutoSize = true;
+            this.btnQuery5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery5.Depth = 0;
+            this.btnQuery5.Icon = null;
+            this.btnQuery5.Location = new System.Drawing.Point(351, 381);
+            this.btnQuery5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery5.Name = "btnQuery5";
+            this.btnQuery5.Primary = true;
+            this.btnQuery5.Size = new System.Drawing.Size(75, 36);
+            this.btnQuery5.TabIndex = 7;
+            this.btnQuery5.Text = "QUERY 5";
+            this.btnQuery5.UseVisualStyleBackColor = true;
+            this.btnQuery5.Click += new System.EventHandler(this.btnQuery5_Click);
+            // 
+            // btnQuery6
+            // 
+            this.btnQuery6.AutoSize = true;
+            this.btnQuery6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery6.Depth = 0;
+            this.btnQuery6.Icon = null;
+            this.btnQuery6.Location = new System.Drawing.Point(432, 381);
+            this.btnQuery6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery6.Name = "btnQuery6";
+            this.btnQuery6.Primary = true;
+            this.btnQuery6.Size = new System.Drawing.Size(75, 36);
+            this.btnQuery6.TabIndex = 8;
+            this.btnQuery6.Text = "QUERY 6";
+            this.btnQuery6.UseVisualStyleBackColor = true;
+            this.btnQuery6.Click += new System.EventHandler(this.btnQuery6_Click);
+            // 
+            // btnQuery7
+            // 
+            this.btnQuery7.AutoSize = true;
+            this.btnQuery7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery7.Depth = 0;
+            this.btnQuery7.Icon = null;
+            this.btnQuery7.Location = new System.Drawing.Point(513, 381);
+            this.btnQuery7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery7.Name = "btnQuery7";
+            this.btnQuery7.Primary = true;
+            this.btnQuery7.Size = new System.Drawing.Size(75, 36);
+            this.btnQuery7.TabIndex = 9;
+            this.btnQuery7.Text = "QUERY 7";
+            this.btnQuery7.UseVisualStyleBackColor = true;
+            this.btnQuery7.Click += new System.EventHandler(this.btnQuery7_Click);
+            // 
+            // btnQuery8
+            // 
+            this.btnQuery8.AutoSize = true;
+            this.btnQuery8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery8.Depth = 0;
+            this.btnQuery8.Icon = null;
+            this.btnQuery8.Location = new System.Drawing.Point(27, 423);
+            this.btnQuery8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery8.Name = "btnQuery8";
+            this.btnQuery8.Primary = true;
+            this.btnQuery8.Size = new System.Drawing.Size(75, 36);
+            this.btnQuery8.TabIndex = 10;
+            this.btnQuery8.Text = "QUERY 8";
+            this.btnQuery8.UseVisualStyleBackColor = true;
+            this.btnQuery8.Click += new System.EventHandler(this.btnQuery8_Click);
+            // 
+            // btnQuery9
+            // 
+            this.btnQuery9.AutoSize = true;
+            this.btnQuery9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery9.Depth = 0;
+            this.btnQuery9.Icon = null;
+            this.btnQuery9.Location = new System.Drawing.Point(108, 423);
+            this.btnQuery9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery9.Name = "btnQuery9";
+            this.btnQuery9.Primary = true;
+            this.btnQuery9.Size = new System.Drawing.Size(75, 36);
+            this.btnQuery9.TabIndex = 11;
+            this.btnQuery9.Text = "QUERY 9";
+            this.btnQuery9.UseVisualStyleBackColor = true;
+            this.btnQuery9.Click += new System.EventHandler(this.btnQuery9_Click);
+            // 
+            // btnQuery10
+            // 
+            this.btnQuery10.AutoSize = true;
+            this.btnQuery10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery10.Depth = 0;
+            this.btnQuery10.Icon = null;
+            this.btnQuery10.Location = new System.Drawing.Point(189, 423);
+            this.btnQuery10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery10.Name = "btnQuery10";
+            this.btnQuery10.Primary = true;
+            this.btnQuery10.Size = new System.Drawing.Size(83, 36);
+            this.btnQuery10.TabIndex = 12;
+            this.btnQuery10.Text = "QUERY 10";
+            this.btnQuery10.UseVisualStyleBackColor = true;
+            this.btnQuery10.Click += new System.EventHandler(this.btnQuery10_Click);
+            // 
+            // btnQuery11
+            // 
+            this.btnQuery11.AutoSize = true;
+            this.btnQuery11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery11.Depth = 0;
+            this.btnQuery11.Icon = null;
+            this.btnQuery11.Location = new System.Drawing.Point(278, 423);
+            this.btnQuery11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery11.Name = "btnQuery11";
+            this.btnQuery11.Primary = true;
+            this.btnQuery11.Size = new System.Drawing.Size(83, 36);
+            this.btnQuery11.TabIndex = 13;
+            this.btnQuery11.Text = "QUERY 11";
+            this.btnQuery11.UseVisualStyleBackColor = true;
+            this.btnQuery11.Click += new System.EventHandler(this.btnQuery11_Click);
+            // 
+            // btnQuery12
+            // 
+            this.btnQuery12.AutoSize = true;
+            this.btnQuery12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery12.Depth = 0;
+            this.btnQuery12.Icon = null;
+            this.btnQuery12.Location = new System.Drawing.Point(367, 423);
+            this.btnQuery12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery12.Name = "btnQuery12";
+            this.btnQuery12.Primary = true;
+            this.btnQuery12.Size = new System.Drawing.Size(83, 36);
+            this.btnQuery12.TabIndex = 14;
+            this.btnQuery12.Text = "QUERY 12";
+            this.btnQuery12.UseVisualStyleBackColor = true;
+            this.btnQuery12.Click += new System.EventHandler(this.btnQuery12_Click);
+            // 
+            // btnQuery13
+            // 
+            this.btnQuery13.AutoSize = true;
+            this.btnQuery13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnQuery13.Depth = 0;
+            this.btnQuery13.Icon = null;
+            this.btnQuery13.Location = new System.Drawing.Point(456, 423);
+            this.btnQuery13.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnQuery13.Name = "btnQuery13";
+            this.btnQuery13.Primary = true;
+            this.btnQuery13.Size = new System.Drawing.Size(83, 36);
+            this.btnQuery13.TabIndex = 15;
+            this.btnQuery13.Text = "QUERY 13";
+            this.btnQuery13.UseVisualStyleBackColor = true;
+            this.btnQuery13.Click += new System.EventHandler(this.btnQuery13_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1164, 521);
+            this.ClientSize = new System.Drawing.Size(981, 521);
+            this.Controls.Add(this.btnQuery13);
+            this.Controls.Add(this.btnQuery12);
+            this.Controls.Add(this.btnQuery11);
+            this.Controls.Add(this.btnQuery10);
+            this.Controls.Add(this.btnQuery9);
+            this.Controls.Add(this.btnQuery8);
+            this.Controls.Add(this.btnQuery7);
+            this.Controls.Add(this.btnQuery6);
+            this.Controls.Add(this.btnQuery5);
             this.Controls.Add(this.btnQuery4);
             this.Controls.Add(this.btnQuery3);
             this.Controls.Add(this.btnQuery2);
@@ -144,7 +306,7 @@ namespace LabNet2021.TP05.GUI
             this.Controls.Add(this.lbQuery);
             this.Controls.Add(this.btnQuery1);
             this.Name = "FrmMain";
-            this.Text = "FrmMain";
+            this.Text = "NORTHWIND CUSTOM QUERIES";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
@@ -159,5 +321,14 @@ namespace LabNet2021.TP05.GUI
         private MaterialSkin.Controls.MaterialRaisedButton btnQuery2;
         private MaterialSkin.Controls.MaterialRaisedButton btnQuery3;
         private MaterialSkin.Controls.MaterialRaisedButton btnQuery4;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery5;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery6;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery7;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery8;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery9;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery10;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery11;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery12;
+        private MaterialSkin.Controls.MaterialRaisedButton btnQuery13;
     }
 }

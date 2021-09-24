@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LabNet2021.TP05.Logic.Clases
 {
-    public class CategoriesLogic : BaseDbClasesLogic, ILogic<Categories>
+    public class CategoriesDTO : BaseDbClasesLogic, ILogic<Categories>
     {
         public List<Categories> GetAll()
         {

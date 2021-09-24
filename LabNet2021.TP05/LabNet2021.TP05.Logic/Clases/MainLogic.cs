@@ -10,27 +10,83 @@ namespace LabNet2021.TP05.Logic.Clases
 {
     public class MainLogic
     {
-        CustomersLogic customers = new CustomersLogic();
-        CategoriesLogic categories = new CategoriesLogic();
-        OrdersLogic orders = new OrdersLogic();
-        ProductsLogic products = new ProductsLogic();
-        
+        CustomersDTO customers = new CustomersDTO();
+        CategoriesDTO categories = new CategoriesDTO();
+        OrdersDTO orders = new OrdersDTO();
+        ProductsDTO products = new ProductsDTO();
+
         public List<Customers> QueryOne()
         {
             List<Customers> customer = new List<Customers>();
             customer.Add(customers.ReturnACustomers());
 
-            return customer;            
+            return customer;
         }
 
-        public List<ProductsLogic> QueryTwo()
-        {            
+        public List<ProductsDTO> QueryTwo()
+        {
             return products.ProductsWithNoStock();
         }
 
-        public List<ProductsLogic> QueryThree()
+        public List<ProductsDTO> QueryThree()
         {
             return products.ProductsWithStockAndValueMoreThanThree();
+        }
+
+        public List<CustomersDTO> QueryFour()
+        {
+            return customers.CustomersFromWARegion();
+        }
+
+        public List<Products> QueryFive()
+        {
+            List<Products> product = new List<Products>();
+            product.Add(products.FirstProductWithId789OrNull());
+
+            return product;
+        }
+
+        public List<CustomersDTO> QuerySix()
+        {
+            return customers.CustomersNameInUpperAndLowerCase();
+        }
+
+        public List<OrdersDTO> QuerySeven()
+        {
+            return orders.CustomerRegionWAJoinOrdersDateOver111997();
+        }
+
+        public List<CustomersDTO> QueryEigth()
+        {
+            return customers.FirstThreeCustomersFromWARegion();
+        }
+
+        public List<ProductsDTO> QueryNine()
+        {
+            return products.ProductsByName();
+        }
+
+        public List<ProductsDTO> QueryTen()
+        {
+            return products.ProductsByUnitInStock();
+        }
+
+        public List<ProductsDTO> QueryEleven()
+        {
+            return products.ProductsWithDescription();
+        }
+
+        public List<ProductsDTO> QueryTwelve()
+        {
+            List<ProductsDTO> product = new List<ProductsDTO>();
+            product.Add(products.ReturnFirstProduct());
+
+            return product;
+        }
+
+        public List<CustomersDTO> QueryThirteen()
+        {
+            return customers.CustomersWithAmountOfOrders();
         }
     }
 }

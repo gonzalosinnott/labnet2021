@@ -1,14 +1,15 @@
-using LabNet2021.TP04.Entities;
+using LabNet2021.TP05.Entities;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace LabNet2021.TP04.Data
+namespace LabNet2021.TP05.Data
 {
     public partial class NorthwindConnection : DbContext
     {
-        public NorthwindConnection() : base("name=NorthWindContext")
+        public NorthwindConnection()
+            : base("name=NorthwindConnection")
         {
         }
 

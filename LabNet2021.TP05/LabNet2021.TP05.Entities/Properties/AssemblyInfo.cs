@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LabNet2021.TP04.Entities")]
+[assembly: AssemblyTitle("LabNet2021.TP05.Entities")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LabNet2021.TP04.Entities")]
+[assembly: AssemblyProduct("LabNet2021.TP05.Entities")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("64f0bcf6-cf24-46d3-9027-df58828e77f7")]
+[assembly: Guid("44b41054-4abb-4aa0-8c74-fdca21548b12")]
 
 // Version information for an assembly consists of the following four values:
 //
