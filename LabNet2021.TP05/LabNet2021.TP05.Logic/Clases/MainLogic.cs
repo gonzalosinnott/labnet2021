@@ -11,7 +11,6 @@ namespace LabNet2021.TP05.Logic.Clases
     public class MainLogic
     {
         CustomersDTO customers = new CustomersDTO();
-        CategoriesDTO categories = new CategoriesDTO();
         OrdersDTO orders = new OrdersDTO();
         ProductsDTO products = new ProductsDTO();
 

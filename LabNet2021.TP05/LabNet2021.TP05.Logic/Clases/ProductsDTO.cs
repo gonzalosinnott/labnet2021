@@ -140,7 +140,5 @@ namespace LabNet2021.TP05.Logic.Clases
 
             return query;
         }
-
-
     }
 }

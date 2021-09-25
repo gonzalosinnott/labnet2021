@@ -63,12 +63,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="QueriesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LabNet2021.TP05.Entities\LabNet2021.TP05.Entities.csproj">
+      <Project>{44B41054-4ABB-4AA0-8C74-FDCA21548B12}</Project>
+      <Name>LabNet2021.TP05.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LabNet2021.TP05.Logic\LabNet2021.TP05.Logic.csproj">
+      <Project>{180D72BA-9EB6-4402-BAC0-C1F500B03815}</Project>
+      <Name>LabNet2021.TP05.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
