@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="jQuery.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>LabNet2021.TP06</title>
 </head>
@@ -13,46 +12,47 @@
 <body>
     <div>
         <h1>CONTACTO</h1>
-        <p>COmpleta tus datos</p>
+        <p>Completa tus datos</p>
     </div>  
     
     <br/>
 
-    <div>        
-        <form>
+    <diV>        
+        <form id="form">
             <fieldset>
                 <legend>INFORMACION PERSONAL:</legend>
                 <label for="txtNombre">Nombre</label>
                 <br/>
-                <input id="txtNombre" type="text" placeholder="Ingrese nombre">
+                <input type="text" id="txtNombre" class="name"  placeholder="Ingrese nombre">
                 <br/>
                 <label for="txtApellido">Apellido</label>
                 <br/>
-                <input id="txtApellido" type="apellido"  placeholder="Ingrese password" >
+                <input type="text" id="txtApellido" class="lastName" placeholder="Ingrese apellido" >
                 <br/>
                 <label for="txtEdad">Edad</label>
                 <br/>
-                <input id="txtEdad" type="edad"  placeholder="Ingrese password">
+                <input type="number" id="txtEdad" class="age"   placeholder="Ingrese edad">
                 <br/> 
-                <br/>             
-                <input type="radio" name="sexo" value="Masculino">Masculino
-                <br/>                 
-                <input type="radio" name="sexo" value="Femenino">Femenino
-                <br/>
-                <input type="radio" name="sexo" value="Otro">Otro <br/>
+                <br/>                          
+                <input type="radio" name="sexo" value="Javascript">Masculino <br/>
+                <input type="radio" name="sexo" value="C#">Femenino <br/>
+                <input type="radio" name="sexo" value="Python">Otro <br/>             
             </fieldset>
 
             <fieldset>
                 <legend>INFORMACION ADICIONAL</legend>
                 <label for="txtEmpresa">Empresa</label>
-                <br/>
-                <input id="txtEmpresa" type="Empresa" placeholder="Ingrese empresa">
-            </fieldset>            
+                <br>
+                <input type="text" id="txtEmpresa" class="job"  placeholder="Ingrese empresa">
+            </fieldset>  
+            <br/> 
+            
+            <button type="button" id="submit" class="button">SUBMIT</button>
+
+            <button type="button" id="clean" class="button">LIMPIAR FORMULARIO</button>          
         </form>
-    </div>
-    <div> 
-        <input type="submit" value="SUBMIT">
-    </div>
+    </diV>
+ 
 </body>
 <script src="script.js"></script>
 </html>
