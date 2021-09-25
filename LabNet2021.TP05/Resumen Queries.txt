@@ -17,12 +17,12 @@ public Customers ReturnACustomers()
 public List<ProductsDTO> ProductsWithNoStock()
 {
 	var query = context.Products.Where(p => p.UnitsInStock == 0).Select(p => new ProductsDTO
-																			 {
-																				 ProductID = p.ProductID, 
-																				 ProductName = p.ProductName, 
-																				 UnitsInStock = p.UnitsInStock
-																			 });
-	
+										{
+											ProductID = p.ProductID, 
+											ProductName = p.ProductName, 
+											UnitsInStock = p.UnitsInStock
+										});
+
 	if (query is null)
 	{
 		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
@@ -214,12 +214,12 @@ public List<ProductsDTO> ProductsWithDescription()
 public ProductsDTO ReturnFirstProduct()
 	{
 		var query = context.Products.Select(p => new ProductsDTO
-												{
-													ProductID = p.ProductID,
-													ProductName = p.ProductName,
-													UnitsInStock = p.UnitsInStock,
-													UnitPrice = p.UnitPrice
-												}).FirstOrDefault(); ;
+							{
+								ProductID = p.ProductID,
+								ProductName = p.ProductName,
+								UnitsInStock = p.UnitsInStock,
+								UnitPrice = p.UnitPrice
+							}).FirstOrDefault(); ;
 
 		if (query is null)
 		{
