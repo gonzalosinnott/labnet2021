@@ -19,9 +19,7 @@ namespace LabNet2021.TP05.GUI.Extensions
                 {
                     grdView.Columns[clm.Index].Visible = true;
                 }
-                //// If you don't want to hide button columns
-                //if (clm is DataGridViewButtonColumn)
-                //    continue;
+                
                 foreach (DataGridViewRow row in grdView.Rows)
                 {
                     if (row.Cells[clm.Index].Value == null)
