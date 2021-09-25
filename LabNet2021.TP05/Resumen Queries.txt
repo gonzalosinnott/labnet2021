@@ -1,0 +1,251 @@
+//1. Query para devolver objeto customer
+
+public Customers ReturnACustomers()
+{
+	var query = context.Customers.FirstOrDefault();
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query;
+}
+
+//2. Query para devolver todos los productos sin stock
+
+public List<ProductsDTO> ProductsWithNoStock()
+{
+	var query = context.Products.Where(p => p.UnitsInStock == 0).Select(p => new ProductsDTO
+																			 {
+																				 ProductID = p.ProductID, 
+																				 ProductName = p.ProductName, 
+																				 UnitsInStock = p.UnitsInStock
+																			 });
+	
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+	
+	return query.ToList();
+}      
+		
+//3. Query para devolver todos los productos que tienen stock y que cuestan más de 3 por unidad
+
+public List<ProductsDTO> ProductsWithStockAndValueMoreThanThree()
+{
+	var query = from p in context.Products
+				where p.UnitsInStock > 0 && p.UnitPrice > 3
+				select new ProductsDTO
+				{
+					ProductID = p.ProductID,
+					ProductName = p.ProductName,
+					UnitsInStock = p.UnitsInStock,
+					UnitPrice = p.UnitPrice
+				};
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
+//4. Query para devolver todos los customers de la Región WA
+
+public List<CustomersDTO> CustomersFromWARegion()
+{
+
+	var query = from c in context.Customers
+				where c.Region == "WA"
+				select new CustomersDTO
+				{
+					CompanyName = c.CompanyName,
+					ContactName = c.ContactName,
+					ContactTitle = c.ContactTitle,
+					Address = c.Address,
+					City = c.City,
+					Region = c.Region
+				};
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
+5. Query para devolver el primer elemento o nulo de una lista de productos donde el ID de producto sea igual a 789
+
+public Products FirstProductWithId789OrNull()
+{
+	var query = context.Products.FirstOrDefault(p => p.ProductID == 789);
+	
+	if(query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+	return query;
+}
+
+//6. Query para devolver los nombre de los Customers. Mostrarlos en Mayuscula y en Minuscula.
+
+public List<CustomersDTO> CustomersNameInUpperAndLowerCase()
+{
+	var query = context.Customers.Select(Customers => new CustomersDTO { ContactNameUpper = Customers.ContactName.ToUpper(), ContactNameLower = Customers.ContactName.ToLower() });
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+	return query.ToList();
+}
+
+//7. Query para devolver Join entre Customers y Orders donde los customers sean de la Región WA y la fecha de orden sea mayor a 1/1/1997.
+
+public List<OrdersDTO> CustomerRegionWAJoinOrdersDateOver111997()
+{
+	DateTime date = new DateTime(1997, 01, 01, 0, 00, 0);
+
+	 var query = from o in context.Orders                         
+				 join c in context.Customers
+				 on o.CustomerID equals c.CustomerID
+				 where c.Region == "WA"
+				 where o.OrderDate > date
+				 select new OrdersDTO
+				 {
+					 Customer = c.CompanyName,
+					 CustomerRegion = c.Region,
+					 OrderDate = o.OrderDate                             
+				 };
+	   
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
+//8. Query para devolver los primeros 3 Customers de la Región WA
+
+ public List<CustomersDTO> FirstThreeCustomersFromWARegion()
+        {
+            var query = context.Customers.Select(c => new CustomersDTO 
+                                            {
+                                                CompanyName = c.CompanyName,
+                                                ContactName = c.ContactName,
+                                                ContactTitle = c.ContactTitle,
+                                                Address = c.Address,
+                                                City = c.City,
+                                                Region = c.Region
+                                            }).Where(c => c.Region == "WA").Take(3);
+
+            if (query is null)
+            {
+                throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+            }
+
+            return query.ToList();
+        }
+
+//9. Query para devolver lista de productos ordenados por nombre
+
+public List<ProductsDTO> ProductsByName()
+{
+	var query = context.Products.OrderBy(p => p.ProductName).Select(p => new ProductsDTO { ProductID = p.ProductID, ProductName = p.ProductName});
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
+//10. Query para devolver lista de productos ordenados por unit in stock de mayor a menor.
+
+public List<ProductsDTO> ProductsByUnitInStock()
+{
+	var query = from p in context.Products
+				orderby p.UnitsInStock descending
+				select new ProductsDTO
+				{
+					ProductID = p.ProductID,
+					ProductName = p.ProductName,
+					UnitsInStock = p.UnitsInStock,
+				};
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
+//11. Query para devolver las distintas categorías asociadas a los productos
+
+public List<ProductsDTO> ProductsWithDescription()
+{
+   var query = from p in context.Products
+				join c in context.Categories
+				on p.CategoryID equals c.CategoryID
+				select new ProductsDTO
+				{
+					ProductID = p.ProductID,
+					ProductName = p.ProductName,
+					CategoryName = c.CategoryName,
+					CategoryDescription = c.Description
+				};
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
+//12. Query para devolver el primer elemento de una lista de productos.
+
+public ProductsDTO ReturnFirstProduct()
+	{
+		var query = context.Products.Select(p => new ProductsDTO
+												{
+													ProductID = p.ProductID,
+													ProductName = p.ProductName,
+													UnitsInStock = p.UnitsInStock,
+													UnitPrice = p.UnitPrice
+												}).FirstOrDefault(); ;
+
+		if (query is null)
+		{
+			throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+		}
+
+		return query;
+	}
+
+
+13. Query para devolver los customer con la cantidad de ordenes asociadas.
+
+public List<CustomersDTO> CustomersWithAmountOfOrders()
+{
+	var query = from c in context.Customers
+				select new CustomersDTO
+				{
+					CompanyName = c.CompanyName,
+					OrderAmount = context.Orders.Where(o => o.CustomerID == c.CustomerID).Count().ToString()
+				};
+
+	if (query is null)
+	{
+		throw new CustomException(" NO EXISTEN REGISTROS QUE CUMPLAN LA CONDICION ESPECIFICADA");
+	}
+
+	return query.ToList();
+}
+
