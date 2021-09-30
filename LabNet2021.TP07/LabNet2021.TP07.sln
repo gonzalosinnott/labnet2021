@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2021.TP04.Entities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2021.TP04.Tests", "LabNet2021.TP04.Tests\LabNet2021.TP04.Tests.csproj", "{F9E6A8EE-EB73-4FDE-B1EE-BED7F0295A12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2021.TP07.MVC", "LabNet2021.TP07.MVC\LabNet2021.TP07.MVC.csproj", "{F1E8B03C-6AAF-432E-B212-7F48718A0996}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F9E6A8EE-EB73-4FDE-B1EE-BED7F0295A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9E6A8EE-EB73-4FDE-B1EE-BED7F0295A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9E6A8EE-EB73-4FDE-B1EE-BED7F0295A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E8B03C-6AAF-432E-B212-7F48718A0996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E8B03C-6AAF-432E-B212-7F48718A0996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E8B03C-6AAF-432E-B212-7F48718A0996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E8B03C-6AAF-432E-B212-7F48718A0996}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
