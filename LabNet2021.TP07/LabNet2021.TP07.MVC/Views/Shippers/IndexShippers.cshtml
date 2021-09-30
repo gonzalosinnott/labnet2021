@@ -1,0 +1,38 @@
+﻿@model List<LabNet2021.TP07.MVC.Models.ShippersView>
+
+@{
+    ViewBag.Title = "Shippers Page";
+}
+
+<div class="container-fluid">
+
+    <div>
+        <h1 class="text-info">
+            DISTRIBUIDORES
+        </h1>
+    </div>
+
+    <a class="btn btn-info" onclick="location.href='@Url.Action("Insert")'">CARGAR NUEVO DISTRIBUIDOR</a>
+
+    <div class="border p-2">
+        <table class="table table-hover table-responsive table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">SHIPPER ID</th>
+                    <th scope="col">COMPANY NAME</th>
+                    <th scope="col">PHONE</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var shipper in Model)
+                {
+                    <tr>
+                        <th scope="row">@shipper.ShipperID</th>
+                        <td>@shipper.CompanyName</td>
+                        <td>@shipper.Phone</td>                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

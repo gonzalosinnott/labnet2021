@@ -2,6 +2,38 @@
     ViewBag.Title = "Insert Orders Page";
 }
 
-<h1>INGRESE UNA NUEVA ORDEN</h1>
+@using (Html.BeginForm("Insert", "Orders", FormMethod.Post))
+{
+    <h2>CARGAR ORDEN</h2>
 
+    <table class="table table-responsive table-sm">
+        <tbody>
+            <tr>
+                <td><label>FECHA DE ENVIO</label></td>
+                <td><input type="date" name="shippedDate" style="width: 200px;"></td>
+            </tr>
+            <tr>
+                <td><label>NOMBRE DEL DISTRIBUIDOR </label></td>
+                <td><input type="text" required name="shipperId" style="width: 200px;" placeholder="Ingrese ID del transporte"></td>
+            </tr>
+            <tr>
+                <td><label>NOMBRE DEL TRANSPORTE</label></td>
+                <td><input type="text" name="shipName" style="width: 200px;" placeholder="Ingrese nombre del transporte" required></td>
+            </tr>
+            <tr>
+                <td><label>DIRECCION</label></td>
+                <td><input type="text" name="address" style="width: 200px;" placeholder="Ingrese direccion de envio" required></td>
+            </tr>
+            <tr>
+                <td><label>CIUDAD</label></td>
+                <td><input type="text" name="city" style="width: 200px;" placeholder="Ingrese ciudad de envio" required></td>
+            </tr>
+            <tr>
+                <td><label>PAIS</label></td>
+                <td><input type="text" name="COUNTRY" style="width: 200px;" placeholder="Ingrese pais de envio" required></td>
+            </tr>
+        </tbody>
+    </table>
 
+    <input type="submit" class="btn btn-success" value="Guardar">
+}

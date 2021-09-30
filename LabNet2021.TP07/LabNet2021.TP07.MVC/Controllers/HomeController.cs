@@ -13,18 +13,15 @@ namespace LabNet2021.TP07.MVC.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult IndexShippers()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View("IndexShippers");
         }
 
-        public ActionResult Contact()
+        public ActionResult IndexOrders()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("IndexOrders");
         }
+
     }
 }

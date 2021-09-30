@@ -12,10 +12,11 @@ namespace LabNet2021.TP07.MVC.Controllers
 {
     public class OrdersController : Controller
     {
+        OrdersLogic ordersLogic = new OrdersLogic();
+
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult IndexOrders()
         {
-            var ordersLogic = new OrdersLogic();
             var shippersLogic = new ShippersLogic();
 
             List<Orders> orders = ordersLogic.GetAll();
@@ -44,6 +45,33 @@ namespace LabNet2021.TP07.MVC.Controllers
             return View("InsertOrder");
         }
 
+        [HttpPost]
+        public ActionResult Insert(DateTime shippedDate, int shipperId, string shipName, string address, string city, string country)
+        {
+            try
+            {
+                Orders orderEntity = new Orders
+                {
+                    OrderID = ordersLogic.GetMaxId(),
+                    ShippedDate = shippedDate,
+                    ShipVia = shipperId,
+                    ShipName = shipName,
+                    ShipAddress = address,
+                    ShipCity = city,
+                    ShipCountry = country
+                };
 
+                ordersLogic.Add(orderEntity);
+
+                return RedirectToAction("IndexOrders", "Orders");
+
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+        }
+
+        
     }
 }
