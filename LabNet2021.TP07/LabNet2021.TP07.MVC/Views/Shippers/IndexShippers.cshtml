@@ -15,10 +15,10 @@
     <a class="btn btn-info" onclick="location.href='@Url.Action("Insert")'">CARGAR NUEVO DISTRIBUIDOR</a>
 
     <br />
+    <br />  
     <br />
-  
     <br />
-    <br />
+
     <div class="border p-2">
         <table class="table table-hover table-responsive table-sm">
             <thead>
@@ -36,8 +36,8 @@
                     <th scope="row">@shipper.ShipperID</th>
                     <td>@shipper.CompanyName</td>
                     <td>@shipper.Phone</td>
+                    <td>@Html.ActionLink("EDITAR", "EditView", new { id = shipper.ShipperID }, new { @class = "btn btn-success", onclick = "return confirm('¿DESEA MODIFICAR ESTE DISTRIBUIDOR?')" })</td>
                     <td>@Html.ActionLink("BORRAR", "Delete", new { id = shipper.ShipperID }, new { @class = "btn btn-danger", onclick = "return confirm('¿DESEA ELIMINAR ESTE DISTRIBUIDOR?')" })</td>
-                    <td>@Html.ActionLink("EDITAR", "EditView", new { id = shipper.ShipperID}, new { @class = "btn btn-success", onclick = "return confirm('¿DESEA MODIFICAR ESTE DISTRIBUIDOR?')" })</td>
                 </tr>
                 }
             </tbody>            

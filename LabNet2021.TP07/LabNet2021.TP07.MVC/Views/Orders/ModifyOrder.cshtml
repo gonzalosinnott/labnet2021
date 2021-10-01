@@ -1,16 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Insert Orders Page";
+    ViewBag.Title = "Modify Orders Page";
 }
 
-@using (Html.BeginForm("Insert", "Orders", FormMethod.Post))
+@using (Html.BeginForm("EditConfirm", "Orders", new { id = @ViewBag.ID }, FormMethod.Post))
 {
-    <h2>CARGAR ORDEN</h2>
+    <h2>MODIFICAR ORDEN</h2>
 
     <table class="table table-responsive table-sm">
         <tbody>
             <tr>
+                <td><label>ID DE LA ORDEN </label></td>
+                <td><p name="id">@ViewBag.ID</p></td>
+            </tr>
+            <tr>
                 <td><label>FECHA DE ENVIO</label></td>
-                <td><input type="date" name="shippedDate" style="width: 200px;"></td>
+                <td><input type="date" name="shippedDate" value="@ViewBag.ShippedDate" style="width: 200px;"></td>
             </tr>
             <tr>
                 <td><label>NOMBRE DEL DISTRIBUIDOR </label></td>
@@ -18,19 +22,19 @@
             </tr>
             <tr>
                 <td><label>NOMBRE DEL TRANSPORTE</label></td>
-                <td><input type="text" name="shipName" style="width: 200px;" placeholder="Ingrese nombre del transporte" required></td>
+                <td><input type="text" name="shipName" value="@ViewBag.ShipName" style="width: 200px;" required></td>
             </tr>
             <tr>
                 <td><label>DIRECCION</label></td>
-                <td><input type="text" name="address" style="width: 200px;" placeholder="Ingrese direccion de envio" required></td>
+                <td><input type="text" name="address" value="@ViewBag.Address" style="width: 200px;" required></td>
             </tr>
             <tr>
                 <td><label>CIUDAD</label></td>
-                <td><input type="text" name="city" style="width: 200px;" placeholder="Ingrese ciudad de envio" required></td>
+                <td><input type="text" name="city" value="@ViewBag.City" style="width: 200px;" required></td>
             </tr>
             <tr>
                 <td><label>PAIS</label></td>
-                <td><input type="text" name="country" style="width: 200px;" placeholder="Ingrese pais de envio" required></td>
+                <td><input type="text" name="country" value="@ViewBag.Country" style="width: 200px;" required></td>
             </tr>
         </tbody>
     </table>
@@ -38,5 +42,3 @@
     <input type="submit" class="btn btn-success" value="Guardar">
     <a class="btn btn-warning" onclick="location.href='@Url.Action("IndexOrders")'">CANCELAR</a>
 }
-
-

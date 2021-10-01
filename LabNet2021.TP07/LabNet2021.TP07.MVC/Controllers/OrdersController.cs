@@ -60,18 +60,7 @@ namespace LabNet2021.TP07.MVC.Controllers
         {
             try
             {
-                Orders orderEntity = new Orders
-                {
-                    OrderID = ordersLogic.GetMaxId(),
-                    ShippedDate = shippedDate,
-                    ShipVia = CompanyName,
-                    ShipName = shipName,
-                    ShipAddress = address,
-                    ShipCity = city,
-                    ShipCountry = country
-                };
-
-                ordersLogic.Add(orderEntity);
+               ordersLogic.Add(ordersLogic.UpdateOrAddOrdersData(ordersLogic.GetMaxId(), shippedDate, CompanyName, shipName, address, city, country));
 
                 return RedirectToAction("IndexOrders", "Orders");
 
@@ -101,22 +90,35 @@ namespace LabNet2021.TP07.MVC.Controllers
         public ActionResult EditView(int id)
         {
             Orders auxShipper = ordersLogic.ReturnDataById(id);
+            
+
+            var shippersLogic = new ShippersLogic();
+            List<Shippers> shippers = shippersLogic.GetAll();
+
+            IEnumerable<SelectListItem> items = shippers.Select(s => new SelectListItem
+            {
+                Value = s.ShipperID.ToString(),
+                Text = s.CompanyName
+            });
 
             ViewBag.ID = auxShipper.OrderID;
-            ViewBag.CompanyName = auxShipper.CompanyName;
-            ViewBag.Phone = auxShipper.Phone;
+            ViewBag.ShippedDate = auxShipper.ShippedDate;
+            ViewBag.ShipName = auxShipper.ShipName;
+            ViewBag.CompanyName = items;
+            ViewBag.Address = auxShipper.ShipAddress;
+            ViewBag.City = auxShipper.ShipCity;
+            ViewBag.Country = auxShipper.ShipCountry;
 
-
-            return View("ModifyShipper");
+            return View("ModifyOrder");
         }
 
         [HttpPost]
-        public ActionResult EditConfirm(int id, string companyname, string phone)
+        public ActionResult EditConfirm(int id, DateTime shippedDate, int CompanyName, string shipName, string address, string city, string country)
         {
             try
             {
-                shippersLogic.Update(shippersLogic.UpdateOrAddShippersData(id, companyname, phone));
-                return RedirectToAction("IndexShippers");
+                ordersLogic.Update(ordersLogic.UpdateOrAddOrdersData(id, shippedDate, CompanyName, shipName, address, city, country));
+                return RedirectToAction("IndexOrders");
             }
             catch (Exception ex)
             {
