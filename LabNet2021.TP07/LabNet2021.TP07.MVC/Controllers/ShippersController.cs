@@ -61,7 +61,7 @@ namespace LabNet2021.TP07.MVC.Controllers
                 return View("Error");
             }
 
-            
+
         }
 
         public ActionResult EditView(int id)
