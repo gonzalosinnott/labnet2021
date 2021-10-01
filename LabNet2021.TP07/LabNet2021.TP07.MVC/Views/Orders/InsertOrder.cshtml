@@ -14,7 +14,11 @@
             </tr>
             <tr>
                 <td><label>NOMBRE DEL DISTRIBUIDOR </label></td>
-                <td><input type="text" required name="shipperId" style="width: 200px;" placeholder="Ingrese ID del transporte"></td>
+                <td>@Html.DropDownList("CompanyName", "ELIGA UN DISTRIBUIDOR")</td>
+                <td>
+                    <select name="dropdownValue">
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td><label>NOMBRE DEL TRANSPORTE</label></td>
@@ -37,3 +41,5 @@
 
     <input type="submit" class="btn btn-success" value="Guardar">
 }
+
+

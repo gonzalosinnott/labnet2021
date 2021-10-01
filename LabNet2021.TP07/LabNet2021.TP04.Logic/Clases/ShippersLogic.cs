@@ -38,7 +38,7 @@ namespace LabNet2021.TP04.Logic
             }
         }
 
-        private bool CheckName(string name)
+        public bool CheckName(string name)
         {
             ShippersLogic auxShippers = new ShippersLogic();
             List<Shippers> auxList = auxShippers.GetAll();

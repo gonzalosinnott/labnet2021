@@ -47,7 +47,7 @@ namespace LabNet2021.TP07.MVC.Controllers
 
                 shippersLogic.Add(shipperEntity);
 
-                return RedirectToAction("IndexShippers", "Shippers");
+                return RedirectToAction("IndexShippers");
             }
             catch (Exception ex)
             {

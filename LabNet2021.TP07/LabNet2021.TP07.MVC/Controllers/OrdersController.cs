@@ -42,11 +42,20 @@ namespace LabNet2021.TP07.MVC.Controllers
 
         public ActionResult Insert()
         {
+            var shippersLogic = new ShippersLogic();
+            List<Shippers> shippers = shippersLogic.GetAll();
+            IEnumerable<SelectListItem> items = shippers.Select(s => new SelectListItem
+            {
+                Value = s.ShipperID.ToString(),
+                Text = s.CompanyName
+            });
+            ViewBag.CompanyName = items;
+
             return View("InsertOrder");
         }
 
         [HttpPost]
-        public ActionResult Insert(DateTime shippedDate, int shipperId, string shipName, string address, string city, string country)
+        public ActionResult Insert(DateTime shippedDate, int CompanyName, string shipName, string address, string city, string country)
         {
             try
             {
@@ -54,7 +63,7 @@ namespace LabNet2021.TP07.MVC.Controllers
                 {
                     OrderID = ordersLogic.GetMaxId(),
                     ShippedDate = shippedDate,
-                    ShipVia = shipperId,
+                    ShipVia = CompanyName,
                     ShipName = shipName,
                     ShipAddress = address,
                     ShipCity = city,

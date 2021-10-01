@@ -14,5 +14,6 @@ namespace LabNet2021.TP07.MVC.Models
         public string Address { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+
     }
 }
