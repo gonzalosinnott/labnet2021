@@ -29,14 +29,16 @@
 <body>
     <main>
         <div>
-            <h1>ALGO SALIO MAL</h1>
+            <h1 class="text-center">ALGO SALIO MAL</h1>
+            <p>@ViewBag.Error</p>
         </div>
-        <p>
-            <a href="/">Return to Homepage</a>
-        </p>
         <div>
             <img src="~/assets/404error.png" alt="image">
         </div>
+        <p>
+            <a class="btn btn-info" onclick="location.href='@Url.Action("IndexoRDERS")'">REGRESAR A ORDENES</a>
+        </p>
+
     </main>
 </body>
 </html>

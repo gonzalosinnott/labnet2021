@@ -43,7 +43,8 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index" , "Error");
+                ViewBag.Error = ex.Message;
+                return View("Error");
             }
         }
 
@@ -54,10 +55,13 @@ namespace LabNet2021.TP07.MVC.Controllers
                 shippersLogic.Delete(id);
                 return RedirectToAction("IndexShippers");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return RedirectToAction("Index", "Error");
+                ViewBag.Error = ex.Message;
+                return View("Error");
             }
+
+            
         }
 
         public ActionResult EditView(int id)
@@ -67,7 +71,6 @@ namespace LabNet2021.TP07.MVC.Controllers
             ViewBag.ID = auxShipper.ShipperID;
             ViewBag.CompanyName = auxShipper.CompanyName;
             ViewBag.Phone = auxShipper.Phone;
-
             
             return View("ModifyShipper");
         }
@@ -82,7 +85,8 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Error");
+                ViewBag.Error = ex.Message;
+                return View("Error");
             }
         }
     }

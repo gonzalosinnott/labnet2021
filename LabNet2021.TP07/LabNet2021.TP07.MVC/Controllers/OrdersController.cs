@@ -67,7 +67,8 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Error");
+                ViewBag.Error = ex.Message;
+                return View("Error");
             }
         }
 
@@ -83,7 +84,8 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Error");
+                ViewBag.Error = ex.Message;
+                return View("Error");
             }
         }
 
@@ -122,10 +124,8 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Error");
+                ViewBag.Error = ex.Message;
+                return View("Error");
             }
-        }
-
-
-    }
+        }    }
 }
