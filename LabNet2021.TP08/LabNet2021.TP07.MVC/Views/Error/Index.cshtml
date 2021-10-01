@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        img {
+            display: block;
+            width: 300vw;
+            height: 35vw;
+            max-width: 100%;
+            min-width: 100px;
+            min-height: 100px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="~/assets/error.png" alt="image">
+        <p class="text-center">@ViewBag.Error</p>
+        <p><a class="btn btn-info center-block" onclick="location.href='@Url.Action("IndexShippers")'">REGRESAR A DISTRIBUIDORES</a></p>
+    </main>
+</body>
+</html>

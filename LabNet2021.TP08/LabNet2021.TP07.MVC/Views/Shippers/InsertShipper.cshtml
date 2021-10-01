@@ -1,0 +1,36 @@
+﻿@model LabNet2021.TP07.MVC.Models.ShippersView
+
+@{
+    ViewBag.Title = "Insert Orders Page";
+}
+
+@using (Html.BeginForm("Insert", "Shippers", FormMethod.Post))
+{
+    <h2>CARGAR DISTRIBUIDOR</h2>
+
+    <table class="table table-responsive table-sm">
+        <tbody>
+            <tr>
+                <td>@Html.LabelFor(s => s.CompanyName)</td>
+                <td>@Html.TextBoxFor(s => s.CompanyName, null, new { @class = "form-control", name = "companyName", placeholder = "Ingrese nombre del Ditribuidor" })</td>
+                <td>@Html.ValidationMessageFor(s => s.CompanyName, null, new { @class = "text-danger" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(s => s.Phone)</td>
+                <td>@Html.TextBoxFor(s => s.Phone, null, new { @class = "form-control", name = "phone", placeholder = "Ingrese telefono del Ditribuidor" })</td>
+                <td>@Html.ValidationMessageFor(s => s.Phone, null, new { @class = "text-danger" })</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="submit" class="btn btn-success" value="GUARDAR">
+    <a class="btn btn-warning" onclick="location.href='@Url.Action("IndexShippers")'">CANCELAR</a>
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+

@@ -1,0 +1,55 @@
+﻿@model List<LabNet2021.TP07.MVC.Models.OrdersView>
+
+@{
+    ViewBag.Title = "Orders Page";
+}
+
+<div class="container-fluid">
+
+    <div>
+        <h1 class="text-info">
+            ORDENES
+        </h1>
+    </div>
+
+    <a class="btn btn-info" onclick="location.href='@Url.Action("Insert")'">CARGAR NUEVA ORDEN</a>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="border p-2">
+        <table class="table table-hover table-responsive table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">FECHA DE ENVIO</th>
+                    <th scope="col">DISTRIBUIDOR</th>
+                    <th scope="col">DESTINATARIO</th>
+                    <th scope="col">DIRECCION DE ENVIO</th>
+                    <th scope="col">CIUDAD</th>
+                    <th scope="col">PAIS</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <th scope="row">@order.Id</th>
+                        <td>@order.ShippedDate</td>
+                        <td>@order.ShipVia</td>
+                        <td>@order.ShipName</td>
+                        <td>@order.Address</td>
+                        <td>@order.City</td>
+                        <td>@order.Country</td>
+                        <td>@Html.ActionLink("EDITAR", "EditView", new { id = order.Id }, new { @class = "btn btn-success", onclick = "return confirm('¿DESEA MODIFICAR ESTA ORDEN?')" })</td>
+                        <td>@Html.ActionLink("BORRAR", "Delete", new { id = order.Id }, new { @class = "btn btn-danger", onclick = "return confirm('¿DESEA ELIMINAR ESTA ORDEN?')" })</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

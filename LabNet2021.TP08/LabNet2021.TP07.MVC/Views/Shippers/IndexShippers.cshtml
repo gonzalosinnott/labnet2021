@@ -1,0 +1,46 @@
+﻿@model List<LabNet2021.TP07.MVC.Models.ShippersView>
+
+@{
+    ViewBag.Title = "Shippers Page";
+}
+
+<div class="container-fluid">
+
+    <div>
+        <h1 class="text-info">
+            DISTRIBUIDORES
+        </h1>
+    </div>
+
+    <a class="btn btn-info" onclick="location.href='@Url.Action("Insert")'">CARGAR NUEVO DISTRIBUIDOR</a>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="border p-2">
+        <table class="table table-hover table-responsive table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE DEL DISTRIBUIDOR</th>
+                    <th scope="col">TELEFONO</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var shipper in Model)
+                {
+                <tr>
+                    <th scope="row">@shipper.ShipperID</th>
+                    <td>@shipper.CompanyName</td>
+                    <td>@shipper.Phone</td>
+                    <td>@Html.ActionLink("EDITAR", "EditView", new { id = shipper.ShipperID }, new { @class = "btn btn-success", onclick = "return confirm('¿DESEA MODIFICAR ESTE DISTRIBUIDOR?')" })</td>
+                    <td>@Html.ActionLink("BORRAR", "Delete", new { id = shipper.ShipperID }, new { @class = "btn btn-danger", onclick = "return confirm('¿DESEA ELIMINAR ESTE DISTRIBUIDOR?')" })</td>
+                </tr>
+                }
+            </tbody>            
+        </table>       
+    </div>
+</div>
