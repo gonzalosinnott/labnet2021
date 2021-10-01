@@ -1,5 +1,4 @@
 ﻿using LabNet2021.TP04.Entities;
-using LabNet2021.TP04.Logic.Clases;
 using LabNet2021.TP04.Logic.Exceptions;
 using System;
 using System.Collections.Generic;
