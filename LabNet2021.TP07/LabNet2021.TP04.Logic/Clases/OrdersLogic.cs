@@ -50,6 +50,12 @@ namespace LabNet2021.TP04.Logic
             context.SaveChanges();
         }
 
+        public Orders ReturnDataById(int id)
+        {
+            var auxOrder = context.Orders.SingleOrDefault(x => x.OrderID == id);
+            return auxOrder;
+        }
+
         public void Delete(int id)
         {
             try

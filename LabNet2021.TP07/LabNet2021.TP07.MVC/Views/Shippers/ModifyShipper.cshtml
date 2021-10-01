@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Modify Orders Page";
+}
+
+<h2>MODIFICAR DISTRIBUIDOR</h2>
+
+
+@using (Html.BeginForm("EditConfirm", "Shippers", new { id = @ViewBag.ID }, FormMethod.Post))
+{
+    <table class="table table-responsive table-sm">
+        <tbody>
+            <tr>
+                <td><label>ID DEL DISTRIBUIDOR </label></td>
+                <td><p name="id">@ViewBag.ID</p></td>
+            </tr>
+            <tr>
+                <td><label>NOMBRE DEL DISTRIBUIDOR </label></td>
+                <td><input type="text" name="companyName" style="width: 200px;" value="@ViewBag.CompanyName" required></td>
+            </tr>
+            <tr>
+                <td><label>TELEFONO</label></td>
+                <td><input type="text" name="phone" style="width: 200px;" value="@ViewBag.Phone" required></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-success" value="MODIFICAR">
+    <a class="btn btn-warning" onclick="location.href='@Url.Action("IndexShippers")'">CANCELAR</a>
+}
+
+
+

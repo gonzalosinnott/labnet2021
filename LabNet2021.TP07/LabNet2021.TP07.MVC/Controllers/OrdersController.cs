@@ -98,6 +98,32 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
         }
 
+        public ActionResult EditView(int id)
+        {
+            Orders auxShipper = ordersLogic.ReturnDataById(id);
+
+            ViewBag.ID = auxShipper.OrderID;
+            ViewBag.CompanyName = auxShipper.CompanyName;
+            ViewBag.Phone = auxShipper.Phone;
+
+
+            return View("ModifyShipper");
+        }
+
+        [HttpPost]
+        public ActionResult EditConfirm(int id, string companyname, string phone)
+        {
+            try
+            {
+                shippersLogic.Update(shippersLogic.UpdateOrAddShippersData(id, companyname, phone));
+                return RedirectToAction("IndexShippers");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+        }
+
 
     }
 }

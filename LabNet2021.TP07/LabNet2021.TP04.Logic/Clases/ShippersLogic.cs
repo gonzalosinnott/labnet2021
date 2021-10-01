@@ -60,6 +60,12 @@ namespace LabNet2021.TP04.Logic
             return auxOrder.ShipperID;
         }
 
+        public Shippers ReturnDataById(int id)
+        {
+            var auxOrder = context.Shippers.SingleOrDefault(x => x.ShipperID == id);
+            return auxOrder;
+        }
+
         public int GetMaxId()
         {
             int maxId = context.Shippers.Select(x => x.ShipperID).Max();

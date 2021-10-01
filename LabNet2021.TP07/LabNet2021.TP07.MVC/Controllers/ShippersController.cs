@@ -37,16 +37,8 @@ namespace LabNet2021.TP07.MVC.Controllers
         public ActionResult Insert(string companyName, string phone)
         {
             try
-            {
-                Shippers shipperEntity = new Shippers
-                {
-                    ShipperID = shippersLogic.GetMaxId(),
-                    CompanyName = companyName,
-                    Phone = phone,
-                };
-
-                shippersLogic.Add(shipperEntity);
-
+            {                
+                shippersLogic.Add(shippersLogic.UpdateOrAddShippersData(shippersLogic.GetMaxId(),companyName,phone));
                 return RedirectToAction("IndexShippers");
             }
             catch (Exception ex)
@@ -63,6 +55,32 @@ namespace LabNet2021.TP07.MVC.Controllers
                 return RedirectToAction("IndexShippers");
             }
             catch(Exception ex)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+        }
+
+        public ActionResult EditView(int id)
+        {
+            Shippers auxShipper = shippersLogic.ReturnDataById(id);
+
+            ViewBag.ID = auxShipper.ShipperID;
+            ViewBag.CompanyName = auxShipper.CompanyName;
+            ViewBag.Phone = auxShipper.Phone;
+
+            
+            return View("ModifyShipper");
+        }
+
+        [HttpPost]
+        public ActionResult EditConfirm(int id, string companyname, string phone)
+        {
+            try
+            {
+                shippersLogic.Update(shippersLogic.UpdateOrAddShippersData(id, companyname, phone));
+                return RedirectToAction("IndexShippers");
+            }
+            catch (Exception ex)
             {
                 return RedirectToAction("Index", "Error");
             }

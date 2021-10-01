@@ -12,16 +12,5 @@ namespace LabNet2021.TP07.MVC.Controllers
         {
             return View();
         }
-
-        public ActionResult IndexShippers()
-        {
-            return View("IndexShippers");
-        }
-
-        public ActionResult IndexOrders()
-        {
-            return View("IndexOrders");
-        }
-
     }
 }

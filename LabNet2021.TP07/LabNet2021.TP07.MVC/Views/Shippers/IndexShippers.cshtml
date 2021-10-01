@@ -32,14 +32,15 @@
             <tbody>
                 @foreach (var shipper in Model)
                 {
-                    <tr>
-                        <th scope="row">@shipper.ShipperID</th>
-                        <td>@shipper.CompanyName</td>
-                        <td>@shipper.Phone</td>
-                        <td>@Html.ActionLink("BORRAR", "Delete", new { id = shipper.ShipperID }, new { @class="btn btn-danger" , onclick = "return confirm('¿DESEA ELIMINAR ESTE DISTRIBUIDOR?')" })</td>
-                    </tr>
+                <tr>
+                    <th scope="row">@shipper.ShipperID</th>
+                    <td>@shipper.CompanyName</td>
+                    <td>@shipper.Phone</td>
+                    <td>@Html.ActionLink("BORRAR", "Delete", new { id = shipper.ShipperID }, new { @class = "btn btn-danger", onclick = "return confirm('¿DESEA ELIMINAR ESTE DISTRIBUIDOR?')" })</td>
+                    <td>@Html.ActionLink("EDITAR", "EditView", new { id = shipper.ShipperID}, new { @class = "btn btn-success", onclick = "return confirm('¿DESEA MODIFICAR ESTE DISTRIBUIDOR?')" })</td>
+                </tr>
                 }
-            </tbody>
-        </table>
+            </tbody>            
+        </table>       
     </div>
 </div>
