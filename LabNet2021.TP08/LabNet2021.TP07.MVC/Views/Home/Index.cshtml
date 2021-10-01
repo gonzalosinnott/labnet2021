@@ -2,6 +2,12 @@
     ViewBag.Title = "Home Page";
 }
 
+<script src="~/Scripts/APIScript.js"></script>
+
+<div id="random-quote">
+    <a href="javascript:;" onclick="getRandomQuote('#random-quote', 1);" class="btn btn-info randomize">RANDOM QUOTE GENERATOR (VERSION BREAKING BAD)</a>
+    <blockquote class="quote" id="quote"></blockquote>
+</div>
 
 @Html.ActionLink("LISTADO DE ORDENES", "IndexOrders", "Orders", new { area = "LISTADO DE ORDENES" }, new { @class = "btn btn-info center-block" })
 <br />
