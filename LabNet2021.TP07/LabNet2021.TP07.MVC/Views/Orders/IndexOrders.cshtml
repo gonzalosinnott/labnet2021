@@ -25,21 +25,23 @@
                     <th scope="col">ADDRESS</th>
                     <th scope="col">CITY</th>
                     <th scope="col">COUNTRY</th>
-
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var order in Model)
                 {
-                    <tr>
-                        <th scope="row">@order.Id</th>
-                        <td>@order.ShippedDate</td>
-                        <td>@order.ShipVia</td>
-                        <td>@order.ShipName</td>
-                        <td>@order.Address</td>
-                        <td>@order.City</td>
-                        <td>@order.Country</td>
-                    </tr>
+                <tr>
+                    <th scope="row">@order.Id</th>
+                    <td>@order.ShippedDate</td>
+                    <td>@order.ShipVia</td>
+                    <td>@order.ShipName</td>
+                    <td>@order.Address</td>
+                    <td>@order.City</td>
+                    <td>@order.Country</td>
+                    <td>@Html.ActionLink("BORRAR", "Delete", new { id = order.Id }, new { @class = "btn btn-danger", onclick = "return confirm('¿DESEA ELIMINAR ESTA ORDEN?')" })</td>
+
+                </tr>
                 }
             </tbody>
         </table>

@@ -54,5 +54,18 @@ namespace LabNet2021.TP07.MVC.Controllers
                 return RedirectToAction("Index" , "Error");
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                shippersLogic.Delete(id);
+                return RedirectToAction("IndexShippers");
+            }
+            catch(Exception ex)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+        }
     }
 }

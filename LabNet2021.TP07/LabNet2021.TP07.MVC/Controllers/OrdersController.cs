@@ -44,6 +44,7 @@ namespace LabNet2021.TP07.MVC.Controllers
         {
             var shippersLogic = new ShippersLogic();
             List<Shippers> shippers = shippersLogic.GetAll();
+            
             IEnumerable<SelectListItem> items = shippers.Select(s => new SelectListItem
             {
                 Value = s.ShipperID.ToString(),
@@ -81,6 +82,22 @@ namespace LabNet2021.TP07.MVC.Controllers
             }
         }
 
-        
+        public ActionResult Delete(int id)
+        {
+            OrdersDetailsLogic ordersDetails = new OrdersDetailsLogic();
+            
+            try
+            {
+                ordersDetails.DeleteAllRelatedId(id);
+                ordersLogic.Delete(id);
+                return RedirectToAction("IndexOrders");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+        }
+
+
     }
 }
