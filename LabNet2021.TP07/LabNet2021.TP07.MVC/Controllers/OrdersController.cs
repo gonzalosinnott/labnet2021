@@ -14,7 +14,7 @@ namespace LabNet2021.TP07.MVC.Controllers
     {
         OrdersLogic ordersLogic = new OrdersLogic();
 
-        // GET: Orders
+        [HttpGet]
         public ActionResult IndexOrders()
         {
             var shippersLogic = new ShippersLogic();
@@ -40,11 +40,12 @@ namespace LabNet2021.TP07.MVC.Controllers
             return View(ordersView);
         }
 
+        [HttpGet]
         public ActionResult Insert()
         {
             var shippersLogic = new ShippersLogic();
             List<Shippers> shippers = shippersLogic.GetAll();
-            
+
             IEnumerable<SelectListItem> items = shippers.Select(s => new SelectListItem
             {
                 Value = s.ShipperID.ToString(),

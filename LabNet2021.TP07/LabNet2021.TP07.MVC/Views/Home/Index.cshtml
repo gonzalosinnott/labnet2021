@@ -2,4 +2,13 @@
     ViewBag.Title = "Home Page";
 }
 
-<h1>homepage</h1>
+
+@Html.ActionLink("LISTADO DE ORDENES", "IndexOrders", "Orders", new { area = "LISTADO DE ORDENES" }, new { @class = "btn btn-info center-block" })
+<br />
+@Html.ActionLink("LISTADO DE DISTRIBUIDORES", "IndexShippers", "Shippers", new { area = "LISTADO DE DISTRIBUIDORES" }, new { @class = "btn btn-info center-block" })
+<br />
+@Html.ActionLink("INGRESO DE NUEVA ORDEN", "Insert", "Orders", new { area = "INGRESO DE NUEVA ORDEN" }, new { @class = "btn btn-info center-block" })
+<br />
+@Html.ActionLink("INGRESO DE NUEVO DISTRIBUIDOR", "Insert", "Shippers", new { area = "INGRESO DE NUEVO DISTRIBUIDOR" }, new { @class = "btn btn-info center-block" })
+
+

@@ -80,8 +80,16 @@ namespace LabNet2021.TP07.MVC.Controllers
         {
             try
             {
-                shippersLogic.Update(shippersLogic.UpdateOrAddShippersData(id, companyname, phone));
-                return RedirectToAction("IndexShippers");
+                if(!shippersLogic.CheckName(companyname))
+                {
+                    shippersLogic.Update(shippersLogic.UpdateOrAddShippersData(id, companyname, phone));
+                    return RedirectToAction("IndexShippers");
+                }
+                else
+                {
+                    ViewBag.Error = "NOMBRE DE COMPAÑIA INGRESADO YA EXISTENTE";
+                    return View("Error");
+                }                
             }
             catch (Exception ex)
             {
