@@ -1,13 +1,22 @@
-﻿@{
+﻿@model List<LabNet2021.TP07.MVC.Models.Api>
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <script src="~/Scripts/APIScript.js"></script>
+<link rel="stylesheet" href="~/Scripts/style.css">
+
+
 
 <div id="random-quote">
-    <a href="javascript:;" onclick="getRandomQuote('#random-quote', 1);" class="btn btn-info randomize">RANDOM QUOTE GENERATOR (VERSION BREAKING BAD)</a>
-    <blockquote class="quote" id="quote"></blockquote>
+    <a href="javascript:;" onclick="getRandomQuote('#random-quote', 1);" class="btn btn-info randomize">RANDOM QUOTE GENERATOR (VERSION BREAKING BAD) API TEST POR JS</a>
+    <blockquote class="quote" id="quote">
+        <cite></cite>
+    </blockquote>
 </div>
+
 
 @Html.ActionLink("LISTADO DE ORDENES", "IndexOrders", "Orders", new { area = "LISTADO DE ORDENES" }, new { @class = "btn btn-info center-block" })
 <br />
@@ -16,5 +25,7 @@
 @Html.ActionLink("INGRESO DE NUEVA ORDEN", "Insert", "Orders", new { area = "INGRESO DE NUEVA ORDEN" }, new { @class = "btn btn-info center-block" })
 <br />
 @Html.ActionLink("INGRESO DE NUEVO DISTRIBUIDOR", "Insert", "Shippers", new { area = "INGRESO DE NUEVO DISTRIBUIDOR" }, new { @class = "btn btn-info center-block" })
+<br />
+@Html.ActionLink("API TEST POR CONTROLLER", "Index", "Api", new { area = "API TEST POR CONTROLLER" }, new { @class = "btn btn-info center-block" })
 
 

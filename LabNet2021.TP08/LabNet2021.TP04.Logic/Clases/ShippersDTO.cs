@@ -9,9 +9,9 @@ namespace LabNet2021.TP04.Logic.Clases
 {
     public class ShippersDTO : ShippersLogic, IDTO<ShippersDTO>
     {
-        public int ShipperID { get; private set; }
-        public string CompanyName { get; private set; }
-        public string Phone { get; private set; }
+        public int ShipperID { get; set; }
+        public string CompanyName { get; set; }
+        public string Phone { get; set; }
 
         public List<ShippersDTO> GetCustomInfo()
         {

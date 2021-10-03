@@ -17,5 +17,7 @@ namespace LabNet2021.TP07.MVC.Controllers
         {
             return View("IndexOrders", "Orders"); 
         }
+
+        
     }
 }

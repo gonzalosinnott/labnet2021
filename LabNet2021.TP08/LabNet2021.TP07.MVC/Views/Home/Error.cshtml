@@ -16,28 +16,14 @@
             min-height: 100px;
             object-fit: contain;
         }
-
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-family: 'Roboto', 'sans-serif';
-        }
     </style>
 </head>
 <body>
     <main>
-        <div>
-            <p>@ViewBag.Error</p>
-        </div>
-        <div>
-            <img src="~/assets/error.png" alt="image">
-        </div>
-        <p>
-            <a class="btn btn-info" onclick="location.href='@Url.Action("IndexShippers")'">REGRESAR A DISTRIBUIDORES</a>
-        </p>
-
+        <img src="~/assets/error.png" alt="image">
+        <p class="text-center">@ViewBag.Error</p>
+        <p><a class="btn btn-info center-block" onclick="location.href='@Url.Action("Index")'">REGRESAR AL HOME</a></p>
     </main>
 </body>
 </html>
+

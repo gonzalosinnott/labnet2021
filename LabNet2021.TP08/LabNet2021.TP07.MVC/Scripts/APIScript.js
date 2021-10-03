@@ -1,4 +1,4 @@
-﻿function getRandomQuote(block, nb) {
+﻿function getRandomQuote(nb) {
     var url = 'https://breaking-bad-quotes.herokuapp.com/v1/quotes/' + nb;
 
 
