@@ -1,6 +1,4 @@
-﻿using LabNet2021.TP04.Entities;
-using LabNet2021.TP04.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

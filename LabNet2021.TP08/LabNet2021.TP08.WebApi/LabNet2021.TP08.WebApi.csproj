@@ -229,7 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -268,10 +267,6 @@
     <ProjectReference Include="..\LabNet2021.TP04.Entities\LabNet2021.TP04.Entities.csproj">
       <Project>{64F0BCF6-CF24-46D3-9027-DF58828E77F7}</Project>
       <Name>LabNet2021.TP04.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LabNet2021.TP04.Logic\LabNet2021.TP04.Logic.csproj">
-      <Project>{3CAA9900-EDB2-47F8-B923-D48844CA16FA}</Project>
-      <Name>LabNet2021.TP04.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
