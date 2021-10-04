@@ -15,11 +15,11 @@ namespace LabNet2021.TP08.WebApi.Controllers
     {
         public IHttpActionResult GetAllShippers()
         {
-            IList<ShippersDTO> shippers = null;
+            IList<ShippersModel> shippers = null;
 
             using (var context = new NorthwindContext())
             {
-                shippers = context.Shippers.Select(s => new ShippersDTO()
+                shippers = context.Shippers.Select(s => new ShippersModel()
                             {
                                 ShipperID = s.ShipperID,
                                 CompanyName = s.CompanyName,
@@ -33,6 +33,49 @@ namespace LabNet2021.TP08.WebApi.Controllers
             }
 
             return Ok(shippers);
+        }
+
+        public IHttpActionResult GetShipperByID(int id)
+        {
+            ShippersModel shippers = null;
+
+            using (var context = new NorthwindContext())
+            {
+                shippers = context.Shippers
+                .Where(s => s.ShipperID == id)
+                .Select(s => new ShippersModel()
+                {
+                    ShipperID = s.ShipperID,
+                    CompanyName = s.CompanyName,
+                    Phone = s.Phone
+                }).FirstOrDefault();
+            }
+
+            if (shippers == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(shippers);
+        }
+
+        public IHttpActionResult PostNewStudent(ShippersModel shipper)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            using (var context = new NorthwindContext())
+            {
+                context.Shippers.Add(new Shippers()
+                {
+                    CompanyName = shipper.CompanyName,
+                    Phone = shipper.Phone
+                });
+
+                context.SaveChanges();
+            }
+
+            return Ok();
         }
     }
 }
