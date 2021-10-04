@@ -77,5 +77,34 @@ namespace LabNet2021.TP08.WebApi.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Put(ShippersModel shipper)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            using (var context = new NorthwindContext())
+            {
+                var existingShipper = context.Shippers.Where(s => s.ShipperID == shipper.ShipperID).FirstOrDefault();
+
+                if(existingShipper != null)
+                {
+                    existingShipper.CompanyName = shipper.CompanyName;
+                    existingShipper.Phone = shipper.Phone;
+
+                    context.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+                return Ok();
+            }
+
+        }
+
+
+
     }
 }
