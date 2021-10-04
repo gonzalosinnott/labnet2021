@@ -20,11 +20,11 @@ namespace LabNet2021.TP08.WebApi.Controllers
             using (var context = new NorthwindContext())
             {
                 shippers = context.Shippers.Select(s => new ShippersModel()
-                            {
-                                ShipperID = s.ShipperID,
-                                CompanyName = s.CompanyName,
-                                Phone = s.Phone
-                            }).ToList();
+                {
+                    ShipperID = s.ShipperID,
+                    CompanyName = s.CompanyName,
+                    Phone = s.Phone
+                }).ToList();
             }
 
             if (shippers.Count == 0)
@@ -87,7 +87,7 @@ namespace LabNet2021.TP08.WebApi.Controllers
             {
                 var existingShipper = context.Shippers.Where(s => s.ShipperID == shipper.ShipperID).FirstOrDefault();
 
-                if(existingShipper != null)
+                if (existingShipper != null)
                 {
                     existingShipper.CompanyName = shipper.CompanyName;
                     existingShipper.Phone = shipper.Phone;
@@ -101,10 +101,23 @@ namespace LabNet2021.TP08.WebApi.Controllers
 
                 return Ok();
             }
-
         }
 
+        public IHttpActionResult Delete(int id)
+        {
+            if (id <= 0)
+                return BadRequest("NO ES UN ID VALIDO");
 
+            using (var context = new NorthwindContext())
+            {
+                var shipper = context.Shippers.Where(s => s.ShipperID == id).FirstOrDefault();
 
+                context.Entry(shipper).State = System.Data.Entity.EntityState.Deleted;
+
+                context.SaveChanges();
+            }
+
+            return Ok();
+        }
     }
 }
