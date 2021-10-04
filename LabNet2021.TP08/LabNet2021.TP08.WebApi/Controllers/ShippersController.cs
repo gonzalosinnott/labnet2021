@@ -59,7 +59,7 @@ namespace LabNet2021.TP08.WebApi.Controllers
             return Ok(shippers);
         }
 
-        public IHttpActionResult PostNewStudent(ShippersModel shipper)
+        public IHttpActionResult PostNewShipper(ShippersModel shipper)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
@@ -111,7 +111,6 @@ namespace LabNet2021.TP08.WebApi.Controllers
             using (var context = new NorthwindContext())
             {
                 var shipper = context.Shippers.Where(s => s.ShipperID == id).FirstOrDefault();
-
                 context.Entry(shipper).State = System.Data.Entity.EntityState.Deleted;
 
                 context.SaveChanges();
