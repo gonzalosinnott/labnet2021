@@ -1,5 +1,7 @@
 ﻿using LabNet2021.TP04.Data;
 using LabNet2021.TP04.Entities;
+using LabNet2021.TP04.Logic;
+using LabNet2021.TP04.Logic.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
