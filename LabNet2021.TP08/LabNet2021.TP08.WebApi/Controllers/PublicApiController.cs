@@ -9,14 +9,14 @@ using System.Web.Mvc;
 
 namespace LabNet2021.TP08.WebApi.Controllers
 {
-    public class ApiController : Controller
+    public class PublicApiController : Controller
     {
         // GET: Api
         public ActionResult Index()
         {
             try
             {
-                List<Api> result = null;
+                List<PublicApi> result = null;
                 string response = string.Empty;
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("https://simpsons-quotes-api.herokuapp.com/quotes?count=5");
                 httpWebRequest.ContentType = "application/json; charset=utf-8";
@@ -29,7 +29,7 @@ namespace LabNet2021.TP08.WebApi.Controllers
                 }
                 httpResponse.Close();
 
-                result = Deserialize<List<Api>>(response);
+                result = Deserialize<List<PublicApi>>(response);
                 return View(result);
             }
             catch (Exception ex)

@@ -1,6 +1,6 @@
 ﻿namespace LabNet2021.TP08.WebApi
 {
-    public class Api
+    public class PublicApi
     {
         public string quote { get; set; }
         public string character { get; set; }
