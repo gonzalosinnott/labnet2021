@@ -54,6 +54,24 @@ namespace LabNet2021.TP04.Logic
             return retorno;
         }
 
+        public bool Find(int id)
+        {
+            try
+            {
+                bool output = false;
+                var bufferShippers = context.Shippers.Find(id);
+                if (bufferShippers != null)
+                {
+                    output = true;
+                }
+                return output;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public int GetId(string id)
         {
             var auxOrder = context.Shippers.SingleOrDefault(x=> x.CompanyName == id);
@@ -100,7 +118,6 @@ namespace LabNet2021.TP04.Logic
             try
             {
                 var shipperUpdate = context.Shippers.Find(shipper.ShipperID);
-
                 shipperUpdate.CompanyName = shipper.CompanyName;
                 shipperUpdate.Phone = shipper.Phone;
 

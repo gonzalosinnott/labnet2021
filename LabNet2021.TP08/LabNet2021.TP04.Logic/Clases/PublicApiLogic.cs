@@ -1,23 +1,22 @@
-﻿using LabNet2021.TP07.MVC.Models;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.Mvc;
+using System.Text;
+using System.Threading.Tasks;
+using LabNet2021.TP04.Entities;
+using Newtonsoft.Json;
 
-namespace LabNet2021.TP07.MVC.Controllers
+namespace LabNet2021.TP04.Logic.Clases
 {
-    public class ApiController : Controller
+    public class PublicApiLogic
     {
-        // GET: Api
-        public ActionResult Index()
+        public List<SimpsonsApiModel> ListQuotes()
         {
             try
-            { 
-                List<Api> result = null;
+            {
+                List<SimpsonsApiModel> result = null;
                 string response = string.Empty;
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("https://simpsons-quotes-api.herokuapp.com/quotes?count=5");
                 httpWebRequest.ContentType = "application/json; charset=utf-8";
@@ -30,13 +29,12 @@ namespace LabNet2021.TP07.MVC.Controllers
                 }
                 httpResponse.Close();
 
-                result = Deserialize<List<Api>>(response);
-                return View(result);
+                result = Deserialize<List<SimpsonsApiModel>>(response);
+                return result;
             }
             catch (Exception ex)
             {
-                ViewBag.Error = ex.Message;
-                return View("Error");
+                throw ex;
             }
         }
 

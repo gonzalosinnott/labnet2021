@@ -1,7 +1,4 @@
-﻿@model List<LabNet2021.TP07.MVC.Models.Api>
-
-
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
@@ -26,6 +23,6 @@
 <br />
 @Html.ActionLink("INGRESO DE NUEVO DISTRIBUIDOR", "Insert", "Shippers", new { area = "INGRESO DE NUEVO DISTRIBUIDOR" }, new { @class = "btn btn-info center-block" })
 <br />
-@Html.ActionLink("API TEST POR CONTROLLER", "Index", "Api", new { area = "API TEST POR CONTROLLER" }, new { @class = "btn btn-info center-block" })
+@Html.ActionLink("API TEST POR CONTROLLER", "Index", "PublicApi", new { area = "API TEST POR CONTROLLER" }, new { @class = "btn btn-info center-block" })
 
 

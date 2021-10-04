@@ -44,6 +44,24 @@ namespace LabNet2021.TP04.Logic
             return auxOrder.OrderID;
         }
 
+        public bool Find(int id)
+        {
+            try
+            {
+                bool output = false;
+                var bufferShippers = context.Shippers.Find(id);
+                if (bufferShippers != null)
+                {
+                    output = true;
+                }
+                return output;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Add(Orders newOrder)
         {
             context.Orders.Add(newOrder);

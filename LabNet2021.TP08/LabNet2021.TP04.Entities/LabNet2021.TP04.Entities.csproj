@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Clases\Orders.cs" />
     <Compile Include="Clases\Order_Details.cs" />
+    <Compile Include="Clases\SimpsonsApiModel.cs" />
     <Compile Include="Clases\Shippers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

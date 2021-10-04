@@ -13,110 +13,102 @@ namespace LabNet2021.TP08.WebApi.Controllers
 {
     public class ShippersController : ApiController
     {
-        public IHttpActionResult GetAllShippers()
-        {
-            IList<ShippersModel> shippers = null;
+        ShippersLogic logic = new ShippersLogic();
 
-            using (var context = new NorthwindContext())
+        public List<ShippersModel> GetAllShippers()
+        {
+            try
             {
-                shippers = context.Shippers.Select(s => new ShippersModel()
+                List<Shippers> shippers = logic.GetAll();
+
+                List<ShippersModel> shippersView = shippers.Select(s => new ShippersModel()
                 {
                     ShipperID = s.ShipperID,
                     CompanyName = s.CompanyName,
                     Phone = s.Phone
                 }).ToList();
-            }
 
-            if (shippers.Count == 0)
+                return shippersView;
+            }
+            catch(Exception ex)
             {
-                return NotFound();
+                throw ex;
             }
-
-            return Ok(shippers);
         }
 
-        public IHttpActionResult GetShipperByID(int id)
+        public ShippersModel GetShipperByID(int id)
         {
-            ShippersModel shippers = null;
-
-            using (var context = new NorthwindContext())
+            try
             {
-                shippers = context.Shippers
-                .Where(s => s.ShipperID == id)
-                .Select(s => new ShippersModel()
+                Shippers shipper = logic.ReturnDataById(id);
+                ShippersModel shipperView = new ShippersModel
                 {
-                    ShipperID = s.ShipperID,
-                    CompanyName = s.CompanyName,
-                    Phone = s.Phone
-                }).FirstOrDefault();
-            }
-
-            if (shippers == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(shippers);
-        }
-
-        public IHttpActionResult PostNewShipper(ShippersModel shipper)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest("Invalid data.");
-
-            using (var context = new NorthwindContext())
-            {
-                context.Shippers.Add(new Shippers()
-                {
+                    ShipperID = shipper.ShipperID,
                     CompanyName = shipper.CompanyName,
                     Phone = shipper.Phone
-                });
-
-                context.SaveChanges();
+                };
+                return shipperView;
             }
-
-            return Ok();
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public IHttpActionResult Put(ShippersModel shipper)
+        public void PostNewShipper(ShippersModel shipperView)
         {
-            if (!ModelState.IsValid)
-                return BadRequest("Invalid data.");
-
-            using (var context = new NorthwindContext())
+            try
             {
-                var existingShipper = context.Shippers.Where(s => s.ShipperID == shipper.ShipperID).FirstOrDefault();
-
-                if (existingShipper != null)
+                var ShipperEntity = new Shippers
                 {
-                    existingShipper.CompanyName = shipper.CompanyName;
-                    existingShipper.Phone = shipper.Phone;
+                    CompanyName = shipperView.CompanyName,
+                    Phone = shipperView.Phone
+                };
 
-                    context.SaveChanges();
+                logic.Add(ShipperEntity);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Put(ShippersModel shipperView)
+        {
+            try
+            {
+                if(logic.Find(shipperView.ShipperID))
+                {
+                    var ShipperEntity = new Shippers
+                    {
+                        ShipperID = shipperView.ShipperID,
+                        CompanyName = shipperView.CompanyName,
+                        Phone = shipperView.Phone
+                    };
+
+                    logic.Update(ShipperEntity);
                 }
                 else
                 {
-                    return NotFound();
+                    throw new Exception("ID NO VALIDO");
                 }
-
-                return Ok();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 
-        public IHttpActionResult Delete(int id)
+        public void Delete(int id)
         {
-            if (id <= 0)
-                return BadRequest("NO ES UN ID VALIDO");
-
-            using (var context = new NorthwindContext())
+            try
             {
-                var shipper = context.Shippers.Where(s => s.ShipperID == id).FirstOrDefault();
-                context.Entry(shipper).State = System.Data.Entity.EntityState.Deleted;
-
-                context.SaveChanges();
+                logic.Delete(id);
             }
-
-            return Ok();
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

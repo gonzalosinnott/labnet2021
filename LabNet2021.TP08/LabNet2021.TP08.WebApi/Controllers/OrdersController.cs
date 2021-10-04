@@ -13,13 +13,14 @@ namespace LabNet2021.TP08.WebApi.Controllers
 {
     public class OrdersController : ApiController
     {
-        public IHttpActionResult GetAllOrders()
-        {
-            IList<OrdersModel> orders = null;
+        OrdersLogic logic = new OrdersLogic();
 
-            using (var context = new NorthwindContext())
+        public List<OrdersModel> GetAllOrders()
+        {
+            try
             {
-                orders = context.Orders.Select(o => new OrdersModel()
+                List<Orders> orders = logic.GetAll();
+                List<OrdersModel> ordersView = orders.Select(o => new OrdersModel()
                 {
                     Id = o.OrderID,
                     ShippedDate = o.ShippedDate.ToString(),
@@ -29,112 +30,102 @@ namespace LabNet2021.TP08.WebApi.Controllers
                     City = o.ShipCity,
                     Country = o.ShipCountry
                 }).ToList();
-            }
 
-            if (orders.Count == 0)
+                return ordersView;
+            }
+            catch (Exception ex)
             {
-                return NotFound();
+                throw ex;
             }
-
-            return Ok(orders);
         }
 
-        public IHttpActionResult GetOrderByID(int id)
+        public OrdersModel GetOrderByID(int id)
         {
-            OrdersModel orders = null;
-
-            using (var context = new NorthwindContext())
+            try
             {
-                orders = context.Orders
-                .Where(o => o.OrderID == id)
-                .Select(o => new OrdersModel()
+                Orders order = logic.ReturnDataById(id);
+
+                OrdersModel orderView = new OrdersModel
                 {
-                    Id = o.OrderID,
-                    ShippedDate = o.ShippedDate.ToString(),
-                    ShipVia = (int)o.ShipVia,
-                    ShipName = o.ShipName,
-                    Address = o.ShipAddress,
-                    City = o.ShipCity,
-                    Country = o.ShipCountry
-                }).FirstOrDefault();
-            }
-
-            if (orders == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(orders);
-        }
-
-        public IHttpActionResult PostNewOrder(OrdersModel order)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest("Invalid data.");
-
-            using (var context = new NorthwindContext())
-            {
-                context.Orders.Add(new Orders()
-                {
-                    ShippedDate = Convert.ToDateTime(order.ShippedDate),
-                    ShipVia = order.ShipVia,
+                    Id = order.OrderID,
+                    ShippedDate = order.ShippedDate.ToString(),
+                    ShipVia = (int)order.ShipVia,
                     ShipName = order.ShipName,
-                    ShipAddress = order.Address,
-                    ShipCity = order.City,
-                    ShipCountry = order.Country
-                });
+                    Address = order.ShipAddress,
+                    City = order.ShipCity,
+                    Country = order.ShipCountry
+                };
 
-                context.SaveChanges();
+                return orderView;
             }
-
-            return Ok();
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public IHttpActionResult Put(OrdersModel order)
+        public void PostNewOrder(OrdersModel orderView)
         {
-            if (!ModelState.IsValid)
-                return BadRequest("Invalid data.");
-
-            using (var context = new NorthwindContext())
+            try
             {
-                var existingOrder = context.Orders.Where(o => o.OrderID == order.Id).FirstOrDefault();
-
-                if (existingOrder != null)
+                var orderEntity = new Orders
                 {
-                    existingOrder.ShippedDate = Convert.ToDateTime(order.ShippedDate.ToString());
-                    existingOrder.ShipVia = order.ShipVia;
-                    existingOrder.ShipName = order.ShipName;
-                    existingOrder.ShipAddress = order.Address;
-                    existingOrder.ShipCity = order.City;
-                    existingOrder.ShipCountry = order.Country;
+                    ShippedDate = Convert.ToDateTime(orderView.ShippedDate),
+                    ShipVia = orderView.ShipVia,
+                    ShipName = orderView.ShipName,
+                    ShipAddress = orderView.Address,
+                    ShipCity = orderView.City,
+                    ShipCountry = orderView.Country
+                };
 
-                    context.SaveChanges();
+                logic.Add(orderEntity);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Put(OrdersModel order)
+        {
+            try
+            {
+                if(logic.Find(order.Id))
+                {
+                    var orderEntity = new Orders
+                    {
+                        OrderID = order.Id,
+                        ShippedDate = Convert.ToDateTime(order.ShippedDate.ToString()),
+                        ShipVia = order.ShipVia,
+                        ShipName = order.ShipName,
+                        ShipAddress = order.Address,
+                        ShipCity = order.City,
+                        ShipCountry = order.Country
+                    };
+
+                    logic.Update(orderEntity);
                 }
                 else
                 {
-                    return NotFound();
+                    throw new Exception("ID NO VALIDO");
                 }
-
-                return Ok();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 
-        public IHttpActionResult Delete(int id)
+        public void Delete(int id)
         {
-            if (id <= 0)
-                return BadRequest("NO ES UN ID VALIDO");
-
-            using (var context = new NorthwindContext())
+            try
             {
-                var order = context.Orders.Where(o => o.OrderID == id).FirstOrDefault();
-                context.Order_Details.RemoveRange(context.Order_Details.Where(x => x.OrderID == id));
-
-                context.Entry(order).State = System.Data.Entity.EntityState.Deleted;
-
-                context.SaveChanges();
+                logic.Delete(id);
             }
-
-            return Ok();
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
