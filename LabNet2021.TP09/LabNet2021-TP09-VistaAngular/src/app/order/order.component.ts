@@ -68,24 +68,6 @@ export class OrderComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = !!this.dataSource && this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  masterToggle() {
-    this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(r => this.selection.select(r));
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
   
   LoadAllOrders() {
     this.orderService.getAllOrders().subscribe(data => {
@@ -102,7 +84,7 @@ export class OrderComponent implements OnInit {
     this.orderForm.reset();
   }
 
-  loadEmployeeToEdit(id: number) {
+  EditOrder(id: number) {
     this.orderService.getOrderById(id).subscribe(order => {
       this.message = null;
       this.dataSaved = false;
@@ -155,7 +137,7 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  deleteOrder(Id: number) {
+  DeleteOrder(Id: number) {
     if (confirm("Are you sure you want to delete this ?")) {
       this.orderService.deleteOrderById(Id).subscribe(() => {
         this.dataSaved = true;
@@ -169,7 +151,7 @@ export class OrderComponent implements OnInit {
 
   FillShippersDDL() {
     this.allShippers = this.orderService.getShippers();
-  }
+  }  
 
   resetForm() {
     this.orderForm.reset();
