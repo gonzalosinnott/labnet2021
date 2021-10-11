@@ -78,6 +78,12 @@ namespace LabNet2021.TP04.Logic
             return auxOrder.ShipperID;
         }
 
+        public string GetName(int id)
+        {
+            var auxOrder = context.Shippers.SingleOrDefault(x => x.ShipperID == id);
+            return auxOrder.CompanyName;
+        }
+
         public Shippers ReturnDataById(int id)
         {
             var auxOrder = context.Shippers.SingleOrDefault(x => x.ShipperID == id);

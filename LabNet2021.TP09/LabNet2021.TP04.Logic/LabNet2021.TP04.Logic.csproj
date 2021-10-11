@@ -66,10 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\BaseDBClasesLogic.cs" />
-    <Compile Include="Clases\OrdersDTO.cs" />
     <Compile Include="Clases\OrdersLogic.cs" />
     <Compile Include="Clases\PublicApiLogic.cs" />
-    <Compile Include="Clases\ShippersDTO.cs" />
     <Compile Include="Clases\OrdersDetailsLogic.cs" />
     <Compile Include="Clases\ShippersLogic.cs" />
     <Compile Include="Exceptions\CustomException.cs" />

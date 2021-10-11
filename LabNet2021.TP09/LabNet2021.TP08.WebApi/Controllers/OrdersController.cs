@@ -11,27 +11,36 @@ using System.Web.Http;
 
 namespace LabNet2021.TP08.WebApi.Controllers
 {
+    [RoutePrefix("Api/Orders")]
     public class OrdersController : ApiController
     {
         OrdersLogic logic = new OrdersLogic();
+        ShippersLogic auxLogic = new ShippersLogic();
 
-        public List<OrdersModel> GetAllOrders()
+        [HttpGet]
+        [Route("GetAllOrders")]
+        public IHttpActionResult GetAllOrders()
         {
             try
             {
-                List<Orders> orders = logic.GetAll();
-                List<OrdersModel> ordersView = orders.Select(o => new OrdersModel()
-                {
-                    Id = o.OrderID,
-                    ShippedDate = o.ShippedDate.ToString(),
-                    ShipVia = (int)o.ShipVia,
-                    ShipName = o.ShipName,
-                    Address = o.ShipAddress,
-                    City = o.ShipCity,
-                    Country = o.ShipCountry
-                }).ToList();
+                
+                List<Shippers> shippers = auxLogic.GetAll();
+                List<Orders> orders = logic.GetAll();                
+                
+                var ordersView = from o in orders
+                                 join s in shippers on o.ShipVia equals s.ShipperID
+                                 select new OrdersModel
+                                 {
+                                     Id = o.OrderID,
+                                     ShippedDate = o.ShippedDate.ToString(),
+                                     ShipVia = s.CompanyName,
+                                     ShipName = o.ShipName,
+                                     Address = o.ShipAddress,
+                                     City = o.ShipCity,
+                                     Country = o.ShipCountry
+                                 }; 
 
-                return ordersView;
+                return Ok(ordersView.ToList());
             }
             catch (Exception ex)
             {
@@ -39,24 +48,31 @@ namespace LabNet2021.TP08.WebApi.Controllers
             }
         }
 
-        public OrdersModel GetOrderByID(int id)
+        [HttpGet]
+        [Route("GetOrderById/{Id}")]
+        public IHttpActionResult GetOrderByID(int id)
         {
             try
             {
                 Orders order = logic.ReturnDataById(id);
+                
+                if (order == null)
+                {
+                    return NotFound();
+                }
 
                 OrdersModel orderView = new OrdersModel
                 {
                     Id = order.OrderID,
                     ShippedDate = order.ShippedDate.ToString(),
-                    ShipVia = (int)order.ShipVia,
+                    ShipVia = auxLogic.GetName((int)order.ShipVia),
                     ShipName = order.ShipName,
                     Address = order.ShipAddress,
                     City = order.ShipCity,
                     Country = order.ShipCountry
                 };
 
-                return orderView;
+                return Ok(orderView);
             }
             catch(Exception ex)
             {
@@ -64,50 +80,36 @@ namespace LabNet2021.TP08.WebApi.Controllers
             }
         }
 
-        public void PostNewOrder(OrdersModel orderView)
+        [HttpPost]
+        [Route("InsertOrder")]
+        public IHttpActionResult PostNewOrder(OrdersModel orderView)
         {
             try
             {
-                var orderEntity = new Orders
+                if (!ModelState.IsValid)
                 {
-                    ShippedDate = Convert.ToDateTime(orderView.ShippedDate),
-                    ShipVia = orderView.ShipVia,
-                    ShipName = orderView.ShipName,
-                    ShipAddress = orderView.Address,
-                    ShipCity = orderView.City,
-                    ShipCountry = orderView.Country
-                };
+                    return BadRequest(ModelState);
+                }
 
-                logic.Add(orderEntity);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void Put(OrdersModel order)
-        {
-            try
-            {
-                if(logic.Find(order.Id))
+                try
                 {
                     var orderEntity = new Orders
                     {
-                        OrderID = order.Id,
-                        ShippedDate = Convert.ToDateTime(order.ShippedDate.ToString()),
-                        ShipVia = order.ShipVia,
-                        ShipName = order.ShipName,
-                        ShipAddress = order.Address,
-                        ShipCity = order.City,
-                        ShipCountry = order.Country
+                        ShippedDate = Convert.ToDateTime(orderView.ShippedDate),
+                        ShipVia = auxLogic.GetId(orderView.ShipVia),
+                        ShipName = orderView.ShipName,
+                        ShipAddress = orderView.Address,
+                        ShipCity = orderView.City,
+                        ShipCountry = orderView.Country
                     };
 
-                    logic.Update(orderEntity);
+                    logic.Add(orderEntity);
+
+                    return Ok(orderView);
                 }
-                else
+                catch (Exception)
                 {
-                    throw new Exception("ID NO VALIDO");
+                    throw;
                 }
             }
             catch(Exception ex)
@@ -116,15 +118,87 @@ namespace LabNet2021.TP08.WebApi.Controllers
             }
         }
 
-        public void Delete(int id)
+        [HttpPut]
+        [Route("UpdateOrder")]
+        public IHttpActionResult Put(OrdersModel orderView)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                try
+                {
+                    Orders order = logic.ReturnDataById(orderView.Id);
+
+                    if (order == null)
+                    {
+                        return NotFound();
+                    }
+
+                    var orderEntity = new Orders
+                    {
+                        OrderID = orderView.Id,
+                        ShippedDate = Convert.ToDateTime(orderView.ShippedDate.ToString()),
+                        ShipVia = auxLogic.GetId(orderView.ShipVia),
+                        ShipName = orderView.ShipName,
+                        ShipAddress = orderView.Address,
+                        ShipCity = orderView.City,
+                        ShipCountry = orderView.Country
+                    };
+
+                    logic.Update(orderEntity);
+ 
+                    return Ok(orderView);
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        [HttpDelete]
+        [Route("DeleteOrder")]
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                Orders order = logic.ReturnDataById(id);
+
+                if (order == null)
+                {
+                    return NotFound();
+                }
+
                 logic.Delete(id);
+
+                return Ok(order);
             }
             catch(Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        [HttpGet]
+        [Route("Shippers")]
+        public IQueryable<Shippers> GetShippers()
+        {
+            try
+            {
+                return (IQueryable<Shippers>)auxLogic.GetAll();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

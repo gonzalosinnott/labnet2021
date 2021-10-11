@@ -20,7 +20,7 @@ namespace LabNet2021.TP08.WebApi
 
         [Display(Name = "NOMBRE DEL DISTRIBUIDOR")]
         [Required(ErrorMessage = "CAMPO OBLIGATORIO")]
-        public int ShipVia { get; set; }
+        public string ShipVia { get; set; }
 
         [Display(Name = "DESTINATARIO")]
         [Required(ErrorMessage = "CAMPO OBLIGATORIO")]
