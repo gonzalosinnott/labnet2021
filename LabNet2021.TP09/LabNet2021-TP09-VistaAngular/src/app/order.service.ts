@@ -14,7 +14,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  getAllorders(): Observable<Order[]> {
+  getAllOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.url + '/GetAllOrders');
   }
 
@@ -43,5 +43,5 @@ export class OrderService {
 
   getShippers(): Observable<Shippers[]> {
     return this.http.get<Shippers[]>(this.url + '/Shippers');
-  }
+  }  
 }

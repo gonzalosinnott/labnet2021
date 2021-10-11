@@ -109,6 +109,6 @@ namespace LabNet2021.TP04.Logic
             {
                 throw new CustomException("INGRESO DE DATOS ERRONEOS");
             }                       
-        }            
+        }        
     }
 }
