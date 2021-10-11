@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
+
 
 namespace LabNet2021.TP08.WebApi
 {
@@ -10,6 +12,8 @@ namespace LabNet2021.TP08.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            var cors = new EnableCorsAttribute("*", "*", "*");//origins,headers,methods
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

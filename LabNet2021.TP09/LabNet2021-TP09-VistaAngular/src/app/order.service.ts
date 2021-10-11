@@ -44,5 +44,4 @@ export class OrderService {
   getShippers(): Observable<Shippers[]> {
     return this.http.get<Shippers[]>(this.url + '/Shippers');
   }
-
 }
