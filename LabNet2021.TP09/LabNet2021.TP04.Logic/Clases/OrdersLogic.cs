@@ -78,8 +78,10 @@ namespace LabNet2021.TP04.Logic
         {
             try
             {
+                OrdersDetailsLogic auxLogic = new OrdersDetailsLogic();
                 var orderToDelete = context.Orders.Find(id);
 
+                auxLogic.DeleteAllRelatedId(id);
                 context.Orders.Remove(orderToDelete);
 
                 context.SaveChanges();

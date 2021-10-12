@@ -83,39 +83,28 @@ namespace LabNet2021.TP08.WebApi.Controllers
         [HttpPost]
         [Route("InsertOrder")]
         public IHttpActionResult PostNewOrder(OrdersModel orderView)
-        {
+        {            
             try
             {
-                if (!ModelState.IsValid)
+                var orderEntity = new Orders
                 {
-                    return BadRequest(ModelState);
-                }
+                    OrderID = logic.GetMaxId(),
+                    ShippedDate = Convert.ToDateTime(orderView.ShippedDate),
+                    ShipVia = auxLogic.GetId(orderView.ShipVia),
+                    ShipName = orderView.ShipName,
+                    ShipAddress = orderView.Address,
+                    ShipCity = orderView.City,
+                    ShipCountry = orderView.Country
+                };                
 
-                try
-                {
-                    var orderEntity = new Orders
-                    {
-                        ShippedDate = Convert.ToDateTime(orderView.ShippedDate),
-                        ShipVia = auxLogic.GetId(orderView.ShipVia),
-                        ShipName = orderView.ShipName,
-                        ShipAddress = orderView.Address,
-                        ShipCity = orderView.City,
-                        ShipCountry = orderView.Country
-                    };
+                logic.Add(orderEntity);
 
-                    logic.Add(orderEntity);
-
-                    return Ok(orderView);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+                return Ok(orderView);
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                throw ex;
-            }
+                throw;
+            }            
         }
 
         [HttpPut]
@@ -124,39 +113,28 @@ namespace LabNet2021.TP08.WebApi.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                
+                Orders order = logic.ReturnDataById(orderView.Id);
+
+                if (order == null)
                 {
-                    return BadRequest(ModelState);
+                    return NotFound();
                 }
-                try
+
+                var orderEntity = new Orders
                 {
-                    Orders order = logic.ReturnDataById(orderView.Id);
+                    OrderID = orderView.Id,
+                    ShippedDate = Convert.ToDateTime(orderView.ShippedDate.ToString()),
+                    ShipVia = auxLogic.GetId(orderView.ShipVia),
+                    ShipName = orderView.ShipName,
+                    ShipAddress = orderView.Address,
+                    ShipCity = orderView.City,
+                    ShipCountry = orderView.Country
+                };
 
-                    if (order == null)
-                    {
-                        return NotFound();
-                    }
-
-                    var orderEntity = new Orders
-                    {
-                        OrderID = orderView.Id,
-                        ShippedDate = Convert.ToDateTime(orderView.ShippedDate.ToString()),
-                        ShipVia = auxLogic.GetId(orderView.ShipVia),
-                        ShipName = orderView.ShipName,
-                        ShipAddress = orderView.Address,
-                        ShipCity = orderView.City,
-                        ShipCountry = orderView.Country
-                    };
-
-                    logic.Update(orderEntity);
+                logic.Update(orderEntity);
  
-                    return Ok(orderView);
-                    
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                return Ok(orderView);               
             }
             catch (Exception ex)
             {
@@ -190,15 +168,26 @@ namespace LabNet2021.TP08.WebApi.Controllers
 
         [HttpGet]
         [Route("Shippers")]
-        public IQueryable<Shippers> GetShippers()
+        public IHttpActionResult GetShippers()
         {
             try
             {
-                return (IQueryable<Shippers>)auxLogic.GetAll();
+
+                List<Shippers> shippers = auxLogic.GetAll();
+
+                var shippersView = from s in shippers
+                                     select new ShippersModel
+                                     {
+                                         ShipperID = s.ShipperID,
+                                         CompanyName = s.CompanyName,
+                                         Phone = s.Phone,                                         
+                                     };
+
+                return Ok(shippersView.ToList());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

@@ -1,154 +1,176 @@
+
 <div class="container">
+
     <mat-card class="mat-elevation-z8">
       <mat-toolbar color="accent" style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);">
-        <div align="center" style="color:white;text-align: right;">
-          NORTHWIND ORDERS LOG - TP 09 - GONZALO SINNOTT SEGURA
+        <div align="center" style="text-align: right;">
+          TP 09 - ANGULAR 
         </div>
       </mat-toolbar>
       <br><br>
       <mat-card-content>
         <form [formGroup]="orderForm" (ngSubmit)="onFormSubmit()">
           <table>
-            <tr>
-                <!-- SHIPPED DATE FIELD -->
-                <td class="tbl1">
-                    <mat-form-field class="full-width">
-                      <input matInput [matDatepicker]="picker" matTooltip="Enter shipped date" formControlName="ShippedDate" placeholder="Shipped Date" autocomplete="off">
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                    <mat-error>
-                      <span *ngIf="!orderForm.get('ShippedDate').value && orderForm.get('ShippedDate').touched"></span>
-                    </mat-error>
-                </td>
-                <!-- SHIPPER FIELD -->
-                <td class="tbl1">
-                    <mat-form-field>
-                      <mat-label>Country</mat-label>
-                      <mat-select (selectionChange)="FillShippersDDL()" formControlName="ShipVia" matTooltip="Select Shipper" autocomplete="off">
-                        <mat-option *ngFor="let Shippers of (allShippers | async)" [value]="Shippers.CompanyName">
-                          {{Shippers.CompanyName}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                </td>
+            <tr>              
                 <!-- SHIP NAME FIELD -->
                 <td class="tbl1">
-                    <mat-form-field class="full-width">
-                      <input formControlName="ShipName" matTooltip="Enter recipient name" matInput placeholder="ShipName" autocomplete="off">
-                    </mat-form-field>
-                    <mat-error>
-                      <span *ngIf="!orderForm.get('ShipName').value && orderForm.get('ShipName').touched"></span>
-                    </mat-error>
-                </td>                
-            </tr>
-            <tr>
-                <!-- ADDRESS FIELD -->
-                <td class="tbl1">
-                    <mat-form-field class="full-width">
-                      <input formControlName="Address" matTooltip="Enter Address" matInput placeholder="Address" autocomplete="off">
-                    </mat-form-field>
-                    <mat-error>
-                      <span *ngIf="!orderForm.get('Address').value && orderForm.get('Address').touched"></span>
-                    </mat-error>
-                  </td>
-                <!-- CITY FIELD -->
-                <td class="tbl1">
-                    <mat-form-field class="full-width">
-                      <input formControlName="City" matTooltip="Enter City" matInput placeholder="City" autocomplete="off">
-                    </mat-form-field>
-                    <mat-error>
-                      <span *ngIf="!orderForm.get('City').value && orderForm.get('City').touched"></span>
-                    </mat-error>
-                </td>
-                <!-- COUNTRY FIELD -->
-                <td class="tbl1">
-                    <mat-form-field class="full-width">
-                      <input formControlName="Country" matTooltip="Enter Country" matInput placeholder="Country" autocomplete="off">
-                    </mat-form-field>
-                    <mat-error>
-                      <span *ngIf="!orderForm.get('Country').value && orderForm.get('Country').touched"></span>
-                    </mat-error>
-                </td>
-            </tr>
-            <tr>
-              <td class="content-center">
-                <!-- SUBMIT AND RESET BUTTONS -->
-                <button type="submit" mat-raised-button color="accent" matTooltip="Submit" [disabled]="!orderForm.valid">Submit</button>
-                <button type="reset" mat-raised-button color="accent" matTooltip="Reset" (click)="resetForm()">Reset</button>
-              </td>
-              <td>
-                <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">
-                  {{message}}
-                </p>
-              </td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
-          <br><br>
+                    <mat-form-field class="demo-full-width">
+                        <mat-label>ENTER RECIPIENT</mat-label>
+                        <input matInput placeholder="Recipient" matTooltip="Enter recipient name" formControlName="ShipName" required>
+                      </mat-form-field>
+                      <mat-error>
+                        <span *ngIf="!orderForm.get('ShipName').value || orderForm.get('ShipName').touched"></span>
+                      </mat-error>
+                  </td>       
 
-          <div>
-  
-            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);">
-  
-              <!-- ID Column -->
-              <ng-container matColumnDef="Id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Order ID </th>
-                <td mat-cell *matCellDef="let order"> {{order.Id}} </td>
-              </ng-container>
-              <!-- Shipped Date Column -->
-              <ng-container matColumnDef="ShippedDate">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Shipped Date </th>
-                <td mat-cell *matCellDef="let order"> {{order.ShippedDate | date:'dd-MM-yyyy'}}</td>
-              </ng-container>
-              <!-- ShipVia Column -->
-              <ng-container matColumnDef="ShipVia">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> SHIPPER</th>
-                <td mat-cell *matCellDef="let order"> {{order.ShipVia}} </td>
-              </ng-container>
-              <!-- ShipName Column -->
-              <ng-container matColumnDef="ShipName">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ship NameD </th>
-                <td mat-cell *matCellDef="let order"> {{order.ShipName}} </td>
-              </ng-container>
-              <!-- Adress Column -->
-              <ng-container matColumnDef="Address">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-                <td mat-cell *matCellDef="let order"> {{order.Address}} </td>
-              </ng-container>
-              <!-- City Column -->               
-              <ng-container matColumnDef="City">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-                <td mat-cell *matCellDef="let order"> {{order.City}} </td>
-              </ng-container>
-              <!-- Country Column -->  
-              <ng-container matColumnDef="Country">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
-                <td mat-cell *matCellDef="let order"> {{order.Country}} </td>
-              </ng-container>
-              <!-- Edit Column Button -->  
-              <ng-container matColumnDef="Edit">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
-  
-                <td mat-cell *matCellDef="let order">
-  
-                  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button" mat-raised-button color="accent" matTooltip="Edit" (click)="EditOrder(order.Id)"><mat-icon>edit</mat-icon></button>
-  
+                <!-- SHIPPED DATE FIELD -->
+                <td class="tbl1">
+                    <mat-form-field class="demo-full-width">
+                        <input matInput [matDatepicker]="picker" matTooltip="Enter shipped date" formControlName="ShippedDate" placeholder="Shipped Date" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      <mat-error>
+                        <span *ngIf="!orderForm.get('ShippedDate').value || orderForm.get('ShippedDate').touched"></span>
+                      </mat-error>
+                  </td>  
+
+                  <!-- SHIPPER FIELD -->
+                  <td class="tbl1">
+                    <mat-form-field class="demo-full-width">
+                        <mat-label>Shipper</mat-label>
+                        <mat-select (selectionChange)="FillShippersDDL()" formControlName="ShipVia" matTooltip="Select Shipper" required>
+                          <mat-option *ngFor="let Shippers of (allShippers | async)" [value]="Shippers.CompanyName">
+                            {{Shippers.CompanyName}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-error>
+                        <span *ngIf="!orderForm.get('ShipVia').value || orderForm.get('ShipVia').touched"></span>
+                      </mat-error>
+                  </td>                         
+              </tr>
+              <tr>
+
+                  <!-- ADDRESS FIELD -->
+                  <td class="tbl1">
+                    <mat-form-field class="demo-full-width">
+                        <input formControlName="Address" matTooltip="Enter Address" matInput placeholder="Address" required>
+                      </mat-form-field>
+                      <mat-error>
+                        <span *ngIf="!orderForm.get('Address').value || orderForm.get('Address').touched"></span>
+                      </mat-error>
+                    </td>
+
+                  <!-- CITY FIELD -->
+                  <td class="tbl1">
+                    <mat-form-field class="demo-full-width">
+                        <input formControlName="City" matTooltip="Enter City" matInput placeholder="City" required>
+                      </mat-form-field>
+                      <mat-error>
+                        <span *ngIf="!orderForm.get('City').value || orderForm.get('City').touched"></span>
+                      </mat-error>
+                  </td>
+
+                  <!-- COUNTRY FIELD -->
+                  <td class="tbl1">
+                    <mat-form-field class="demo-full-width">
+                        <input formControlName="Country" matTooltip="Enter Country" matInput placeholder="Country" required>
+                      </mat-form-field>
+                      <mat-error>
+                        <span *ngIf="!orderForm.get('Country').value || orderForm.get('Country').touched"></span>
+                      </mat-error>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- SUBMIT AND RESET BUTTONS -->
+                  <button type="submit" mat-raised-button color="accent" matTooltip="Submit" [disabled]="!orderForm.valid"><mat-icon>done</mat-icon></button>
+                  <button type="reset" mat-raised-button color="accent" matTooltip="Reset" (click)="resetForm()"><mat-icon>restart_alt</mat-icon></button>
                 </td>
-              </ng-container>
-              <!-- Delete Column Button -->
-              <ng-container matColumnDef="Delete">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
-                <td mat-cell *matCellDef="let order"> <button mat-icon-button aria-label="Example icon button with a delete icon" type="button" mat-raised-button color="accent" matTooltip="Delete" (click)="DeleteOrder(order.Id)"><mat-icon>delete_forever</mat-icon></button></td>
-              </ng-container>
+                <td>
+                  <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">
+                    {{message}}
+                  </p>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+        
+            <br><br>
+
+            <div>
+    
+                <mat-table  [dataSource]="dataSource" matSort class="mat-elevation-z8" style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);">    
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="Id">
+                    <mat-header-cell  *matHeaderCellDef mat-sort-header> Id  </mat-header-cell>
+                    <mat-cell  *matCellDef="let order"> {{order.Id}} </mat-cell>
+                </ng-container>
+                
+                <!-- Shipped Date Column -->
+                <ng-container matColumnDef="ShippedDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Shipped Date </mat-header-cell>
+                  <mat-cell *matCellDef="let order"> {{order.ShippedDate | date:'dd/MM/yyyy'}}</mat-cell>
+                </ng-container>
+
+                <!-- ShipVia Column -->
+                <ng-container matColumnDef="ShipVia">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> SHIPPER</mat-header-cell>
+                  <mat-cell *matCellDef="let order"> {{order.ShipVia}} </mat-cell>
+                </ng-container>
+
+                <!-- ShipName Column -->
+                <ng-container matColumnDef="ShipName">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Ship NameD </mat-header-cell>
+                  <mat-cell *matCellDef="let order"> {{order.ShipName}} </mat-cell>
+                </ng-container>
+
+                <!-- Adress Column -->
+                <ng-container matColumnDef="Address">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+                  <mat-cell *matCellDef="let order"> {{order.Address}} </mat-cell>
+                </ng-container>
+
+                <!-- City Column -->               
+                <ng-container matColumnDef="City">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+                  <mat-cell *matCellDef="let order"> {{order.City}} </mat-cell>
+                </ng-container>
+
+                <!-- Country Column -->  
+                <ng-container matColumnDef="Country">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+                  <mat-cell *matCellDef="let order"> {{order.Country}} </mat-cell>
+                </ng-container>
+
+                <!-- Edit Column Button -->  
+                <ng-container matColumnDef="Edit">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Edit </mat-header-cell>
+    
+                  <mat-cell *matCellDef="let order">
+    
+                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button" mat-raised-button color="accent" matTooltip="Edit" (click)="EditOrder(order.Id)"><mat-icon>edit</mat-icon></button>
+    
+                  </mat-cell>
+                </ng-container>
+
+                <!-- Delete Column Button -->
+                <ng-container matColumnDef="Delete">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Delete </mat-header-cell>
+                  <mat-cell *matCellDef="let order"> <button mat-icon-button aria-label="Example icon button with a delete icon" type="button" mat-raised-button color="accent" matTooltip="Delete" (click)="DeleteOrder(order.Id)"><mat-icon>delete_forever</mat-icon></button></mat-cell>
+                </ng-container>
+    
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
   
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>  
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
           </div>  
         </form>
       </mat-card-content>
     </mat-card>
-</div>
+  </div>
+  

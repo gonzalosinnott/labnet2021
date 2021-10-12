@@ -1,13 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+
 import { Observable } from 'rxjs';
-import { OrderService } from '../order.service';
+
 import { Order } from '../order';
+import { OrderService } from '../order.service';
+
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource, } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+
 import { SelectionModel } from '@angular/cdk/collections';
 
 interface Shippers {
@@ -19,29 +23,31 @@ interface Shippers {
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  styleUrls: ['./order.component.css']
 })
+
 export class OrderComponent implements OnInit {
-  Id = '';
-  ShippedDate!: Date;
-  ShipVia = '';
-  ShipName = '';
-  Address = '';
-  City = '';
-  Country = '';
+ 
+  ShipName: any;
+  ShippedDate: any;
+  ShipVia: any;
+  Address: any;
+  City: any;
+  Country: any;
+  
   dataSaved = false;
   orderForm: any;
   allOrders!: Observable<Order[]>;
   dataSource!: MatTableDataSource<Order>;
   selection = new SelectionModel<Order>(true, []);
-  orderIdUpdate = 0;
+  orderIdUpdate! : any;
   message = null;
   allShippers!: Observable<Shippers[]>;
   ShipperId = '';
   SelectedDate = null;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  displayedColumns: string[] = ['ID', 'ShippedDate', 'ShipVia', 'ShipName', 'Address', 'City', 'Country'];
+  displayedColumns: string[] = ['Id', 'ShippedDate', 'ShipVia', 'ShipName', 'Address', 'City', 'Country', 'Edit', 'Delete'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -65,8 +71,11 @@ export class OrderComponent implements OnInit {
     });
     this.FillShippersDDL();
     this.LoadAllOrders();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.orderService.getAllOrders().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
   
   LoadAllOrders() {
@@ -100,32 +109,21 @@ export class OrderComponent implements OnInit {
   }
 
   CreateOrder(order: Order) {
-    if (this.orderIdUpdate == 0) {
-      order.ShippedDate = this.ShippedDate;
-      order.ShipVia = this.ShipVia;
-      order.ShipName = this.ShipName;
-      order.Address = this.Address;
-      order.City = this.City;
-      order.Country = this.Country;
-
+    if (this.orderIdUpdate == null) {
+      
 
       this.orderService.createOrder(order).subscribe(
         () => {
           this.dataSaved = true;
           this.SavedSuccessful(1);
           this.LoadAllOrders();
-          this.orderIdUpdate = 0;
+          this.orderIdUpdate = null;
           this.orderForm.reset();
         }
       );
     } else {
       order.Id = this.orderIdUpdate;
-      order.ShippedDate = this.ShippedDate;
-      order.ShipVia = this.ShipVia;
-      order.ShipName = this.ShipName;
-      order.Address = this.Address;
-      order.City = this.City;
-      order.Country = this.Country;
+      
 
       this.orderService.updateOrder(order).subscribe(() => {
         this.dataSaved = true;

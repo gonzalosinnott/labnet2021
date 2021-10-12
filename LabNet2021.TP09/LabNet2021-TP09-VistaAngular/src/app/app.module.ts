@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { OrderService } from './order.service';
+import { OrderComponent } from './order/order.component';
+
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,32 +19,23 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgMarqueeModule } from 'ng-marquee';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { OrderComponent } from './order/order.component';
-import { OrderService } from './order.service';
-
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-
-
-@NgModule({  
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+@NgModule({
   declarations: [
     AppComponent,
     OrderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -64,9 +59,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MatTableModule,
     CdkTableModule,
     MatPaginatorModule,
-    OrderService
+    NgMarqueeModule
   ],
-  providers: [],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

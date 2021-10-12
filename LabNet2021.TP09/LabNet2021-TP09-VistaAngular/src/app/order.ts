@@ -1,4 +1,3 @@
-
 export class Order {
     Id!: number;
     ShippedDate!: Date;
@@ -14,3 +13,4 @@ export class Shippers {
     CompanyName!: string;
     Phone!: string;
   }
+

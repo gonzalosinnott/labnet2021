@@ -1,6 +1,6 @@
-# LabNet2021TP09VistaAngular
+# LabNet2021TP09Vista
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
 
 ## Development server
 
