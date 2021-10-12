@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
@@ -26,21 +26,21 @@ interface Shippers {
   styleUrls: ['./order.component.css']
 })
 
-export class OrderComponent implements OnInit {
- 
-  ShipName: any;
-  ShippedDate: any;
-  ShipVia: any;
-  Address: any;
-  City: any;
-  Country: any;
+export class OrderComponent implements OnInit { 
+
+  ShipName!: string;
+  ShippedDate!: Date;
+  ShipVia!: string;
+  Address!: string;
+  City!: string;
+  Country!: string;
   
   dataSaved = false;
-  orderForm: any;
+  orderForm: FormGroup  = new FormGroup({});
   allOrders!: Observable<Order[]>;
   dataSource!: MatTableDataSource<Order>;
   selection = new SelectionModel<Order>(true, []);
-  orderIdUpdate! : any;
+  orderIdUpdate! : null;
   message = null;
   allShippers!: Observable<Shippers[]>;
   ShipperId = '';
@@ -50,6 +50,7 @@ export class OrderComponent implements OnInit {
   displayedColumns: string[] = ['Id', 'ShippedDate', 'ShipVia', 'ShipName', 'Address', 'City', 'Country', 'Edit', 'Delete'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  submitted: boolean = false;
 
   constructor(private formbulider: FormBuilder, private orderService: OrderService, private _snackBar: MatSnackBar, public dialog: MatDialog) {
     this.orderService.getAllOrders().subscribe(data => {
@@ -60,21 +61,20 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.orderForm = this.formbulider.group({
-      ID: ['', [Validators.required]],
-      ShippedDate: ['', [Validators.required]],
-      ShipVia: ['', [Validators.required]],
-      ShipName: ['', [Validators.required]],
-      Address: ['', [Validators.required]],
-      City: ['', [Validators.required]],
-      Country: ['', [Validators.required]]
+    this.orderForm = new FormGroup({
+      ShippedDate: new FormControl ('', [Validators.required]),
+      ShipVia: new FormControl ('', [Validators.required]),
+      ShipName: new FormControl ('', [Validators.required, Validators.maxLength(40), Validators.minLength(3)]),
+      Address: new FormControl ('', [Validators.required, Validators.maxLength(60), Validators.minLength(3)]),
+      City: new FormControl ('', [Validators.required, Validators.maxLength(15), Validators.minLength(3)]),
+      Country: new FormControl ('', [Validators.required, Validators.maxLength(15), Validators.minLength(3)])
     });
     this.FillShippersDDL();
     this.LoadAllOrders();
     this.orderService.getAllOrders().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataSource.sort = this.sort;  
     });
   }
   
@@ -87,6 +87,7 @@ export class OrderComponent implements OnInit {
   }
 
   onFormSubmit() {
+    this.submitted = true;
     this.dataSaved = false;
     const order = this.orderForm.value;
     this.CreateOrder(order);
@@ -110,8 +111,6 @@ export class OrderComponent implements OnInit {
 
   CreateOrder(order: Order) {
     if (this.orderIdUpdate == null) {
-      
-
       this.orderService.createOrder(order).subscribe(
         () => {
           this.dataSaved = true;
@@ -122,26 +121,25 @@ export class OrderComponent implements OnInit {
         }
       );
     } else {
-      order.Id = this.orderIdUpdate;
-      
+      order.Id = this.orderIdUpdate;      
 
       this.orderService.updateOrder(order).subscribe(() => {
         this.dataSaved = true;
         this.SavedSuccessful(0);
         this.LoadAllOrders();
-        this.orderIdUpdate = 0;
+        this.orderIdUpdate = null;
         this.orderForm.reset();
       });
     }
   }
 
   DeleteOrder(Id: number) {
-    if (confirm("Are you sure you want to delete this ?")) {
+    if (confirm("¿DESEA ELIMINAR LA SIGUIENTE ORDEN?")) {
       this.orderService.deleteOrderById(Id).subscribe(() => {
         this.dataSaved = true;
         this.SavedSuccessful(2);
         this.LoadAllOrders();
-        this.orderIdUpdate = 0;
+        this.orderIdUpdate = null;
         this.orderForm.reset();
       });
     }
@@ -160,25 +158,29 @@ export class OrderComponent implements OnInit {
 
   SavedSuccessful(isUpdate: number) {
     if (isUpdate == 0) {
-      this._snackBar.open('Record Updated Successfully!', 'Close', {
+      this._snackBar.open('ORDEN ACTUALIZADA EXITOSAMENTE', 'CERRAR', {
         duration: 2000,
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });
     }
     else if (isUpdate == 1) {
-      this._snackBar.open('Record Saved Successfully!', 'Close', {
+      this._snackBar.open('ORDEN CARGADA EXITOSAMENTE', 'CERRAR', {
         duration: 2000,
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });
     }
     else if (isUpdate == 2) {
-      this._snackBar.open('Record Deleted Successfully!', 'Close', {
+      this._snackBar.open('ORDEN ELIMINADA EXITOSAMENTE', 'CERRAR', {
         duration: 2000,
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });
     }
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

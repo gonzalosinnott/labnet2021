@@ -32,7 +32,7 @@ namespace LabNet2021.TP08.WebApi.Controllers
                                  select new OrdersModel
                                  {
                                      Id = o.OrderID,
-                                     ShippedDate = o.ShippedDate.ToString(),
+                                     ShippedDate = (o.ShippedDate ?? DateTime.Now).ToString("d"),
                                      ShipVia = s.CompanyName,
                                      ShipName = o.ShipName,
                                      Address = o.ShipAddress,

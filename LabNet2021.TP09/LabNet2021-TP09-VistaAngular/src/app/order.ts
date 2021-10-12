@@ -1,5 +1,5 @@
 export class Order {
-    Id!: number;
+    Id!: any;
     ShippedDate!: Date;
     ShipVia!: string;
     ShipName!: string;
