@@ -7,25 +7,26 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
 
 namespace LabNet2021.TP08.WebApi.Controllers
 {
-    public class PublicApiController : Controller
+    [RoutePrefix("Api/PublicApi")]
+    public class PublicApiController : ApiController
     {
-        // GET: Api
-        public ActionResult Index()
+        [HttpGet]
+        [Route("GetQuote")]
+        public IHttpActionResult Index()
         {
             try
             {
                 PublicApiLogic logic = new PublicApiLogic();
                 
-                return View(logic.ListQuotes());
+                return Ok(logic.ListQuotes());
             }
             catch (Exception ex)
             {
-                ViewBag.Error = ex.Message;
-                return View("Error");
+                return NotFound();
             }
         }
     }

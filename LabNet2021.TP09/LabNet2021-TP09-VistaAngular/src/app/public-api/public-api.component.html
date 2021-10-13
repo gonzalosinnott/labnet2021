@@ -1,0 +1,31 @@
+<div class="container">
+
+    <mat-card class="mat-elevation-z8">
+        <mat-toolbar color="accent"
+            style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);">
+            <div>
+                SIMPSONS QUOTE OF THE DAY
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" mat-raised-button matTooltip="Reset" (click)="resetForm()">
+                    <mat-icon>restart_alt</mat-icon>
+                </button>
+            </div>
+        </mat-toolbar>
+        <br><br>
+        <mat-card-content *ngFor="let item of dataSource">
+            <table class="table table-responsive table-sm">
+                <tr>
+                    <td>
+                        <blockquote class="quote" id="quote">
+                            {{item.quote}}
+                            <cite>{{item.character}}</cite>
+                        </blockquote>
+                    </td>
+                    <td>
+                        <img class="portrait" [src]="item.image">
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

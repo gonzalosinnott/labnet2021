@@ -28,11 +28,14 @@ import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgMarqueeModule } from 'ng-marquee';
+import { PublicApiComponent } from './public-api/public-api.component';
+import { PublicApiService } from './public-api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderComponent
+    OrderComponent,
+    PublicApiComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import { NgMarqueeModule } from 'ng-marquee';
     MatPaginatorModule,
     NgMarqueeModule
   ],
-  providers: [OrderService],
+  providers: [OrderService,PublicApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,16 @@
-<p>
-  <app-order></app-order>
-</p>
+<nav class="navbar navbar-expand-lg navbar-light" color="accent"
+      style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">TP 09 - Gonzalo Sinnott Segura</a>
+    </div>
+    <div>
+      <button mat-raised-button color="accent"><a class="nav-link" routerLink="/order">WEB API</a></button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="accent"><a class="nav-link" routerLink="/publicApi">PUBLIC API</a></button>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<router-outlet></router-outlet>

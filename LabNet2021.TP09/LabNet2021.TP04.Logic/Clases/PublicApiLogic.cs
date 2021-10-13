@@ -18,7 +18,7 @@ namespace LabNet2021.TP04.Logic.Clases
             {
                 List<SimpsonsApiModel> result = null;
                 string response = string.Empty;
-                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("https://simpsons-quotes-api.herokuapp.com/quotes?count=5");
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("https://simpsons-quotes-api.herokuapp.com/quotes");
                 httpWebRequest.ContentType = "application/json; charset=utf-8";
                 httpWebRequest.Method = "GET";
                 httpWebRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;

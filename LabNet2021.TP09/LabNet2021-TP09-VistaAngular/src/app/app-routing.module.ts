@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
+import {OrderComponent} from './order/order.component';
+import {PublicApiComponent} from './public-api/public-api.component';
+
+const routes: Routes = [
+  {path: 'order', component: OrderComponent},
+  {path: 'publicApi', component: PublicApiComponent},
+
+  { path: '**', component: OrderComponent }
+]
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]  
 })
+
 export class AppRoutingModule { }
 
