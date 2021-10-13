@@ -3,16 +3,14 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { Observable } from 'rxjs';
 
-import { Order } from '../order';
-import { OrderService } from '../order.service';
+import { Order } from '../models/order';
+import { OrderService } from '../services/order.service';
 
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource, } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
-import { SelectionModel } from '@angular/cdk/collections';
 
 interface Shippers {
   ShipperId: number;
@@ -37,11 +35,8 @@ export class OrderComponent implements OnInit {
   
   dataSaved = false;
   orderForm: FormGroup  = new FormGroup({});
-  allOrders!: Observable<Order[]>;
   dataSource!: MatTableDataSource<Order>;
-  selection = new SelectionModel<Order>(true, []);
   orderIdUpdate! : null;
-  message = null;
   allShippers!: Observable<Shippers[]>;
   ShipperId = '';
   SelectedDate = null;
@@ -96,7 +91,6 @@ export class OrderComponent implements OnInit {
 
   EditOrder(id: number) {
     this.orderService.getOrderById(id).subscribe(order => {
-      this.message = null;
       this.dataSaved = false;
       this.orderIdUpdate = order.Id;
       this.orderForm.controls['ShippedDate'].setValue(order.ShippedDate);
@@ -151,7 +145,6 @@ export class OrderComponent implements OnInit {
 
   resetForm() {
     this.orderForm.reset();
-    this.message = null;
     this.dataSaved = false;
     this.LoadAllOrders();
   }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { OrderService } from './order.service';
+import { OrderService } from './services/order.service';
 import { OrderComponent } from './order/order.component';
 
 import { MatInputModule } from "@angular/material/input";
@@ -29,7 +29,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgMarqueeModule } from 'ng-marquee';
 import { PublicApiComponent } from './public-api/public-api.component';
-import { PublicApiService } from './public-api.service';
+import { PublicApiService } from './services/public-api.service';
 
 @NgModule({
   declarations: [

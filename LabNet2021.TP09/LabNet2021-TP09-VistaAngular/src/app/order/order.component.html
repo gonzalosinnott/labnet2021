@@ -1,5 +1,4 @@
 <div class="container">
-
   <mat-card class="mat-elevation-z8">
     <mat-toolbar color="accent"
       style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);">
@@ -19,7 +18,6 @@
                   formControlName="ShipName" required autocomplete="off">
               </mat-form-field>
             </td>
-
             <!-- SHIPPED DATE FIELD -->
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
@@ -29,7 +27,6 @@
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </td>
-
             <!-- SHIPPER FIELD -->
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
@@ -43,9 +40,7 @@
               </mat-form-field>
             </td>
           </tr>
-
           <tr>
-
             <!-- ADDRESS FIELD -->
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
@@ -53,7 +48,6 @@
                   placeholder="Direccion de Envio (3-60)" required autocomplete="off">
               </mat-form-field>
             </td>
-
             <!-- CITY FIELD -->
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
@@ -61,7 +55,6 @@
                   placeholder="Ciudad de Envio (3-15)" required autocomplete="off">
               </mat-form-field>
             </td>
-
             <!-- COUNTRY FIELD -->
             <td class="tbl1">
               <mat-form-field class="demo-full-width">
@@ -83,75 +76,58 @@
             </td>
           </tr>
         </table>
-
         <br>
-
         <mat-card class="mat-elevation-z3">
           <mat-form-field>
             <input matInput (keyup)="applyFilter($any($event).target.value)" placeholder="BUSQUEDA">
           </mat-form-field>
-
           <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
-
-
           <table mat-table [dataSource]="dataSource" class="table table-hover table-responsive table-sm">
-
             <!-- ID Column -->
             <ng-container matColumnDef="Id">
               <th mat-header-cell *matHeaderCellDef> Id </th>
               <td mat-cell *matCellDef="let order"> {{order.Id}} </td>
             </ng-container>
-
             <!-- Shipped Date Column -->
             <ng-container matColumnDef="ShippedDate">
               <th mat-header-cell *matHeaderCellDef>FECHA DE ENVIO</th>
               <td mat-cell *matCellDef="let order"> {{order.ShippedDate}}</td>
             </ng-container>
-
             <!-- ShipVia Column -->
             <ng-container matColumnDef="ShipVia">
               <th mat-header-cell *matHeaderCellDef>DISTRIBUIDOR</th>
               <td mat-cell *matCellDef="let order"> {{order.ShipVia}} </td>
             </ng-container>
-
             <!-- ShipName Column -->
             <ng-container matColumnDef="ShipName">
               <th mat-header-cell *matHeaderCellDef>DESTINATARIO</th>
               <td mat-cell *matCellDef="let order"> {{order.ShipName}} </td>
             </ng-container>
-
             <!-- Adress Column -->
             <ng-container matColumnDef="Address">
               <th mat-header-cell *matHeaderCellDef>DIRECCION</th>
               <td mat-cell *matCellDef="let order"> {{order.Address}} </td>
             </ng-container>
-
             <!-- City Column -->
             <ng-container matColumnDef="City">
               <th mat-header-cell *matHeaderCellDef>CIUDAD</th>
               <td mat-cell *matCellDef="let order"> {{order.City}} </td>
             </ng-container>
-
             <!-- Country Column -->
             <ng-container matColumnDef="Country">
               <th mat-header-cell *matHeaderCellDef>PAIS</th>
               <td mat-cell *matCellDef="let order"> {{order.Country}} </td>
             </ng-container>
-
             <!-- Edit Column Button -->
             <ng-container matColumnDef="Edit">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
-
               <td mat-cell *matCellDef="let order">
-
                 <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button"
                   mat-raised-button color="primary" matTooltip="Edit" (click)="EditOrder(order.Id)">
                   <mat-icon>edit</mat-icon>
                 </button>
-
               </td>
             </ng-container>
-
             <!-- Delete Column Button -->
             <ng-container matColumnDef="Delete">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
@@ -161,7 +137,6 @@
                   <mat-icon>delete_forever</mat-icon>
                 </button></td>
             </ng-container>
-
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>

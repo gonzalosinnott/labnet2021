@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PublicApi } from './public-api';
+import { PublicApi } from '../models/public-api';
 
 @Injectable({
   providedIn: 'root'

@@ -1,18 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Observable } from 'rxjs';
-
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource, } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-
-import { SelectionModel } from '@angular/cdk/collections';
-
-import { PublicApi } from '../public-api';
-import { PublicApiService } from '../public-api.service';
+import { PublicApi } from '../models/public-api';
+import { PublicApiService } from '../services/public-api.service';
 
 @Component({
   selector: 'app-public-api',
